@@ -16,10 +16,10 @@ releases/
 
 # Gradle files
 .gradle/
-gradle/
 gradlew
 gradlew.*
 build/
+gradle-wrapper.jar
 
 # Local configuration file (sdk path, etc)
 local.properties
