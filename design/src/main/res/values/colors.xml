@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_light">#FFD180</color>
+    <color name="accent">@color/orange</color>
+    <color name="accent_dark">#FF9100</color>
+
+    <color name="primary_light">#B3E5FC</color>
+    <color name="primary">@color/blue</color>
+    <color name="primary_dark">@color/dark_blue</color>
+
+    <color name="primary_dark_text">#D9000000</color>
+    <color name="secondary_dark_text">#8C000000</color>
+    <color name="icons_dark">#8C000000</color>
+    <color name="hint_dark_text">#40000000</color>
+    <color name="disabled_dark">#40000000</color>
+    <color name="divider_dark">#1A000000</color>
+
+    <color name="primary_white_text">@color/white</color>
+    <color name="secondary_white_text">#B3FFFFFF</color>
+    <color name="hint_white_text">#4DFFFFFF</color>
+    <color name="disabled_white">#4DFFFFFF</color>
+    <color name="divider_white">#1AFFFFFF</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="background">#E6E6E6</color>
+    <color name="dark_transparent">#8C000000</color>
+
+    <color name="light_gray">#CCC</color>
+    <color name="gray">#999</color>
+    <color name="dark_gray">#4D4D4D</color>
+    <color name="lighter_gray">#EEE</color>
+
+    <color name="pattens_blue">#DDDFE0</color>
+
+    <color name="light_blue">#F6FBFD</color>
+    <color name="blue">@color/cerulean</color>
+    <color name="dark_blue">@color/lochmara</color>
+
+    <color name="orange">@color/dark_tangerine</color>
+    <color name="dark_orange">#EC820A</color>
+
+    <color name="tangerine">#FF8D50</color>
+    <color name="dark_tangerine">#FCA311</color>
+
+    <color name="dark_green_transparent">#DD99CC99</color>
+    <color name="green">#60C659</color>
+    <color name="dark_green">#42AD3C</color>
+    <color name="emerald">#3CC2A5</color>
+
+    <color name="alizarin">#EF3C3E</color>
+    <color name="red">#F13335</color>
+    <color name="dark_red">#C41F1F</color>
+    <color name="red_transparent">#AAF13335</color>
+    <color name="dark_red_transparent">#77CC3333</color>
+
+    <color name="yellow">#FFC61E</color>
+    <color name="yellow_transparent">#EEFFFFCC</color>
+    <color name="dark_yellow_transparent">#DDFFCC66</color>
+
+    <color name="gray_status">#AEB4B8</color>
+
+    <color name="purple">#AC6CB8</color>
+    <color name="alpha_purple">#E6AC6CB8</color>
+
+    <color name="medium_font_color">@color/regent_gray</color>
+    <color name="dark_font_color">@color/bunker</color>
+
+    <color name="san_marino">#516CB2</color>
+    <color name="lochmara">#008BC1</color>
+    <color name="cerulean">#00A5DB</color>
+    <color name="frozen">#80D2ED</color>
+    <color name="alpha_green">#E660C659</color>
+
+    <color name="alpha_yellow">#E6FFC61E</color>
+    <color name="alpha_red">#E6F13234</color>
+
+    <color name="desert_storm">#F8F8F8</color>
+    <color name="iron">#D4D7D9</color>
+    <color name="santas_gray">#9DA6AD</color>
+    <color name="regent_gray">#7A8085</color>
+    <color name="bunker">#2D2D2D</color>
+
+    <color name="white">#FFF</color>
+    <color name="white_07">#11FFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_30">#4dFFFFFF</color>
+    <color name="white_50">#7FFFFFFF</color>
+    <color name="white_73">#BBFFFFFF</color>
+
+    <color name="black">#000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_27">#44000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_60">#99000000</color>
+
+    <color name="txt_bottom_line_color">#c5c5c5</color>
+    <color name="background_gradient_start_color">#10AAD3</color>
+    <color name="background_gradient_end_color">#2EB7C0</color>
+    <color name="btn_disabled">#A5FFFFFF</color>
+    <color name="btn_facebook">#5c77ba</color>
+    <color name="btn_facebook_dark">#4C619D</color>
+    <color name="btn_red_transparent">#7eff0000</color>
+    <color name="btn_white_transparent">#7effffff</color>
+    <color name="passport_orange">#FF8D50</color>
+
+    <color name="green_start_gradient">#60C659</color>
+    <color name="green_end_gradient">#00500F</color>
+</resources>
