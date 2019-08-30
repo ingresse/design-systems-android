@@ -1,4 +1,4 @@
-package com.ingresse.backstage.base.ui.treeList
+package com.ingresse.design.ui.treeList
 
 import androidx.recyclerview.widget.DiffUtil
 

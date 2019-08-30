@@ -6,7 +6,7 @@
     </style>
 
     <style name="TextStyle.H1" parent="TextStyle">
-        <item name="android:textSize">@dimen/h1_font_size</item>
+        <item name="android:textSize">@dimen/font_h1</item>
     </style>
     <style name="TextStyle.H1.Bold" parent="TextStyle.H1">
         <item name="android:textStyle">bold</item>
@@ -19,7 +19,7 @@
     </style>
 
     <style name="TextStyle.H2" parent="TextStyle">
-        <item name="android:textSize">@dimen/h2_font_size</item>
+        <item name="android:textSize">@dimen/font_h2</item>
     </style>
     <style name="TextStyle.H2.Bold" parent="TextStyle.H2">
         <item name="android:textStyle">bold</item>
@@ -32,7 +32,7 @@
     </style>
 
     <style name="TextStyle.H3" parent="TextStyle">
-        <item name="android:textSize">@dimen/h3_font_size</item>
+        <item name="android:textSize">@dimen/font_h3</item>
     </style>
     <style name="TextStyle.H3.Bold" parent="TextStyle.H3">
         <item name="android:textStyle">bold</item>
@@ -43,9 +43,15 @@
     <style name="TextStyle.H3.Bold.White" parent="TextStyle.H3.Bold">
         <item name="android:textColor">@color/white</item>
     </style>
+    <style name="TextStyle.H3.Bold.Gray" parent="TextStyle.H3.Bold">
+        <item name="android:textColor">@color/mercury</item>
+    </style>
 
     <style name="TextStyle.Normal" parent="TextStyle">
-        <item name="android:textSize">@dimen/normal_font_size</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+    <style name="TextStyle.Normal.Caps" parent="TextStyle.Normal">
+        <item name="android:textAllCaps">true</item>
     </style>
     <style name="TextStyle.Normal.Bold" parent="TextStyle.Normal">
         <item name="android:textStyle">bold</item>
@@ -53,8 +59,19 @@
     <style name="TextStyle.Normal.White" parent="TextStyle.Normal">
         <item name="android:textColor">@color/white</item>
     </style>
+    <style name="TextStyle.Normal.Gray" parent="TextStyle.Normal">
+        <item name="android:textColor">@color/mercury</item>
+    </style>
+    <style name="TextStyle.Normal.LightGray" parent="TextStyle.Normal">
+        <item name="android:textColor">@color/iron</item>
+    </style>
+    <style name="TextStyle.Normal.Red" parent="TextStyle.Normal">
+        <item name="android:textColor">@color/ruby</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
     <style name="TextStyle.Normal.Link" parent="TextStyle.Normal">
-        <item name="android:textColor">@color/cerulean</item>
+        <item name="android:textColor">@color/ocean</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:gravity">center</item>
@@ -62,9 +79,12 @@
     <style name="TextStyle.Normal.Bold.White" parent="TextStyle.Normal.Bold">
         <item name="android:textColor">@color/white</item>
     </style>
+    <style name="TextStyle.Normal.Bold.Gray" parent="TextStyle.Normal.Bold">
+        <item name="android:textColor">@color/mercury</item>
+    </style>
 
     <style name="TextStyle.Small" parent="TextStyle">
-        <item name="android:textSize">@dimen/small_font_size</item>
+        <item name="android:textSize">@dimen/font_small</item>
     </style>
     <style name="TextStyle.Small.Bold" parent="TextStyle.Small">
         <item name="android:textStyle">bold</item>
@@ -72,12 +92,21 @@
     <style name="TextStyle.Small.White" parent="TextStyle.Small">
         <item name="android:textColor">@color/white</item>
     </style>
+    <style name="TextStyle.Small.Gray" parent="TextStyle.Small">
+        <item name="android:textColor">@color/mercury</item>
+    </style>
+    <style name="TextStyle.Small.Link" parent="TextStyle.Small">
+        <item name="android:textColor">@color/ocean</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+    </style>
     <style name="TextStyle.Small.Bold.White" parent="TextStyle.Small.Bold">
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextStyle.VerySmall" parent="TextStyle">
-        <item name="android:textSize">@dimen/very_small_font_size</item>
+        <item name="android:textSize">@dimen/font_very_small</item>
     </style>
     <style name="TextStyle.VerySmall.Bold" parent="TextStyle.VerySmall">
         <item name="android:textStyle">bold</item>

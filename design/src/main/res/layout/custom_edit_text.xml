@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/default_edt_height"
+    android:layout_height="@dimen/height_edit_text"
     app:cardBackgroundColor="@color/desert_storm"
     app:cardCornerRadius="2dp"
     app:cardElevation="0dp">
@@ -17,8 +17,8 @@
             android:id="@+id/layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_spacing"
-            android:layout_marginBottom="@dimen/very_small_spacing"
+            android:layout_marginTop="@dimen/spacing_2"
+            android:layout_marginBottom="@dimen/spacing_1"
             android:layout_weight="1"
             app:hintTextAppearance="@style/CustomEditAppearance">
 
@@ -29,9 +29,9 @@
                 android:background="@color/transparent"
                 android:fontFamily="sans-serif"
                 android:maxLines="1"
-                android:padding="@dimen/regular_spacing"
+                android:padding="@dimen/spacing_3"
                 android:singleLine="true"
-                android:textSize="@dimen/default_font"
+                android:textSize="@dimen/font_normal"
                 android:translationY="-8dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,13 +40,13 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/regular_spacing"
-            android:layout_marginTop="@dimen/very_small_spacing"
-            android:layout_marginRight="@dimen/regular_spacing"
+            android:layout_marginLeft="@dimen/spacing_3"
+            android:layout_marginTop="@dimen/spacing_1"
+            android:layout_marginRight="@dimen/spacing_3"
             android:background="@color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_hide_show_password"
-            android:tint="@color/hide_show_password"
+            android:tint="@color/selected_ocean_else_mercury"
             android:visibility="gone" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

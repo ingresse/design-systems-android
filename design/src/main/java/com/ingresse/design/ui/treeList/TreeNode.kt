@@ -1,4 +1,4 @@
-package com.ingresse.backstage.base.ui.treeList
+package com.ingresse.design.ui.treeList
 
 class TreeNode(var data: TreeObject) {
     var children: MutableMap<String, TreeNode> = mutableMapOf()
@@ -62,6 +62,11 @@ class TreeNode(var data: TreeObject) {
     fun openNode(path: List<String>) {
         if (path.isEmpty()) return setOpen(true)
         children[path[0]]?.openNode(path.drop(1))
+    }
+
+    fun openAll() {
+        setOpen(true)
+        children.values.forEach { it.openAll() }
     }
 
     fun closeNode(path: List<String>) {
