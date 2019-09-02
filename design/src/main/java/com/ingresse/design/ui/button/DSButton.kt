@@ -14,9 +14,9 @@ import com.ingresse.design.R
 import java.lang.Exception
 
 class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, attrs, R.style.Button) {
-    private val type: ButtonType
+    private val type: ButtonTheme
     private val size: ButtonSize
-    private val style: ButtonStyle
+    private val style: ButtonType
     private val isThemed: Boolean
 
     private val resHelper = ResourcesHelper(context)
@@ -25,13 +25,13 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSButton, 0, 0)
         val sizeAttr = array.getInt(R.styleable.DSButton_size, 0)
-        val styleAttr = array.getInt(R.styleable.DSButton_style, 0)
-        val typeAttr = array.getInt(R.styleable.DSButton_companyTheme, 0)
+        val styleAttr = array.getInt(R.styleable.DSButton_type, 0)
+        val themeAttr = array.getInt(R.styleable.DSButton_buttonTheme, 0)
         isThemed = array.getBoolean(R.styleable.DSButton_isThemed, false)
 
-        type = ButtonType.fromId(typeAttr)
+        type = ButtonTheme.fromId(themeAttr)
         size = ButtonSize.fromId(sizeAttr)
-        style = ButtonStyle.fromId(styleAttr)
+        style = ButtonType.fromId(styleAttr)
 
         setupSize()
         setupFont()
@@ -69,13 +69,13 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
 
     private fun setupThemedBackground() {
         val darkColor = when (type) {
-            ButtonType.PRIMARY -> colorHelper.primaryDarkColor
-            ButtonType.ACCENT -> colorHelper.secondaryDarkColor
+            ButtonTheme.PRIMARY -> colorHelper.primaryDarkColor
+            ButtonTheme.ACCENT -> colorHelper.secondaryDarkColor
         }
 
         val normalColor = when (type) {
-            ButtonType.PRIMARY -> colorHelper.primaryColor
-            ButtonType.ACCENT -> colorHelper.secondaryColor
+            ButtonTheme.PRIMARY -> colorHelper.primaryColor
+            ButtonTheme.ACCENT -> colorHelper.secondaryColor
         }
 
         val colors = intArrayOf(

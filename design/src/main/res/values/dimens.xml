@@ -40,12 +40,16 @@
     <dimen name="spacing_9">40dp</dimen>
 
     <!-- DEFAULT HEIGHTS -->
+    <dimen name="height_text_view_small">16dp</dimen>
+    <dimen name="height_text_view_normal">20dp</dimen>
+    <dimen name="height_text_view_medium">24dp</dimen>
     <dimen name="height_text_view">28dp</dimen>
     <dimen name="height_tab">40dp</dimen>
     <dimen name="height_edit_text">50dp</dimen>
     <dimen name="height_switch">50dp</dimen>
     <dimen name="height_footer">60dp</dimen>
     <dimen name="height_custom_edit_text">40dp</dimen>
+    <dimen name="height_row">40dp</dimen>
 
     <!-- CUSTOM ELEMENTS -->
     <dimen name="translation_custom_edit_text">-9dp</dimen>

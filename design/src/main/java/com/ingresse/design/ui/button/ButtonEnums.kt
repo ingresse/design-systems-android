@@ -4,7 +4,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import com.ingresse.design.R
 
-enum class ButtonType(val id: Int) {
+enum class ButtonTheme(val id: Int) {
     PRIMARY(0), ACCENT(1);
 
     companion object {
@@ -13,7 +13,7 @@ enum class ButtonType(val id: Int) {
     }
 }
 
-enum class ButtonStyle(val id: Int, @ColorRes val normal: Int, @ColorRes val pressed: Int) {
+enum class ButtonType(val id: Int, @ColorRes val normal: Int, @ColorRes val pressed: Int) {
     PRIMARY(0, R.color.tangerine, R.color.tangerine_dark),
     SECONDARY(1, R.color.ocean, R.color.ocean_dark),
     CONFIRM(2, R.color.bamboo, R.color.bamboo_dark),

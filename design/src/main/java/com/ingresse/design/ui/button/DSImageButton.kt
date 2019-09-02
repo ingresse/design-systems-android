@@ -12,8 +12,8 @@ import com.ingresse.design.helper.ColorHelper
 import com.ingresse.design.helper.ResourcesHelper
 
 class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButton(context, attrs) {
+    private val theme: ButtonTheme
     private val type: ButtonType
-    private val style: ButtonStyle
 
     private val isThemed: Boolean
 
@@ -21,13 +21,13 @@ class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButto
     private val colorHelper = ColorHelper(context)
 
     init {
-        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.ThemedImageButton, 0, 0)
-        val typeAttr = array.getInt(R.styleable.ThemedImageButton_companyTheme, 0)
-        val styleAttr = array.getInt(R.styleable.ThemedImageButton_style, 0)
-        isThemed = array.getBoolean(R.styleable.ThemedImageButton_isThemed, false)
+        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSImageButton, 0, 0)
+        val themeAttr = array.getInt(R.styleable.DSImageButton_buttonTheme, 0)
+        val typeAttr = array.getInt(R.styleable.DSImageButton_type, 0)
+        isThemed = array.getBoolean(R.styleable.DSImageButton_isThemed, false)
 
+        theme = ButtonTheme.fromId(themeAttr)
         type = ButtonType.fromId(typeAttr)
-        style = ButtonStyle.fromId(styleAttr)
 
         setupImage()
         if (isThemed) setupThemedBackground() else setupStyle()
@@ -40,14 +40,14 @@ class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButto
     }
 
     private fun setupThemedBackground() {
-        val darkColor = when (type) {
-            ButtonType.PRIMARY -> colorHelper.primaryDarkColor
-            ButtonType.ACCENT -> colorHelper.secondaryDarkColor
+        val darkColor = when (theme) {
+            ButtonTheme.PRIMARY -> colorHelper.primaryDarkColor
+            ButtonTheme.ACCENT -> colorHelper.secondaryDarkColor
         }
 
-        val normalColor = when (type) {
-            ButtonType.PRIMARY -> colorHelper.primaryColor
-            ButtonType.ACCENT -> colorHelper.secondaryColor
+        val normalColor = when (theme) {
+            ButtonTheme.PRIMARY -> colorHelper.primaryColor
+            ButtonTheme.ACCENT -> colorHelper.secondaryColor
         }
 
         val colors = intArrayOf(
@@ -62,8 +62,8 @@ class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButto
     private fun setupStyle() {
         val colors = intArrayOf(
             resHelper.getColorHelper(R.color.mercury_crystal),
-            resHelper.getColorHelper(style.pressed),
-            resHelper.getColorHelper(style.normal)
+            resHelper.getColorHelper(type.pressed),
+            resHelper.getColorHelper(type.normal)
         )
 
         setBackgroundColors(colors)

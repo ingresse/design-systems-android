@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat
 import com.ingresse.design.R
 import kotlinx.android.synthetic.main.loader_button.view.*
 
-class LoaderButton(context: Context, attrs: AttributeSet): FrameLayout(context, attrs, R.style.Button) {
+class LoaderButton(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val text: String
     private val textColor: Int
     private val tintColor: Int

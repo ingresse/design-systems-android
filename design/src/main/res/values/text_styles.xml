@@ -3,6 +3,7 @@
     <style name="TextStyle">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:layout_height">@dimen/height_text_view</item>
     </style>
 
     <style name="TextStyle.H1" parent="TextStyle">
@@ -43,8 +44,18 @@
     <style name="TextStyle.H3.Bold.White" parent="TextStyle.H3.Bold">
         <item name="android:textColor">@color/white</item>
     </style>
+    <style name="TextStyle.H3.Bold.White.Center" parent="TextStyle.H3.Bold.White">
+        <item name="android:gravity">center</item>
+    </style>
     <style name="TextStyle.H3.Bold.Gray" parent="TextStyle.H3.Bold">
         <item name="android:textColor">@color/mercury</item>
+    </style>
+    <style name="TextStyle.H3.Bold.Caps" parent="TextStyle.H3.Bold">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="TextStyle.H3.Bold.Caps.Center" parent="TextStyle.H3.Bold.Caps">
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="TextStyle.Normal" parent="TextStyle">
@@ -56,11 +67,17 @@
     <style name="TextStyle.Normal.Bold" parent="TextStyle.Normal">
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="TextStyle.Normal.Bold.Caps" parent="TextStyle.Normal.Bold">
+        <item name="android:textAllCaps">true</item>
+    </style>
     <style name="TextStyle.Normal.White" parent="TextStyle.Normal">
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="TextStyle.Normal.Gray" parent="TextStyle.Normal">
         <item name="android:textColor">@color/mercury</item>
+    </style>
+    <style name="TextStyle.Normal.Gray.Center" parent="TextStyle.Normal.Gray">
+        <item name="android:gravity">center</item>
     </style>
     <style name="TextStyle.Normal.LightGray" parent="TextStyle.Normal">
         <item name="android:textColor">@color/iron</item>
@@ -82,6 +99,10 @@
     <style name="TextStyle.Normal.Bold.Gray" parent="TextStyle.Normal.Bold">
         <item name="android:textColor">@color/mercury</item>
     </style>
+    <style name="TextStyle.Normal.Bold.Gray.Caps" parent="TextStyle.Normal.Bold.Gray">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
 
     <style name="TextStyle.Small" parent="TextStyle">
         <item name="android:textSize">@dimen/font_small</item>
@@ -91,6 +112,9 @@
     </style>
     <style name="TextStyle.Small.White" parent="TextStyle.Small">
         <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TextStyle.Small.White.Center" parent="TextStyle.Small.White">
+        <item name="android:gravity">center</item>
     </style>
     <style name="TextStyle.Small.Gray" parent="TextStyle.Small">
         <item name="android:textColor">@color/mercury</item>
@@ -113,6 +137,9 @@
     </style>
     <style name="TextStyle.VerySmall.White" parent="TextStyle.VerySmall">
         <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TextStyle.VerySmall.White.Center" parent="TextStyle.VerySmall.White">
+        <item name="android:gravity">center</item>
     </style>
     <style name="TextStyle.VerySmall.Bold.White" parent="TextStyle.VerySmall.Bold">
         <item name="android:textColor">@color/white</item>

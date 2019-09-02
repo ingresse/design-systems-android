@@ -4,7 +4,7 @@
     <attr name="textColor" format="color" />
     <attr name="textSize" format="dimension" />
 
-    <declare-styleable name="CustomEditText">
+    <declare-styleable name="DSEditText">
         <attr name="text" />
         <attr name="textColor" />
         <attr name="textSize" />
@@ -23,13 +23,6 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="CustomToolbar">
-        <attr name="eventId" format="string" />
-        <attr name="title" format="string" />
-        <attr name="subtitle" format="string" />
-        <attr name="image" format="reference" />
-    </declare-styleable>
-
     <declare-styleable name="CustomSpinner">
         <attr name="customHint" format="string" />
         <attr name="customHintColor" format="color" />
@@ -44,12 +37,12 @@
         <attr name="horizontalPadding" format="dimension" />
     </declare-styleable>
 
-    <attr name="companyTheme" format="enum" >
+    <attr name="buttonTheme" format="enum" >
         <enum name="primary" value="0"/>
         <enum name="accent" value="1"/>
     </attr>
 
-    <attr name="style" format="enum" >
+    <attr name="type" format="enum" >
         <enum name="primary" value="0"/>
         <enum name="secondary" value="1"/>
         <enum name="confirm" value="2"/>
@@ -66,20 +59,14 @@
 
     <declare-styleable name="DSButton">
         <attr name="size" />
-        <attr name="style" />
-        <attr name="companyTheme" />
+        <attr name="type" />
+        <attr name="buttonTheme" />
         <attr name="isThemed" />
     </declare-styleable>
 
-    <declare-styleable name="ThemedImageButton">
-        <attr name="style" />
-        <attr name="companyTheme" />
+    <declare-styleable name="DSImageButton">
+        <attr name="type" />
+        <attr name="buttonTheme" />
         <attr name="isThemed" />
     </declare-styleable>
-
-    <attr name="firstColor" format="color" />
-    <attr name="firstColorDark" format="color" />
-    <attr name="firstColorLight" format="color" />
-    <attr name="secondColor" format="color" />
-    <attr name="secondColorDark" format="color" />
 </resources>

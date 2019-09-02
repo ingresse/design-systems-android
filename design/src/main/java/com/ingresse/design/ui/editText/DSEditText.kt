@@ -29,7 +29,7 @@ enum class Capitalization(val id: Int) {
     }
 }
 
-class CustomEditText(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
+class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val hint: String
     private val hintColor: Int
     private val textColor: Int
@@ -51,18 +51,18 @@ class CustomEditText(context: Context, attrs: AttributeSet): FrameLayout(context
         inflate(context, R.layout.custom_edit_text, this)
 
         val defaultColor = resHelper.getColorHelper(R.color.tangerine)
-        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.CustomEditText, 0, 0)
-        hint = array.getString(R.styleable.CustomEditText_hint) ?: ""
-        hintColor = array.getColor(R.styleable.CustomEditText_hintColor, defaultColor)
-        val text = array.getString(R.styleable.CustomEditText_text) ?: ""
-        val action = array.getString(R.styleable.CustomEditText_actionLabel) ?: ""
-        textColor = array.getColor(R.styleable.CustomEditText_textColor, defaultColor)
-        isPassword = array.getBoolean(R.styleable.CustomEditText_isPassword, false)
-        isLastField = array.getBoolean(R.styleable.CustomEditText_isLastField, false)
-        val capsAttr = array.getInt(R.styleable.CustomEditText_capitalization, 1)
+        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSEditText, 0, 0)
+        hint = array.getString(R.styleable.DSEditText_hint) ?: ""
+        hintColor = array.getColor(R.styleable.DSEditText_hintColor, defaultColor)
+        val text = array.getString(R.styleable.DSEditText_text) ?: ""
+        val action = array.getString(R.styleable.DSEditText_actionLabel) ?: ""
+        textColor = array.getColor(R.styleable.DSEditText_textColor, defaultColor)
+        isPassword = array.getBoolean(R.styleable.DSEditText_isPassword, false)
+        isLastField = array.getBoolean(R.styleable.DSEditText_isLastField, false)
+        val capsAttr = array.getInt(R.styleable.DSEditText_capitalization, 1)
         capitalization = Capitalization.fromId(capsAttr)
-        showSuggestions = array.getBoolean(R.styleable.CustomEditText_showSuggestion, true)
-        clearButton = array.getBoolean(R.styleable.CustomEditText_clearButton, false)
+        showSuggestions = array.getBoolean(R.styleable.DSEditText_showSuggestion, true)
+        clearButton = array.getBoolean(R.styleable.DSEditText_clearButton, false)
 
         if (isPassword) setPassword() else setTextType()
         if (isLastField) setLastField(action)
