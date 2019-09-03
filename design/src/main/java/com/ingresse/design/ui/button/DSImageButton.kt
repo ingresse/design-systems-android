@@ -78,7 +78,7 @@ class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButto
         val bgColors = ColorStateList(states, colors)
 
         ViewCompat.setBackgroundTintList(this, bgColors)
-        ViewCompat.setBackgroundTintMode(this, PorterDuff.Mode.SRC_ATOP)
+        ViewCompat.setBackgroundTintMode(this, PorterDuff.Mode.MULTIPLY)
         ViewCompat.setBackground(this, resHelper.getDrawableHelper(R.drawable.btn_solid_bg))
     }
 }
