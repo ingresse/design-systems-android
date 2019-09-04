@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/custom_snackbar_main"
-    android:paddingTop="@dimen/spacing_3"
-    android:paddingBottom="@dimen/spacing_3"
+    android:paddingTop="@dimen/spacing_x2"
+    android:paddingBottom="@dimen/spacing_x2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 

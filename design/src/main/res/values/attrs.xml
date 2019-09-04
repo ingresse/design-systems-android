@@ -16,10 +16,10 @@
         <attr name="showSuggestion" format="boolean" />
         <attr name="clearButton" format="boolean" />
         <attr name="actionLabel" format="string" />
-        <attr name="capitalization" format="enum" >
-            <enum name="uppercase" value="0"/>
-            <enum name="capitalize" value="1"/>
-            <enum name="lowercase" value="2"/>
+        <attr name="capitalization" format="enum">
+            <enum name="uppercase" value="0" />
+            <enum name="capitalize" value="1" />
+            <enum name="lowercase" value="2" />
         </attr>
     </declare-styleable>
 
@@ -37,22 +37,22 @@
         <attr name="horizontalPadding" format="dimension" />
     </declare-styleable>
 
-    <attr name="buttonTheme" format="enum" >
-        <enum name="primary" value="0"/>
-        <enum name="accent" value="1"/>
+    <attr name="buttonTheme" format="enum">
+        <enum name="primary" value="0" />
+        <enum name="accent" value="1" />
     </attr>
 
-    <attr name="type" format="enum" >
-        <enum name="primary" value="0"/>
-        <enum name="secondary" value="1"/>
-        <enum name="confirm" value="2"/>
-        <enum name="destructive" value="3"/>
-        <enum name="crystal" value="4"/>
+    <attr name="type" format="enum">
+        <enum name="primary" value="0" />
+        <enum name="secondary" value="1" />
+        <enum name="confirm" value="2" />
+        <enum name="destructive" value="3" />
+        <enum name="crystal" value="4" />
     </attr>
 
-    <attr name="size" format="enum" >
-        <enum name="small" value="0"/>
-        <enum name="normal" value="1"/>
+    <attr name="size" format="enum">
+        <enum name="small" value="0" />
+        <enum name="normal" value="1" />
     </attr>
 
     <attr name="isThemed" format="boolean" />
@@ -68,5 +68,37 @@
         <attr name="type" />
         <attr name="buttonTheme" />
         <attr name="isThemed" />
+    </declare-styleable>
+
+    <declare-styleable name="DSButtonItem">
+        <attr name="text" />
+        <attr name="withEndIcon" format="boolean" />
+    </declare-styleable>
+
+    <!-- IMAGE -->
+    <attr name="imageSize" format="enum">
+        <enum name="original" value="0" />
+        <enum name="small" value="1" />
+    </attr>
+
+    <attr name="blurIntensity" format="enum">
+        <enum name="zero" value="0" />
+        <enum name="standard" value="1" />
+    </attr>
+
+    <attr name="alphaIntensity" format="enum">
+        <enum name="zero" value="0" />
+        <enum name="weak" value="1" />
+        <enum name="medium" value="2" />
+        <enum name="strong" value="3" />
+    </attr>
+
+    <declare-styleable name="DSImage">
+        <attr name="imageSize" />
+        <attr name="blurIntensity" />
+        <attr name="roundImage" format="boolean" />
+        <attr name="alphaIntensity" />
+        <attr name="smoothTransition" format="boolean" />
+        <attr name="placeholder" format="reference"/>
     </declare-styleable>
 </resources>
