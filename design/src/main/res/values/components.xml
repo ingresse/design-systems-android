@@ -1,24 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="TabText" parent="Base.Widget.AppCompat.ActionBar.TabText">
-        <item name="android:textSize">@dimen/tab_font</item>
+        <item name="android:textSize">@dimen/font_normal</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
         <item name="textAllCaps">true</item>
     </style>
 
     <style name="Spinner" parent="Base.Widget.AppCompat.Spinner">
-        <item name="android:textSize">@dimen/medium_font</item>
+        <item name="android:textSize">@dimen/font_small</item>
         <item name="android:padding">0dp</item>
         <item name="android:textAllCaps">true</item>
         <item name="textAllCaps">true</item>
     </style>
 
+    <style name="CustomSwitch" parent="TextStyle.Normal">
+        <item name="thumbTint">@color/white</item>
+        <item name="trackTint">@color/checked_green_else_mercury_light</item>
+    </style>
+
     <style name="Button" parent="@style/Base.Widget.AppCompat.Button.Borderless">
-        <item name="android:textSize">@dimen/medium_font</item>
+        <item name="android:textSize">@dimen/font_normal</item>
         <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">@style/TextStyle.Normal</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_height">@dimen/default_btn_height</item>
-        <item name="android:layout_width">@dimen/default_btn_width</item>
+        <item name="android:layout_height">@dimen/btn_normal_height</item>
+        <item name="android:layout_width">@dimen/btn_normal_width</item>
     </style>
 
     <style name="RoundButton" parent="@style/Base.Widget.AppCompat.Button.Borderless">
@@ -34,84 +40,12 @@
         <item name="android:background">@drawable/btn_round_translucent</item>
     </style>
 
-    <style name="Button.Login" parent="Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/btn_solid_login</item>
-    </style>
-
-    <style name="Button.Black" parent="Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/btn_solid_black</item>
-    </style>
-
-    <style name="Button.Accent" parent="Button">
-        <item name="android:textColor">@color/btn_primary_text_color</item>
-        <item name="android:background">@drawable/btn_solid_accent</item>
-    </style>
-
-    <style name="Button.Primary" parent="Button">
-        <item name="android:textColor">@color/btn_primary_text_color</item>
-        <item name="android:background">@drawable/btn_solid_primary</item>
-    </style>
-
-    <style name="Button.Light" parent="Button">
-        <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:background">@drawable/btn_solid_light</item>
-    </style>
-
-    <style name="Button.Cancel" parent="Button">
-        <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:background">@drawable/btn_border</item>
-    </style>
-
-    <style name="Button.Translucent" parent="Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/btn_translucent_white</item>
-    </style>
-
-    <style name="OverlayButton" parent="Button">
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="OverlayButton.Confirm" parent="OverlayButton">
-        <item name="android:background">@drawable/btn_translucent_white</item>
-    </style>
-
-    <style name="OverlayButton.Back" parent="OverlayButton">
-        <item name="android:background">@drawable/btn_border_white</item>
-    </style>
-
-    <style name="OverlayText">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_height">@dimen/default_txt_height</item>
-    </style>
-
-    <style name="OverlayText.H1" parent="OverlayText">
-        <item name="android:textSize">@dimen/extra_large_font</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-    <style name="OverlayText.H2" parent="OverlayText">
-        <item name="android:textSize">@dimen/large_font</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="OverlayText.H3" parent="OverlayText">
-        <item name="android:textSize">@dimen/medium_font</item>
-    </style>
-
-    <style name="OverlayText.H4" parent="OverlayText">
-        <item name="android:textSize">@dimen/small_font</item>
-    </style>
-
     <style name="InputLayout.Theme.Login" parent="Base.Widget.MaterialComponents.TextInputLayout">
         <item name="android:textColorPrimary">@color/bunker</item>
-        <item name="colorControlNormal">@color/regent_gray</item>
-        <item name="colorControlActivated">@color/regent_gray</item>
+        <item name="colorControlNormal">@color/mercury</item>
+        <item name="colorControlActivated">@color/mercury</item>
         <item name="colorControlHighlight">@color/transparent</item>
-        <item name="android:textColorHint">@color/regent_gray</item>
+        <item name="android:textColorHint">@color/mercury</item>
     </style>
 
     <style name="EditText.Login" parent="Base.Widget.AppCompat.EditText">
@@ -119,45 +53,28 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:ems">10</item>
         <item name="android:background">@null</item>
-        <item name="android:textSize">@dimen/default_font</item>
+        <item name="android:textSize">@dimen/font_normal</item>
         <item name="android:gravity">center_vertical</item>
-    </style>
-
-    <style name="Text">
-        <item name="android:textColor">@color/dark_font_color</item>
-        <item name="android:gravity">center</item>
-    </style>
-
-    <style name="Text.Title" parent="Text">
-        <item name="android:layout_height">@dimen/extra_large_font_height</item>
-        <item name="android:textSize">@dimen/large_font</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-    <style name="Text.Subtitle" parent="Text">
-        <item name="android:textSize">@dimen/default_font</item>
-        <item name="android:textColor">@color/regent_gray</item>
     </style>
 
     <style name="EditText">
         <item name="android:layout_height">48dp</item>
         <item name="android:background">@color/transparent</item>
-        <item name="android:textColor">@color/dark_font_color</item>
-        <item name="android:textColorHint">@color/regent_gray</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/mercury</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="EditLayout">
         <item name="android:layout_height">48dp</item>
-        <item name="android:background">@color/dark_transparent</item>
+        <item name="android:background">@color/black_60</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="CustomEditAppearance">
-        <item name="android:textSize">@dimen/small_font</item>
-        <item name="colorControlActivated">@color/regent_gray</item>
-        <item name="colorControlHighlight">@color/regent_gray</item>
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="colorControlActivated">@color/mercury</item>
+        <item name="colorControlHighlight">@color/mercury</item>
     </style>
 
     <style name="SeparatorFlexible">
@@ -172,5 +89,31 @@
         <item name="layoutManager">androidx.recyclerview.widget.GridLayoutManager</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TransactionStatusAppearance" parent="CardView">
+        <item name="android:layout_width">4dp</item>
+        <item name="cardBackgroundColor">@color/bamboo</item>
+        <item name="cardCornerRadius">@dimen/radius_normal</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="SearchBoxAppearance" parent="EditText">
+        <item name="android:lines">1</item>
+        <item name="android:height">@dimen/height_custom_edit_text</item>
+        <item name="android:background">@drawable/rounded_corner_light_gray</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/mercury</item>
+        <item name="android:paddingStart">@dimen/spacing_3</item>
+        <item name="android:paddingEnd">44dp</item>
+    </style>
+
+    <style name="TransparentButton" parent="@style/Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_height">20dp</item>
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
     </style>
 </resources>

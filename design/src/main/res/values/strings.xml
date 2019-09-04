@@ -15,7 +15,7 @@
 
     <string name="published_status">Público</string>
     <string name="hidden_status">Escondido</string>
-    <string name="private_status">Oculto</string>
+    <string name="private_status">Privado</string>
     <string name="draft_status">Rascunho</string>
 
     <string-array name="event_status_array">
@@ -75,7 +75,7 @@
     <string name="error_6061">Não foi possível realizar o login, verifique o usuário e/ou senha.</string>
 
     <!-- Time utility -->
-    <string name="less_than_one_minute">menos de um minuto</string>
+    <string name="less_than_one_minute">há menos de um minuto</string>
     <string name="external">Externo</string>
     <string name="some_tickets_not_updated">Alguns ingressos não foram atualizados</string>
     <string name="time_ago_new_format">há %1$s em</string>
@@ -85,7 +85,7 @@
     <string name="to_be_synced_email">Email a sincronizar</string>
     <string name="not_synced_ticket">COMPRA REALIZADA APÓS SINCRONIZAÇÃO</string>
     <string name="txt_filter_default">Realizando sincronização, aguarde.</string>
-    <string name="sync_default">Atualizada em 00 JAN às 00:00"</string>
+    <string name="sync_default">Atualizada 01/01 às 00:00"</string>
 
     <string name="soldout_sessions">Sessões esgotadas</string>
     <string name="all_sessions_are_soldout">No momento todos os ingressos estão esgotados ou indisponíveis.</string>
@@ -96,6 +96,25 @@
     <string name="ticket_already_updated">Este ingresso já foi validado</string>
     <string name="format_time_ago">Há %s atrás</string>
 
+    <string name="all_sessions">Todas as sessões</string>
+    <string name="no_chart_data">Dados do gráfico indisponíveis</string>
+
     <!-- SNACKBAR -->
     <string name="generic_error">Ocorreu um erro.</string>
+    <string name="no_internet_connection">Sem conexão com a internet.</string>
+
+    <string name="passport">Passaporte</string>
+    <string name="percent_value">%1$d%%</string>
+
+    <!-- PROFILE -->
+    <string name="print_today_cash_closing">Imprimir caixa de hoje</string>
+    <string name="print_yesterday_cash_closing">Imprimir caixa de ontem</string>
+    <string name="cash_closing_info">O fechamento de caixa corresponde apenas às vendas realizadas por este usuário neste dispositivo.</string>
+    <string name="logout">Sair</string>
+    <string name="edit_pos_info">Editar dados de bilheteria</string>
+    <string name="edit_producer_info">Editar dados de produtor</string>
+
+    <!-- EXPIRED TOKEN -->
+    <string name="expired_session">Sua sessão expirou</string>
+    <string name="expired_token_message">Realize o login novamente para prosseguir.</string>
 </resources>

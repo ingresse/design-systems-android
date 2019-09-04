@@ -1,4 +1,4 @@
-package com.ingresse.backstage.base.ui.treeList
+package com.ingresse.design.ui.treeList
 
 import androidx.lifecycle.MutableLiveData
 
@@ -31,6 +31,11 @@ class TreeRoot {
     fun openNode(path: List<String>) {
         if (path.isEmpty()) return
         nodes[path[0]]?.openNode(path.drop(1))
+    }
+
+    fun openIfSingle() {
+        if (nodes.size != 1) return
+        nodes.values.forEach { it.openAll() }
     }
 
     fun closeNode(path: List<String>) {

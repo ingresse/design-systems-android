@@ -1,4 +1,4 @@
-package com.ingresse.backstage.base.ui.treeList
+package com.ingresse.design.ui.treeList
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -14,6 +14,18 @@ class TreeRecyclerAdapter(val viewHolder: (level: Int, parent: ViewGroup) -> Tre
 
         items = mutableListOf()
         items.addAll(list)
+    }
+
+    fun add(count: Int, path: List<String>) {
+        val position = items.indexOfFirst { path.dropLast(1) == it.path }
+        items[position].count += count
+        notifyItemChanged(position)
+    }
+
+    fun remove(count: Int, path: List<String>) {
+        val position = items.indexOfFirst { path.dropLast(1) == it.path }
+        items[position].count -= count
+        notifyItemChanged(position)
     }
 
     override fun getItemCount() = items.size
