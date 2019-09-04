@@ -29,6 +29,4 @@ class DSButtonItem(context: Context, attrs: AttributeSet) : FrameLayout(context,
 
         array.recycle()
     }
-
-    fun setClickAction(action: () -> Unit) { setOnClickListener { action() } }
 }
