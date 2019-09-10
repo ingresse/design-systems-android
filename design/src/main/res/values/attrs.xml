@@ -33,12 +33,15 @@
         <attr name="hint" format="string" />
         <attr name="hintColor" format="color" />
         <attr name="accentColor" format="color" />
+        <attr name="editColor" format="color" />
         <attr name="isPassword" format="boolean" />
         <attr name="isLastField" format="boolean" />
         <attr name="showSuggestion" format="boolean" />
         <attr name="clearButton" format="boolean" />
         <attr name="actionLabel" format="string" />
+        <attr name="customStyle" format="reference" />
         <attr name="uppercaseHint" format="boolean" />
+        <attr name="disableError" format="boolean" />
         <attr name="textInputType" />
         <attr name="formatType" />
         <attr name="capitalization" format="enum">
