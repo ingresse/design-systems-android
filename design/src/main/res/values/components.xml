@@ -137,4 +137,9 @@
         <item name="smoothTransition">true</item>
         <item name="blurIntensity">standard</item>
     </style>
+
+    <style name="UserProfileImageEdit">
+        <item name="imageAbove">true</item>
+        <item name="alphaIntensity">strong</item>
+    </style>
 </resources>

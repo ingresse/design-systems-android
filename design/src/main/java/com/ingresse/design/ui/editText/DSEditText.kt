@@ -1,6 +1,8 @@
 package com.ingresse.design.ui.editText
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Typeface
 import android.text.Editable
 import android.text.InputFilter
@@ -14,20 +16,9 @@ import android.view.animation.TranslateAnimation
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.FrameLayout
-import com.ingresse.design.helper.TextWatcherMin
-import com.ingresse.design.helper.KeyboardHelper
-import com.ingresse.design.helper.ResourcesHelper
 import com.ingresse.design.R
+import com.ingresse.design.helper.*
 import kotlinx.android.synthetic.main.custom_edit_text.view.*
-
-enum class Capitalization(val id: Int) {
-    UPPERCASE(0), CAPITALIZED(1), LOWERCASE(2);
-
-    companion object {
-        private val all = listOf(UPPERCASE, CAPITALIZED, LOWERCASE)
-        fun fromId(id: Int) = all.firstOrNull { it.id == id } ?: CAPITALIZED
-    }
-}
 
 class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val hint: String
@@ -38,8 +29,14 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     private val showSuggestions: Boolean
     private val clearButton: Boolean
     private val capitalization: Capitalization
+    private val uppercaseHint: Boolean
+    private val textInputType: TextInputType
+    private val textFormatType: TextFormatType
+    private val defaultColor: Int
 
     private var passwordVisible: Boolean = false
+
+    var isWrong = false
 
     private val resHelper = ResourcesHelper(context)
     private var focusListener: (hasFocus: Boolean) -> Unit = {}
@@ -50,7 +47,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     init {
         inflate(context, R.layout.custom_edit_text, this)
 
-        val defaultColor = resHelper.getColorHelper(R.color.tangerine)
+        defaultColor = Color.parseColor(ColorHelper(context).primaryColor)
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSEditText, 0, 0)
         hint = array.getString(R.styleable.DSEditText_hint) ?: ""
         hintColor = array.getColor(R.styleable.DSEditText_hintColor, defaultColor)
@@ -63,13 +60,21 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         capitalization = Capitalization.fromId(capsAttr)
         showSuggestions = array.getBoolean(R.styleable.DSEditText_showSuggestion, true)
         clearButton = array.getBoolean(R.styleable.DSEditText_clearButton, false)
+        uppercaseHint = array.getBoolean(R.styleable.DSEditText_uppercaseHint, false)
+        val inputType = array.getInt(R.styleable.DSEditText_textInputType, 0)
+        textInputType = TextInputType.fromId(inputType)
+        val formatType = array.getInt(R.styleable.DSEditText_formatType, 0)
+        textFormatType = TextFormatType.fromId(formatType)
 
-        if (isPassword) setPassword() else setTextType()
+        if (isPassword) setPassword()
         if (isLastField) setLastField(action)
         if (capitalization != Capitalization.CAPITALIZED) setCapitalization()
+        if (textInputType != TextInputType.NONE) setInputType()
         if (clearButton) setClearButton()
 
-        layout.hint = hint
+        setFormatType()
+
+        layout.hint = if (uppercaseHint) hint.toUpperCase() else hint
         edit_text.setText(text)
         edit_text.setTextColor(textColor)
         edit_text.setHintTextColor(hintColor)
@@ -79,8 +84,16 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
             if (!hasFocus) KeyboardHelper.dismiss(context, edit_text)
         }
 
+        setFocusListener()
         array.recycle()
     }
+
+    private fun setFormatType() {
+         if (textFormatType == TextFormatType.NONE) return
+        FormatText(context).mask(editText, textFormatType)
+    }
+
+    private fun setInputType() { editText.inputType = textInputType.type }
 
     private fun setLastField(action: String) {
         edit_text.imeOptions = EditorInfo.IME_ACTION_GO
@@ -139,10 +152,6 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         })
     }
 
-    private fun setTextType() {
-        edit_text.inputType = if (showSuggestions) InputType.TYPE_CLASS_TEXT else InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-    }
-
     private fun animateTranslation(v: View, up: Boolean) {
         val edt = v as? EditText ?: return
         if (edt.text.isNotEmpty()) return
@@ -165,5 +174,29 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
 
     fun setFocusChangeListener(listener: (hasFocus: Boolean) -> Unit) {
         focusListener = listener
+    }
+
+    private fun setFocusListener() {
+        val errorColor = resHelper.getColorHelper(R.color.ruby)
+
+        editText.setOnFocusChangeListener listener@{ _, hasFocus ->
+            if (hasFocus) {
+                edit_text.setTextColor(textColor)
+                layout.defaultHintTextColor = ColorStateList.valueOf(defaultColor)
+                return@listener
+            }
+
+            if (editText.text.toString().count() == 0
+                    || editText.text.toString().count() < textFormatType.minCharFormatted ?: 0) {
+                edit_text.setTextColor(errorColor)
+                layout.defaultHintTextColor = ColorStateList.valueOf(errorColor)
+                isWrong = true
+                return@listener
+            }
+
+            edit_text.setTextColor(textColor)
+            layout.defaultHintTextColor = ColorStateList.valueOf(hintColor)
+            isWrong = false
+        }
     }
 }

@@ -4,6 +4,28 @@
     <attr name="textColor" format="color" />
     <attr name="textSize" format="dimension" />
 
+    <attr name="textInputType" format="enum">
+        <enum name="none" value="0" />
+        <enum name="text" value="1" />
+        <enum name="email" value="2" />
+        <enum name="personName" value="3" />
+        <enum name="noSuggestions" value="4" />
+        <enum name="phone" value="5" />
+        <enum name="number" value="6" />
+        <enum name="zipcode" value="7" />
+        <enum name="date" value="8" />
+    </attr>
+
+    <attr name="formatType" format="enum">
+        <enum name="none" value="0" />
+        <enum name="phone" value="1" />
+        <enum name="zipcode" value="2" />
+        <enum name="cpf" value="3" />
+        <enum name="cnpj" value="4" />
+        <enum name="mixedCpfCnpj" value="5" />
+        <enum name="creditCard" value="6" />
+    </attr>
+
     <declare-styleable name="DSEditText">
         <attr name="text" />
         <attr name="textColor" />
@@ -16,6 +38,9 @@
         <attr name="showSuggestion" format="boolean" />
         <attr name="clearButton" format="boolean" />
         <attr name="actionLabel" format="string" />
+        <attr name="uppercaseHint" format="boolean" />
+        <attr name="textInputType" />
+        <attr name="formatType" />
         <attr name="capitalization" format="enum">
             <enum name="uppercase" value="0" />
             <enum name="capitalize" value="1" />
@@ -96,9 +121,29 @@
     <declare-styleable name="DSImage">
         <attr name="imageSize" />
         <attr name="blurIntensity" />
-        <attr name="roundImage" format="boolean" />
         <attr name="alphaIntensity" />
+        <attr name="roundImage" format="boolean" />
         <attr name="smoothTransition" format="boolean" />
-        <attr name="placeholder" format="reference"/>
+        <attr name="placeholder" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="DSProfileImage">
+        <attr name="imageAbove" format="boolean" />
+        <attr name="customImage" format="reference" />
+        <attr name="alphaIntensity" />
+    </declare-styleable>
+
+    <!-- HEADER -->
+
+    <attr name="headerType" format="enum">
+        <enum name="simple" value="0" />
+        <enum name="returnType" value="1" />
+        <enum name="closeType" value="2" />
+    </attr>
+
+    <declare-styleable name="DSHeader">
+        <attr name="headerType" />
+        <attr name="title" format="string" />
+        <attr name="description" format="string" />
     </declare-styleable>
 </resources>

@@ -6,14 +6,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.ingresse.design.ui.image.DSImage
-        android:id="@+id/img_profile_user"
-        style="@style/UserProfileImage"
+    <com.ingresse.design.ui.image.DSProfileImage
+        android:id="@+id/ds_profile_user"
         android:layout_width="60pt"
         android:layout_height="60pt"
         android:layout_marginTop="@dimen/spacing_x4"
-        android:layout_marginBottom="@dimen/spacing_x0_5"
-        tools:src="@drawable/ic_user_default" />
+        android:layout_marginBottom="@dimen/spacing_x0_5" />
 
     <TextView
         android:id="@+id/txt_profile_user_name"

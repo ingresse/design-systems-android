@@ -36,19 +36,16 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
 
         val alpha = array.getInt(R.styleable.DSImage_alphaIntensity, 0)
         val alphaIntensity = AlphaIntensity.findId(alpha)
-        if (alphaIntensity != AlphaIntensity.ZERO) {
-            val color = ResourcesHelper(context).getColorHelper(alphaIntensity.color)
-            setColorFilter(color)
-        }
+        setAlpha(alphaIntensity)
 
         array.recycle()
     }
 
-    fun setImage(url: String, key: String) {
+    fun setImage(image: String, key: String) {
         val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(smoothTransition).build()
 
         val glide = Glide.with(this)
-                .load(url)
+                .load(image)
                 .signature(ObjectKey(key))
                 .transition(DrawableTransitionOptions().crossFade(factory))
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -70,5 +67,11 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
         circularBitmap.isCircular = true
 
         return circularBitmap
+    }
+
+    fun setAlpha(value: AlphaIntensity) {
+        if (value == AlphaIntensity.ZERO) return
+        val color = ResourcesHelper(context).getColorHelper(value.color)
+        setColorFilter(color)
     }
 }
