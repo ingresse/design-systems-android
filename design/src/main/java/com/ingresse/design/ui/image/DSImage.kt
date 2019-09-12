@@ -1,13 +1,10 @@
 package com.ingresse.design.ui.image
 
 import android.content.Context
-import android.graphics.BitmapFactory
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.graphics.drawable.RoundedBitmapDrawable
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
@@ -62,15 +59,7 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
             return
         }
 
-        glide.placeholder(getRoundedPlaceholder()).transform(CircleCrop()).into(this)
-    }
-
-    private fun getRoundedPlaceholder(): RoundedBitmapDrawable {
-        val bitmapRes = BitmapFactory.decodeResource(context.resources, placeholder)
-        val circularBitmap = RoundedBitmapDrawableFactory.create(context.resources, bitmapRes)
-        circularBitmap.isCircular = true
-
-        return circularBitmap
+        glide.placeholder(placeholder).transform(CircleCrop()).into(this)
     }
 
     fun setAlpha(value: AlphaIntensity) {
