@@ -3,7 +3,6 @@ package com.ingresse.design.ui.editText
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.text.Editable
 import android.text.InputFilter
@@ -17,9 +16,6 @@ import android.view.animation.TranslateAnimation
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.FrameLayout
-import android.widget.TextView
-import androidx.annotation.ColorInt
-import androidx.core.content.ContextCompat
 import com.ingresse.design.R
 import com.ingresse.design.helper.*
 import kotlinx.android.synthetic.main.custom_edit_text.view.*
@@ -41,6 +37,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     private var errorDisabled: Boolean = false
     private var passwordVisible: Boolean = false
 
+    var originalTranslationY = 0F
     var isWrong = false
 
     private val resHelper = ResourcesHelper(context)
@@ -84,16 +81,26 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         editText.setHandleColor(editColor)
         editText.setCursorColor(editColor)
 
-        setFormatType()
-
         layout.hint = if (uppercaseHint) hint.toUpperCase() else hint
         edit_text.setText(text)
         edit_text.setTextColor(textColor)
         edit_text.setHintTextColor(hintColor)
 
+        originalTranslationY = editText.translationY
+
         setFocusListener()
+        setFormatType()
         array.recycle()
     }
+
+    fun setTextDS(txt: String?) {
+        if (txt.isNullOrEmpty()) return
+        editText.setText(txt)
+        editText.setSelection(txt.length)
+        editText.translationY = (editText.height * 0.2).toFloat()
+    }
+
+    fun getTextDS(): String = editText.text.toString()
 
     private fun setFormatType() {
          if (textFormatType == TextFormatType.NONE) return
@@ -162,6 +169,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     private fun animateTranslation(v: View, up: Boolean) {
         val edt = v as? EditText ?: return
         if (edt.text.isNotEmpty()) return
+        editText.translationY = originalTranslationY
         val movement = (v.height * 0.2).toFloat()
         val start = if (up) 0F else movement
         val end = if (up) movement else 0F
@@ -189,16 +197,20 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
             animateTranslation(v, hasFocus)
             if (!hasFocus) KeyboardHelper.dismiss(context, edit_text)
 
-            // WRONG AND SELECTED COLORS
+            // SET IS WRONG AND HINT WITH DIFFERENT COLOR WHEN FOCUSED
 
             if (hasFocus) {
                 edit_text.setTextColor(textColor)
                 layout.defaultHintTextColor = ColorStateList.valueOf(defaultColor)
                 return@listener
             }
+            val textCount = editText.text.toString().count()
+            val minCount = if (textFormatType.id == 5
+                    && textCount > textFormatType.minCharFormatted ?: 0) textFormatType.maxCharFormatted
+            else textFormatType.minCharFormatted
 
             if ((editText.text.toString().count() == 0
-                    || editText.text.toString().count() < textFormatType.minCharFormatted ?: 0)
+                    || textCount < minCount ?: 0)
                     && !errorDisabled) {
                 edit_text.setTextColor(errorColor)
                 layout.defaultHintTextColor = ColorStateList.valueOf(errorColor)
@@ -209,59 +221,6 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
             edit_text.setTextColor(textColor)
             layout.defaultHintTextColor = ColorStateList.valueOf(hintColor)
             isWrong = false
-        }
-    }
-
-    private fun EditText.setHandleColor(@ColorInt color: Int) {
-        try {
-            val selectHandle = TextView::class.java.getDeclaredField("mTextSelectHandleRes")
-            val textEditor = TextView::class.java.getDeclaredField("mEditor")
-
-            selectHandle.isAccessible = true
-            textEditor.isAccessible = true
-
-            val selectHandleDrawable = selectHandle.getInt(this)
-            val editor = textEditor.get(this)
-
-            val drawable = ContextCompat.getDrawable(this.context, selectHandleDrawable)!!
-            drawable.setColorFilter(color, PorterDuff.Mode.SRC_IN)
-
-            val centerHandle = editor.javaClass.getDeclaredField("mSelectHandleCenter")
-            val leftHandle = editor.javaClass.getDeclaredField("mSelectHandleLeft")
-            val rightHandle = editor.javaClass.getDeclaredField("mSelectHandleRight")
-
-            centerHandle.isAccessible = true
-            leftHandle.isAccessible = true
-            rightHandle.isAccessible = true
-
-            centerHandle.set(editor, drawable)
-            leftHandle.set(editor, drawable)
-            rightHandle.set(editor, drawable)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    private fun EditText.setCursorColor(@ColorInt color: Int) {
-        try {
-            val textCursor = TextView::class.java.getDeclaredField("mCursorDrawableRes")
-            val textEditor = TextView::class.java.getDeclaredField("mEditor")
-
-            textCursor.isAccessible = true
-            textEditor.isAccessible = true
-
-            val cursorDrawable = textCursor.getInt(this)
-            val editor = textEditor.get(this)
-
-            val drawable = ContextCompat.getDrawable(this.context, cursorDrawable)
-            drawable?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
-            val drawables = arrayOf(drawable, drawable)
-
-            val textCursorDrawable = editor.javaClass.getDeclaredField("mCursorDrawable")
-            textCursorDrawable.isAccessible = true
-            textCursorDrawable.set(editor, drawables)
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
     }
 }

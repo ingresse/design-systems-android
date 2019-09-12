@@ -2,6 +2,7 @@ package com.ingresse.design.ui.image
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
@@ -21,6 +22,8 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
     private var blurTransform: BlurIntensity
     private var roundImage: Boolean
     private var smoothTransition: Boolean
+    private var resHelper = ResourcesHelper(context)
+
     @DrawableRes private var placeholder: Int
 
     init {
@@ -44,8 +47,10 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
     fun setImage(image: String, key: String) {
         val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(smoothTransition).build()
 
+        val imageToLoad: Any = if (image.isNotEmpty()) image else resHelper.getDrawableHelper(placeholder)
+
         val glide = Glide.with(this)
-                .load(image)
+                .load(imageToLoad)
                 .signature(ObjectKey(key))
                 .transition(DrawableTransitionOptions().crossFade(factory))
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -71,7 +76,15 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
 
     fun setAlpha(value: AlphaIntensity) {
         if (value == AlphaIntensity.ZERO) return
-        val color = ResourcesHelper(context).getColorHelper(value.color)
+        val color = resHelper.getColorHelper(value.color)
         setColorFilter(color)
+
+        if (!roundImage) return
+
+        val gradientDrawable = GradientDrawable()
+        gradientDrawable.shape = GradientDrawable.OVAL
+        gradientDrawable.setColor(color)
+
+        background = gradientDrawable
     }
 }

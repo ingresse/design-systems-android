@@ -84,4 +84,9 @@ class FormatText(val context: Context) {
 
 fun String?.unmask(): String = this?.toCharArray()?.filter { it.isLetterOrDigit() }?.joinToString("").orEmpty()
 
+fun String?.unmaskWithSpace(): String
+        = this?.toCharArray()?.filter {
+            it == ' ' || it.isLetterOrDigit()
+        }?.joinToString("").orEmpty()
+
 fun Editable?.unmask(): String = toString().unmask()

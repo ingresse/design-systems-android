@@ -31,6 +31,14 @@ class Watch(val text: EditText) {
     fun remove() = text.removeTextChangedListener(watcher)
 }
 
+fun singleListener(action: (String) -> Unit): Watcher {
+    val callback = object : WatcherCallback {
+        override fun listen(string: String) { action(string) }
+    }
+
+    return Watcher(callback)
+}
+
 abstract class TextWatcherMin: TextWatcher {
     override fun afterTextChanged(s: Editable?) {}
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

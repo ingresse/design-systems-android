@@ -139,8 +139,8 @@
     </style>
 
     <style name="UserProfileImageEdit">
-        <item name="imageAbove">true</item>
-        <item name="alphaIntensity">strong</item>
+        <item name="imageAbove">false</item>
+        <item name="alphaIntensity">zero</item>
     </style>
 
     <style name="TextSelectedDSEditText">
