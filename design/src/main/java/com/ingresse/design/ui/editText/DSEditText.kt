@@ -82,6 +82,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         editText.setCursorColor(editColor)
 
         layout.hint = if (uppercaseHint) hint.toUpperCase() else hint
+        layout.defaultHintTextColor = ColorStateList.valueOf(hintColor)
         edit_text.setText(text)
         edit_text.setTextColor(textColor)
         edit_text.setHintTextColor(hintColor)
