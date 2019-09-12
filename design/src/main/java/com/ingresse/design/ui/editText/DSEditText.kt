@@ -197,7 +197,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
             animateTranslation(v, hasFocus)
             if (!hasFocus) KeyboardHelper.dismiss(context, edit_text)
 
-            // SET IS WRONG AND HINT WITH DIFFERENT COLOR WHEN FOCUSED
+            // Set isWrong and hint with different color when focused
 
             if (hasFocus) {
                 edit_text.setTextColor(textColor)
@@ -205,7 +205,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
                 return@listener
             }
             val textCount = editText.text.toString().count()
-            val minCount = if (textFormatType.id == 5
+            val minCount = if (textFormatType == TextFormatType.MIXED_CPF_CNPJ
                     && textCount > textFormatType.minCharFormatted ?: 0) textFormatType.maxCharFormatted
             else textFormatType.minCharFormatted
 

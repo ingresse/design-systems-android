@@ -53,8 +53,7 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
                 .load(imageToLoad)
                 .signature(ObjectKey(key))
                 .transition(DrawableTransitionOptions().crossFade(factory))
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
 
         if (blurTransform != BlurIntensity.ZERO) glide.transform(blurTransform.blur)
         if (sizeTransform != ImageSize.ORIGINAL) glide.thumbnail(sizeTransform.multiplier)

@@ -12,8 +12,8 @@
         android:layout_width="60pt"
         android:layout_height="60pt"
         android:layout_centerInParent="true"
-        app:placeholder="@drawable/default_poster_user"
-        tools:src="@drawable/default_poster_user" />
+        app:placeholder="@drawable/default_photo_user"
+        tools:src="@drawable/default_photo_user" />
 
     <ImageView
         android:id="@+id/img_above"

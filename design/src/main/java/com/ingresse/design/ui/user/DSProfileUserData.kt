@@ -13,6 +13,6 @@ class DSProfileUserData(context: Context, attrs: AttributeSet): FrameLayout(cont
     fun setUserData(name: String, email: String, picture: String) {
         txt_profile_user_name.text = name
         txt_profile_user_email.text = email
-        ds_profile_user.setImage(picture, USER_IMAGE_PREFIX + picture)
+        img_profile_user.setImage(picture, USER_IMAGE_PREFIX + picture)
     }
 }
