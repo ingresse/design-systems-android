@@ -1,6 +1,7 @@
 package com.ingresse.design.ui.editText
 
 import android.graphics.PorterDuff
+import android.os.Build
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -19,6 +20,8 @@ fun EditText.setHandleColor(@ColorInt color: Int) {
 
         val drawable = ContextCompat.getDrawable(this.context, selectHandleDrawable)!!
         drawable.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) return
 
         val centerHandle = editor.javaClass.getDeclaredField("mSelectHandleCenter")
         val leftHandle = editor.javaClass.getDeclaredField("mSelectHandleLeft")
