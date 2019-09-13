@@ -8,26 +8,18 @@ import android.text.InputType
 import android.text.method.PasswordTransformationMethod
 import android.text.method.SingleLineTransformationMethod
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.FrameLayout
-import com.ingresse.design.helper.TextWatcherMin
+import com.ingresse.design.R
 import com.ingresse.design.helper.KeyboardHelper
 import com.ingresse.design.helper.ResourcesHelper
-import com.ingresse.design.R
-import kotlinx.android.synthetic.main.custom_edit_text.view.*
-
-enum class Capitalization(val id: Int) {
-    UPPERCASE(0), CAPITALIZED(1), LOWERCASE(2);
-
-    companion object {
-        private val all = listOf(UPPERCASE, CAPITALIZED, LOWERCASE)
-        fun fromId(id: Int) = all.firstOrNull { it.id == id } ?: CAPITALIZED
-    }
-}
+import com.ingresse.design.helper.TextWatcherMin
+import kotlinx.android.synthetic.main.ds_edit_text.view.*
 
 class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val hint: String
@@ -48,9 +40,9 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     val editText: EditText get() = edit_text
 
     init {
-        inflate(context, R.layout.custom_edit_text, this)
+        View.inflate(context, R.layout.ds_edit_text, this)
 
-        val defaultColor = resHelper.getColorHelper(R.color.tangerine)
+        val defaultColor = resHelper.getColorHelper(R.color.mercury)
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSEditText, 0, 0)
         hint = array.getString(R.styleable.DSEditText_hint) ?: ""
         hintColor = array.getColor(R.styleable.DSEditText_hintColor, defaultColor)
@@ -69,15 +61,12 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         if (capitalization != Capitalization.CAPITALIZED) setCapitalization()
         if (clearButton) setClearButton()
 
-        layout.hint = hint
         edit_text.setText(text)
         edit_text.setTextColor(textColor)
-        edit_text.setHintTextColor(hintColor)
-        edit_text.setOnFocusChangeListener { v, hasFocus ->
-            focusListener(hasFocus)
-            animateTranslation(v, hasFocus)
-            if (!hasFocus) KeyboardHelper.dismiss(context, edit_text)
-        }
+
+        txt_hint.text = hint
+        txt_hint.setTextColor(hintColor)
+        setListeners()
 
         array.recycle()
     }
@@ -143,16 +132,27 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         edit_text.inputType = if (showSuggestions) InputType.TYPE_CLASS_TEXT else InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
     }
 
-    private fun animateTranslation(v: View, up: Boolean) {
-        val edt = v as? EditText ?: return
-        if (edt.text.isNotEmpty()) return
-        val movement = (v.height * 0.2).toFloat()
-        val start = if (up) 0F else movement
-        val end = if (up) movement else 0F
-        val animation = TranslateAnimation(0F, 0F, start, end)
+    private fun setListeners() {
+        edit_text.setOnFocusChangeListener { v, hasFocus ->
+            focusListener(hasFocus)
+            animateTranslation(hasFocus)
+            if (!hasFocus) KeyboardHelper.dismiss(context, edit_text)
+        }
+    }
+
+    private fun animateTranslation(hasFocus: Boolean) {
+        if (!edit_text.text.isNullOrEmpty()) return
+
+        val movement = (txt_hint.height * -0.6).toFloat()
+        val coords = if (hasFocus) Pair(0F, movement) else Pair(movement, 0F)
+
+        val animation = TranslateAnimation(0F, 0F, coords.first, coords.second)
         animation.duration = 200
         animation.fillAfter = true
-        edt.startAnimation(animation)
+        txt_hint.startAnimation(animation)
+
+        val fontSize = if (hasFocus) 14f else 16f
+        txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
     }
 
     fun setActionListener(listener: () -> Unit) {
