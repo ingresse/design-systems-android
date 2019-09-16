@@ -24,6 +24,7 @@
     <dimen name="font_h1">36sp</dimen>
     <dimen name="font_h2">28sp</dimen>
     <dimen name="font_h3">20sp</dimen>
+    <dimen name="font_h4">18sp</dimen>
     <dimen name="font_normal">16sp</dimen>
     <dimen name="font_small">14sp</dimen>
     <dimen name="font_very_small">12sp</dimen>
