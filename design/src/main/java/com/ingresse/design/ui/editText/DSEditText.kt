@@ -191,7 +191,6 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     fun setFocusChangeListener(listener: (hasFocus: Boolean) -> Unit) { focusListener = listener }
 
     private fun setFocusListener() {
-        val errorColor = resHelper.getColorHelper(R.color.ruby)
 
         editText.setOnFocusChangeListener listener@{ v, hasFocus ->
             focusListener(hasFocus)
@@ -200,28 +199,44 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
 
             // Set isWrong and hint with different color when focused
 
-            if (hasFocus) {
-                edit_text.setTextColor(textColor)
-                layout.defaultHintTextColor = ColorStateList.valueOf(defaultColor)
-                return@listener
-            }
+            if (hasFocus) return@listener setEditTextDefault()
+
             val textCount = editText.text.toString().count()
             val minCount = if (textFormatType == TextFormatType.MIXED_CPF_CNPJ
                     && textCount > textFormatType.minCharFormatted ?: 0) textFormatType.maxCharFormatted
             else textFormatType.minCharFormatted
 
-            if ((editText.text.toString().count() == 0
-                    || textCount < minCount ?: 0)
-                    && !errorDisabled) {
-                edit_text.setTextColor(errorColor)
-                layout.defaultHintTextColor = ColorStateList.valueOf(errorColor)
-                isWrong = true
+            if (textInputType == TextInputType.EMAIL && !editText.text.toString().isValidEmail()) {
+                setEditTextError()
                 return@listener
             }
 
-            edit_text.setTextColor(textColor)
-            layout.defaultHintTextColor = ColorStateList.valueOf(hintColor)
-            isWrong = false
+            if (textFormatType == TextFormatType.MIXED_CPF_CNPJ
+                    && textCount < minCount ?: 0 && textCount > 0) {
+                setEditTextError()
+                return@listener
+            }
+
+            if ((textCount < textFormatType.minCharFormatted ?: 0
+                    || textCount == 0) && !errorDisabled) {
+                setEditTextError()
+                return@listener
+            }
+
+            setEditTextDefault()
         }
+    }
+
+    private fun setEditTextError() {
+        val errorColor = resHelper.getColorHelper(R.color.ruby)
+        edit_text.setTextColor(errorColor)
+        layout.defaultHintTextColor = ColorStateList.valueOf(errorColor)
+        isWrong = true
+    }
+
+    private fun setEditTextDefault() {
+        edit_text.setTextColor(textColor)
+        layout.defaultHintTextColor = ColorStateList.valueOf(hintColor)
+        isWrong = false
     }
 }
