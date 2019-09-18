@@ -2,6 +2,7 @@ package com.ingresse.design.ui.spinner
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.*
@@ -45,11 +46,14 @@ class CustomSpinner(context: Context, attrs: AttributeSet): FrameLayout(context,
 
     private fun animateTranslation(position: Int) {
         val movement = (textView.height * -0.6).toFloat()
-        val coords = if (hasFirstItem  && position == 0) Pair(movement, 0F) else Pair(0F, movement)
+        val coords = if (hasFirstItem && position == 0) Pair(movement, 0F) else Pair(0F, movement)
         val animation = TranslateAnimation(0F, 0F, coords.first, coords.second)
         animation.duration = 200
         animation.fillAfter = true
         textView.startAnimation(animation)
+
+        val fontSize = if (hasFirstItem && position == 0) 16f else 14f
+        txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
     }
 
     fun <T> setItems(items: List<T>, firstItem: T? = null) {

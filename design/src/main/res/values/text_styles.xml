@@ -70,14 +70,23 @@
     <style name="TextStyle.Normal.Bold.Caps" parent="TextStyle.Normal.Bold">
         <item name="android:textAllCaps">true</item>
     </style>
+    <style name="TextStyle.Normal.Center" parent="TextStyle.Normal">
+        <item name="android:gravity">center</item>
+    </style>
     <style name="TextStyle.Normal.White" parent="TextStyle.Normal">
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="TextStyle.Normal.Gray" parent="TextStyle.Normal">
         <item name="android:textColor">@color/mercury</item>
     </style>
-    <style name="TextStyle.Normal.Gray.Center" parent="TextStyle.Normal.Gray">
-        <item name="android:gravity">center</item>
+    <style name="TextStyle.Normal.Center.Gray" parent="TextStyle.Normal.Center">
+        <item name="android:textColor">@color/mercury</item>
+    </style>
+    <style name="TextStyle.Normal.Center.White" parent="TextStyle.Normal.Center">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TextStyle.Normal.Center.White.Caps" parent="TextStyle.Normal.Center.White">
+        <item name="android:textAllCaps">true</item>
     </style>
     <style name="TextStyle.Normal.LightGray" parent="TextStyle.Normal">
         <item name="android:textColor">@color/iron</item>
@@ -110,6 +119,9 @@
     <style name="TextStyle.Small.Bold" parent="TextStyle.Small">
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="TextStyle.Small.Center" parent="TextStyle.Small">
+        <item name="android:gravity">center</item>
+    </style>
     <style name="TextStyle.Small.White" parent="TextStyle.Small">
         <item name="android:textColor">@color/white</item>
     </style>
@@ -127,6 +139,9 @@
     </style>
     <style name="TextStyle.Small.Bold.White" parent="TextStyle.Small.Bold">
         <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TextStyle.Small.White.Center.Caps" parent="TextStyle.Small.White.Center">
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="TextStyle.VerySmall" parent="TextStyle">
