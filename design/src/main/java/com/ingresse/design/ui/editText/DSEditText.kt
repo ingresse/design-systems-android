@@ -19,7 +19,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import com.ingresse.design.R
 import com.ingresse.design.helper.*
-import kotlinx.android.synthetic.main.custom_edit_text.view.*
+import kotlinx.android.synthetic.main.ds_edit_text.view.*
 
 class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val hint: String
@@ -97,7 +97,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         if (txt.isNullOrEmpty()) return
         editText.setText(txt)
         editText.setSelection(txt.length)
-        editText.translationY = (editText.height * 0.2).toFloat()
+        animateHintToTop()
     }
 
     fun getTextDS(): String = editText.text.toString()
@@ -166,10 +166,6 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         })
     }
 
-    private fun setTextType() {
-        edit_text.inputType = if (showSuggestions) InputType.TYPE_CLASS_TEXT else InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-    }
-
     private fun setListeners() {
         edit_text.setOnFocusChangeListener { v, hasFocus ->
             focusListener(hasFocus)
@@ -178,19 +174,31 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         }
     }
 
-    private fun animateTranslation(hasFocus: Boolean) {
-        if (!edit_text.text.isNullOrEmpty()) return
-
-        val movement = (txt_hint.height * -0.6).toFloat()
-        val coords = if (hasFocus) Pair(0F, movement) else Pair(movement, 0F)
-
-        val animation = TranslateAnimation(0F, 0F, coords.first, coords.second)
+    private fun animateHintToTop() {
+        val movement = resHelper.resources.getDimension(R.dimen.height_text_view_normal) * - 0.6F
+        val animation = TranslateAnimation(0F, 0F, 0F, movement)
         animation.duration = 200
         animation.fillAfter = true
         txt_hint.startAnimation(animation)
 
-        val fontSize = if (hasFocus) 14f else 16f
+        val fontSize = 14f
         txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
+    }
+
+    private fun animateHintToCenter() {
+        val movement = resHelper.resources.getDimension(R.dimen.height_text_view_normal) * - 0.6F
+        val animation = TranslateAnimation(0F, 0F, movement, 0F)
+        animation.duration = 200
+        animation.fillAfter = true
+        txt_hint.startAnimation(animation)
+
+        val fontSize = 16f
+        txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
+    }
+
+    private fun animateTranslation(hasFocus: Boolean) {
+        if (!edit_text.text.isNullOrEmpty()) return
+        if (hasFocus) animateHintToTop() else animateHintToCenter()
     }
 
     fun setActionListener(listener: () -> Unit) {
@@ -204,10 +212,9 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     fun setFocusChangeListener(listener: (hasFocus: Boolean) -> Unit) { focusListener = listener }
 
     private fun setFocusListener() {
-
         editText.setOnFocusChangeListener listener@{ v, hasFocus ->
             focusListener(hasFocus)
-            animateTranslation(v, hasFocus)
+            animateTranslation(hasFocus)
             if (!hasFocus) KeyboardHelper.dismiss(context, edit_text)
 
             // Set isWrong and hint with different color when focused
@@ -243,13 +250,13 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     private fun setEditTextError() {
         val errorColor = resHelper.getColorHelper(R.color.ruby)
         edit_text.setTextColor(errorColor)
-        layout.defaultHintTextColor = ColorStateList.valueOf(errorColor)
+        txt_hint.setTextColor(errorColor)
         isWrong = true
     }
 
     private fun setEditTextDefault() {
         edit_text.setTextColor(textColor)
-        layout.defaultHintTextColor = ColorStateList.valueOf(hintColor)
+        txt_hint.setTextColor(hintColor)
         isWrong = false
     }
 }

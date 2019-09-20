@@ -143,12 +143,7 @@
         <item name="alphaIntensity">zero</item>
     </style>
 
-    <style name="TextSelectedDSEditText">
-        <item name="android:textColorHighlight">@color/iron</item>
-    </style>
-
     <style name="RegularDSEditText">
-        <item name="customStyle">@style/TextSelectedDSEditText</item>
         <item name="hintColor">@color/mercury</item>
         <item name="textColor">@color/bunker</item>
         <item name="uppercaseHint">true</item>
