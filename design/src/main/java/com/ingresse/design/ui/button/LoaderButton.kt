@@ -26,7 +26,7 @@ class LoaderButton(context: Context, attrs: AttributeSet): FrameLayout(context, 
         inflate(context, R.layout.loader_button, this)
 
         val defaultColor = ContextCompat.getColor(context, R.color.white)
-        val defaultSize = context.resources.getDimensionPixelSize(R.dimen.spacing_3)
+        val defaultSize = context.resources.getDimensionPixelSize(R.dimen.spacing_x2)
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.LoaderButton, 0, 0)
         text = array.getString(R.styleable.LoaderButton_text) ?: ""
         textColor = array.getColor(R.styleable.LoaderButton_textColor, defaultColor)

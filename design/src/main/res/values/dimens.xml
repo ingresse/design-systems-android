@@ -29,15 +29,18 @@
     <dimen name="font_very_small">12sp</dimen>
 
     <!-- SPACING -->
-    <dimen name="spacing_1">2dp</dimen>
-    <dimen name="spacing_2">4dp</dimen>
-    <dimen name="spacing_3">8dp</dimen>
-    <dimen name="spacing_4">10dp</dimen>
-    <dimen name="spacing_5">12dp</dimen>
-    <dimen name="spacing_6">16dp</dimen>
-    <dimen name="spacing_7">20dp</dimen>
-    <dimen name="spacing_8">36dp</dimen>
-    <dimen name="spacing_9">40dp</dimen>
+    <dimen name="spacing_x0_5">2dp</dimen>
+    <dimen name="spacing_x1">4dp</dimen>
+    <dimen name="spacing_x1_5">6dp</dimen>
+    <dimen name="spacing_x2">8dp</dimen>
+    <dimen name="spacing_x2_5">10dp</dimen>
+    <dimen name="spacing_x3">12dp</dimen>
+    <dimen name="spacing_x4">16dp</dimen>
+    <dimen name="spacing_x5">20dp</dimen>
+    <dimen name="spacing_x6">24dp</dimen>
+    <dimen name="spacing_x8">32dp</dimen>
+    <dimen name="spacing_x9">36dp</dimen>
+    <dimen name="spacing_x10">40dp</dimen>
 
     <!-- DEFAULT HEIGHTS -->
     <dimen name="height_text_view_small">16dp</dimen>
@@ -53,4 +56,7 @@
 
     <!-- CUSTOM ELEMENTS -->
     <dimen name="translation_custom_edit_text">-9dp</dimen>
+
+    <!-- ICONS -->
+    <dimen name="ic_normal">20dp</dimen>
 </resources>

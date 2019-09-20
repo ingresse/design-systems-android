@@ -17,8 +17,8 @@
             android:id="@+id/layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_2"
-            android:layout_marginBottom="@dimen/spacing_1"
+            android:layout_marginTop="@dimen/spacing_x1"
+            android:layout_marginBottom="@dimen/spacing_x0_5"
             android:layout_weight="1"
             app:hintTextAppearance="@style/CustomEditAppearance">
 
@@ -29,7 +29,7 @@
                 android:background="@color/transparent"
                 android:fontFamily="sans-serif"
                 android:maxLines="1"
-                android:padding="@dimen/spacing_3"
+                android:padding="@dimen/spacing_x2"
                 android:singleLine="true"
                 android:textSize="@dimen/font_normal"
                 android:translationY="-8dp" />
@@ -40,9 +40,9 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/spacing_3"
-            android:layout_marginTop="@dimen/spacing_1"
-            android:layout_marginRight="@dimen/spacing_3"
+            android:layout_marginLeft="@dimen/spacing_x2"
+            android:layout_marginTop="@dimen/spacing_x0_5"
+            android:layout_marginRight="@dimen/spacing_x2"
             android:background="@color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_hide_show_password"

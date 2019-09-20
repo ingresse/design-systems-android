@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.ingresse.design.ui.image.DSImage
+        android:id="@+id/img_profile_user"
+        style="@style/UserProfileImage"
+        android:layout_width="60pt"
+        android:layout_height="60pt"
+        android:layout_centerInParent="true"
+        app:placeholder="@drawable/default_photo_user_rounded"
+        tools:src="@drawable/default_photo_user_rounded" />
+
+    <ImageView
+        android:id="@+id/img_above"
+        android:layout_width="15pt"
+        android:layout_height="15pt"
+        android:layout_centerInParent="true"
+        tools:src="@drawable/ic_photo" />
+
+</RelativeLayout>

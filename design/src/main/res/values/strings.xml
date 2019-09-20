@@ -117,4 +117,13 @@
     <!-- EXPIRED TOKEN -->
     <string name="expired_session">Sua sessão expirou</string>
     <string name="expired_token_message">Realize o login novamente para prosseguir.</string>
+
+    <!-- TEXT FORMAT -->
+    <string name="format_phone_8_digits">(##) ####-####</string>
+    <string name="format_phone_9_digits">(##) #####-####</string>
+    <string name="format_zipcode">#####-###</string>
+    <string name="format_cpf">###.###.###-##</string>
+    <string name="format_cnpj">##.###.###/####-##</string>
+    <string name="format_credit_card">####.####.####.####.####</string>
+    <string name="format_simple_date">##/##</string>
 </resources>

@@ -10,14 +10,15 @@ import kotlinx.android.synthetic.main.custom_snackbar_alert.view.*
 
 enum class SnackbarColorSchema(@ColorRes val textColor: Int, @ColorRes val backgroundColor: Int) {
     LOGIN(R.color.ruby, R.color.white),
-    DEFAULT(R.color.white, R.color.ruby)
+    DEFAULT(R.color.white, R.color.ruby),
+    SUCCESS(R.color.white, R.color.bamboo)
 }
 
 class SnackbarHelper(private val viewGroup: ViewGroup?, context: Context?) {
     private val resHelper = ResourcesHelper(context)
 
     fun createCustomSnackbar(container: View,
-                             title: String = "",
+                             title: String? = "",
                              message: String,
                              shown: () -> Unit = {},
                              dismissed: () -> Unit = {},
@@ -37,13 +38,13 @@ class SnackbarHelper(private val viewGroup: ViewGroup?, context: Context?) {
         layout.addView(customView)
     }
 
-    private fun customView(title: String, message: String, colorSchema: SnackbarColorSchema): View? {
+    private fun customView(title: String?, message: String, colorSchema: SnackbarColorSchema): View? {
         val customSnackbar = viewGroup?.inflate(R.layout.custom_snackbar_alert)
 
         customSnackbar?.snackbar_title?.apply {
             setTextColor(resHelper.getColorHelper(colorSchema.textColor))
             text = title
-            if (title.isEmpty()) visibility = View.GONE
+            if (title.isNullOrEmpty()) visibility = View.GONE
         }
 
         customSnackbar?.snackbar_message?.apply {
