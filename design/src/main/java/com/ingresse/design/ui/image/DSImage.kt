@@ -38,6 +38,7 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
         val alphaIntensity = AlphaIntensity.findId(alpha)
         setAlpha(alphaIntensity)
 
+        adjustViewBounds = true
         array.recycle()
     }
 

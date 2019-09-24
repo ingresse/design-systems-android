@@ -41,18 +41,18 @@ class DSHeader(context: Context, attrs: AttributeSet): FrameLayout(context, attr
     }
     
     private fun setReturnType() {
-        btn_close.visibility = View.GONE
+        btn_close.visibility = View.INVISIBLE
         btn_back.visibility = View.VISIBLE
     }
     
     private fun setCloseType() {
         btn_close.visibility = View.VISIBLE
-        btn_back.visibility = View.GONE
+        btn_back.visibility = View.INVISIBLE
     }
 
     fun setCloseAction(action: () -> Unit) {
         val listener = OnClickListener { action() }
-        if (btn_close.isVisible) btn_close.setOnClickListener(listener)
-        if (btn_back.isVisible) btn_back.setOnClickListener(listener)
+        btn_close.setOnClickListener(listener)
+        btn_back.setOnClickListener(listener)
     }
 }
