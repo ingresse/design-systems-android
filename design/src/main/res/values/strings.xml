@@ -1,91 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Base</string>
-    <string name="error_opening_help">Não foi possível abrir o link de suporte…</string>
     <string name="ops">Ops!</string>
     <string name="ok">OK</string>
     <string name="enter">Entrar</string>
     <string name="cancel">Cancelar</string>
     <string name="button_no">Não</string>
-    <string name="button_yes">Sim</string>
 
     <string name="yesterday">Ontem</string>
     <string name="today">Hoje</string>
-    <string name="tomorrow">Amanhã</string>
 
-    <string name="published_status">Público</string>
-    <string name="hidden_status">Escondido</string>
     <string name="private_status">Privado</string>
     <string name="draft_status">Rascunho</string>
 
-    <string-array name="event_status_array">
-        <item>Todos</item>
-        <item>@string/published_status</item>
-        <item>@string/hidden_status</item>
-        <item>@string/private_status</item>
-        <item>@string/draft_status</item>
-    </string-array>
-
-    <string name="date_time">%1$s %2$s</string>
-    <string name="datetime_string">%1$s, %2$s de %3$s de %4$s às %5$s</string>
-
-    <string name="sunday">Domingo</string>
-    <string name="monday">Segunda</string>
-    <string name="tuesday">Terça</string>
-    <string name="wednesday">Quarta</string>
-    <string name="thursday">Quinta</string>
-    <string name="friday">Sexta</string>
-    <string name="saturday">Sábado</string>
-    <string name="january">Jan</string>
-    <string name="february">Fev</string>
-    <string name="march">Mar</string>
-    <string name="april">Abr</string>
-    <string name="may">Mai</string>
-    <string name="june">Jun</string>
-    <string name="july">Jul</string>
-    <string name="august">Ago</string>
-    <string name="september">Set</string>
-    <string name="october">Out</string>
-    <string name="november">Nov</string>
-    <string name="december">Dez</string>
-
-    <string name="error_default">Ocorreu um problema durante a solicitação. Entre em contato com o organizador do evento e informe o código ao lado. [%d]</string>
-    <string name="error_2001">Acesso negado. O usuário não está autenticado. [2001]</string>
-    <string name="error_2006">Sua sessão expirou. Por favor faça o login novamente.</string>
-    <string name="error_2020">Senha inválida. [2020]</string>
-    <string name="error_2021">Email inválido. [2021]</string>
-    <string name="error_3023">A transação que foi solicitada não está mais pendente. [3023]</string>
-    <string name="error_4042">Não foi possível completar esta transação. Entre em contato por (11) 98104&#8211;0827 e informe o código ao lado. [4042]</string>
-    <string name="error_5001">Não foi possível recuperar as informações de perfil do Facebook. Tente logar com o Facebook novamente. [5001]</string>
-    <string name="error_5004">A sua conta do Facebook está associada a outro usuário. [5004]</string>
-    <string name="error_5006">Não foi possível recuperar a sessão do Facebook. Tente logar com o Facebook novamente. [5006]</string>
-    <string name="error_6001">A venda deste evento não está ativada. Entre em contato com o organizador do evento. [6001]</string>
-    <string name="error_6002">Todas as sessões para esse evento estão esgotadas. Talvez alguns ingressos estarão disponíveis dependendo dos pagamentos pendentes. Entre em contato com o organizador do evento. [6002]</string>
-    <string name="error_6003">Não há mais ingressos disponíveis para venda. Talvez alguns ingressos estarão disponíveis dependendo dos pagamentos pendentes. Entre em contato com o organizador do evento. [6003]</string>
-    <string name="error_6004">Não há mais ingressos disponíveis para um dos tipos de ingressos selecionados. Entre em contato com o organizador do evento. [6004]</string>
-    <string name="error_6005">A transação que está tentando pagar não está mais disponível. Por favor, tente novamente. [6005]</string>
-    <string name="error_6006">A quantidade de ingressos disponíveis é menor que a de solicitados. [6006]</string>
-    <string name="error_6007">Eventos blogger não possuem venda de ingressos. [6007]</string>
-    <string name="error_6008">Ingresso não encontrado na sessão. [6008]</string>
-    <string name="error_6009">O método de pagamento e/ou parcelamento não são aceitos para este evento. [6009]</string>
-    <string name="error_6010">Boleto não é aceito neste evento. [6010]</string>
-    <string name="error_6011">Boleto não pago. [6011]</string>
-    <string name="error_6012">Por favor, acesse o site para comprar ingressos para esse evento. [6012]</string>
-    <string name="error_6060">Esse login não é válido para essa aplicação.</string>
-    <string name="error_6061">Não foi possível realizar o login, verifique o usuário e/ou senha.</string>
-
     <!-- Time utility -->
     <string name="less_than_one_minute">há menos de um minuto</string>
-    <string name="external">Externo</string>
-    <string name="some_tickets_not_updated">Alguns ingressos não foram atualizados</string>
-    <string name="time_ago_new_format">há %1$s em</string>
 
-    <string name="to_be_synced_buyer">COMPRADOR A SINCRONIZAR</string>
-    <string name="to_be_synced_type">Tipo a sincronizar</string>
-    <string name="to_be_synced_email">Email a sincronizar</string>
-    <string name="not_synced_ticket">COMPRA REALIZADA APÓS SINCRONIZAÇÃO</string>
     <string name="txt_filter_default">Realizando sincronização, aguarde.</string>
-    <string name="sync_default">Atualizada 01/01 às 00:00"</string>
 
     <string name="soldout_sessions">Sessões esgotadas</string>
     <string name="all_sessions_are_soldout">No momento todos os ingressos estão esgotados ou indisponíveis.</string>
@@ -100,7 +31,6 @@
     <string name="no_chart_data">Dados do gráfico indisponíveis</string>
 
     <!-- SNACKBAR -->
-    <string name="generic_error">Ocorreu um erro.</string>
     <string name="no_internet_connection">Sem conexão com a internet.</string>
 
     <string name="passport">Passaporte</string>

@@ -54,9 +54,6 @@
     <dimen name="height_custom_edit_text">40dp</dimen>
     <dimen name="height_row">40dp</dimen>
 
-    <!-- CUSTOM ELEMENTS -->
-    <dimen name="translation_custom_edit_text">-9dp</dimen>
-
     <!-- ICONS -->
     <dimen name="ic_normal">20dp</dimen>
 </resources>
