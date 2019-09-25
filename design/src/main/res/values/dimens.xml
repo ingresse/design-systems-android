@@ -4,6 +4,7 @@
     <dimen name="radius_normal">2dp</dimen>
     <dimen name="radius_small">2dp</dimen>
     <dimen name="radius_card">5dp</dimen>
+    <dimen name="radius_large">8dp</dimen>
     <dimen name="radius_big">10dp</dimen>
 
     <!-- ELEVATION -->
