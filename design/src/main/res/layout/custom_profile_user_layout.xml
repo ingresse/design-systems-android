@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.ingresse.design.ui.image.DSProfileImage
+        android:id="@+id/img_user_profile"
+        android:layout_width="60pt"
+        android:layout_height="60pt"
+        android:layout_marginTop="@dimen/spacing_x4"
+        android:layout_marginBottom="@dimen/spacing_x0_5" />
+
+    <TextView
+        android:id="@+id/txt_profile_user_name"
+        style="@style/TextStyle.H3.Bold.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_x4"
+        android:layout_marginTop="@dimen/spacing_x1"
+        android:layout_marginEnd="@dimen/spacing_x4"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="Fulano Augustos" />
+
+    <TextView
+        android:id="@+id/txt_profile_user_email"
+        style="@style/TextStyle.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_x4"
+        android:layout_marginEnd="@dimen/spacing_x4"
+        android:layout_marginBottom="@dimen/spacing_x1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="fulano@gmail.com" />
+
+</LinearLayout>

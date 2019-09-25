@@ -77,6 +77,12 @@
         <item name="colorControlHighlight">@color/mercury</item>
     </style>
 
+    <style name="CustomDivisor">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/desert_storm</item>
+    </style>
+
     <style name="SeparatorFlexible">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
@@ -105,7 +111,7 @@
         <item name="android:textSize">@dimen/font_normal</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">@color/mercury</item>
-        <item name="android:paddingStart">@dimen/spacing_3</item>
+        <item name="android:paddingStart">@dimen/spacing_x2</item>
         <item name="android:paddingEnd">44dp</item>
     </style>
 
@@ -115,5 +121,35 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:background">@color/transparent</item>
         <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="UserProfileImage">
+        <item name="roundImage">true</item>
+        <item name="smoothTransition">true</item>
+        <item name="imageSize">small</item>
+        <item name="placeholder">@drawable/ic_user_default</item>
+    </style>
+
+    <style name="ProfileBackgroundImage">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="alphaIntensity">medium</item>
+        <item name="placeholder">@drawable/default_poster_white</item>
+        <item name="smoothTransition">true</item>
+        <item name="blurIntensity">standard</item>
+    </style>
+
+    <style name="UserProfileImageEdit">
+        <item name="imageAbove">false</item>
+        <item name="alphaIntensity">zero</item>
+    </style>
+
+    <style name="RegularDSEditText">
+        <item name="hintColor">@color/mercury</item>
+        <item name="textColor">@color/bunker</item>
+        <item name="uppercaseHint">true</item>
+    </style>
+
+    <style name="RegularDSEditText.NoError" parent="RegularDSEditText">
+        <item name="disableError">true</item>
     </style>
 </resources>

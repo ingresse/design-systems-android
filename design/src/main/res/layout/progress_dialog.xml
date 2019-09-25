@@ -8,6 +8,5 @@
     android:indeterminate="true"
     android:indeterminateTintMode="src_in"
     android:indeterminateTint="@color/tangerine"
-    android:id="@+id/progressBar"
     android:layout_gravity="center"
     tools:targetApi="lollipop" />
