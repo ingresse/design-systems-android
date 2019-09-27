@@ -33,12 +33,13 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
         roundImage = array.getBoolean(R.styleable.DSImage_roundImage, false)
         smoothTransition = array.getBoolean(R.styleable.DSImage_smoothTransition, true)
         placeholder = array.getResourceId(R.styleable.DSImage_placeholder, R.drawable.default_poster_white)
+        val adjustBounds = array.getBoolean(R.styleable.DSImage_adjustBounds, false)
 
         val alpha = array.getInt(R.styleable.DSImage_alphaIntensity, 0)
         val alphaIntensity = AlphaIntensity.findId(alpha)
         setAlpha(alphaIntensity)
 
-        adjustViewBounds = true
+        adjustViewBounds = adjustBounds
         array.recycle()
     }
 
