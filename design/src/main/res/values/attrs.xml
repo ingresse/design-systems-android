@@ -51,7 +51,7 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="CustomSpinner">
+    <declare-styleable name="DSSpinner">
         <attr name="customHint" format="string" />
         <attr name="customHintColor" format="color" />
     </declare-styleable>

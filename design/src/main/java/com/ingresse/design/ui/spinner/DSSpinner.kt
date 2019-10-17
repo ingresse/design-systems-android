@@ -10,7 +10,7 @@ import com.ingresse.design.R
 import com.ingresse.design.helper.ResourcesHelper
 import kotlinx.android.synthetic.main.custom_spinner.view.*
 
-class CustomSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
+class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val hint: String
     private val hintColor: Int
 
@@ -24,9 +24,9 @@ class CustomSpinner(context: Context, attrs: AttributeSet): FrameLayout(context,
         inflate(context, R.layout.custom_spinner, this)
 
         val defaultColor = resHelper.getColorHelper(R.color.mercury)
-        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.CustomSpinner, 0, 0)
-        hint = array.getString(R.styleable.CustomSpinner_customHint) ?: ""
-        hintColor = array.getColor(R.styleable.CustomSpinner_customHintColor, defaultColor)
+        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSSpinner, 0, 0)
+        hint = array.getString(R.styleable.DSSpinner_customHint) ?: ""
+        hintColor = array.getColor(R.styleable.DSSpinner_customHintColor, defaultColor)
 
         txt_hint.text = hint
         txt_hint.setTextColor(hintColor)
@@ -56,7 +56,7 @@ class CustomSpinner(context: Context, attrs: AttributeSet): FrameLayout(context,
         txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
     }
 
-    fun <T> setItems(items: List<T>, firstItem: T? = null) {
+    fun <T> setItems(items: List<T>, shortItems: List<String> = emptyList(), firstItem: T? = null) {
         val spinnerAdapter: ArrayAdapter<T> = spinner.adapter as? ArrayAdapter<T> ?: createAdapter()
         if (spinner.adapter == null) spinner.adapter = spinnerAdapter
 
