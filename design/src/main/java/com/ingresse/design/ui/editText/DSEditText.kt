@@ -93,6 +93,11 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         array.recycle()
     }
 
+    fun clearText() {
+        editText.setText("")
+        editText.setSelection(0)
+    }
+
     fun setTextDS(txt: String?) {
         if (txt.isNullOrEmpty()) return
         editText.setText(txt)
