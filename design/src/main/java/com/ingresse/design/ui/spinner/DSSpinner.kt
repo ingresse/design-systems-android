@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.custom_spinner.view.*
 class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val hint: String
     private val hintColor: Int
+    private var customHints: List<String> = emptyList()
 
     private val resHelper = ResourcesHelper(context)
     private var hasFirstItem = false
@@ -33,11 +34,12 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         setListeners()
     }
 
-    fun setListeners(onItemSelected: ((position: Int, item: Any?) -> Unit)? = null) {
+    fun setListeners(onItemSelected: ((position: Int) -> Unit)? = null) {
         val listener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (customHints.size > position) txt_hint.text = customHints[position]
                 animateTranslation(position)
-                onItemSelected?.invoke(position, parent?.adapter?.getItem(position))
+                onItemSelected?.invoke(position)
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -56,17 +58,21 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
     }
 
-    fun <T> setItems(items: List<T>, shortItems: List<String> = emptyList(), firstItem: T? = null) {
-        val spinnerAdapter: ArrayAdapter<T> = spinner.adapter as? ArrayAdapter<T> ?: createAdapter()
+    fun setHint(newHint: String) { txt_hint.text = newHint }
+
+    fun setItems(items: List<String>, shortItems: List<String> = emptyList(), hints: List<String> = emptyList(), firstItem: String? = null) {
+        val spinnerAdapter = spinner.adapter as? DSSpinnerAdapter ?: createAdapter()
         if (spinner.adapter == null) spinner.adapter = spinnerAdapter
 
         hasFirstItem = (firstItem != null)
+        customHints = hints
         spinnerAdapter.putItemAsFirst(firstItem)
-        spinnerAdapter.addAll(items)
+        spinnerAdapter.items = items
+        spinnerAdapter.shortItems = shortItems
         spinnerAdapter.notifyDataSetChanged()
     }
 
-    private fun <T> ArrayAdapter<T>.putItemAsFirst(item: T?) { if (hasFirstItem) this.insert(item, 0) }
+    private fun DSSpinnerAdapter.putItemAsFirst(item: String?) { if (hasFirstItem) this.insert(item, 0) }
 
-    private fun <T> createAdapter() = ArrayAdapter<T>(context, R.layout.item_custom_spinner, R.id.txt_item)
+    private fun createAdapter() = DSSpinnerAdapter(context)
 }
