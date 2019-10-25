@@ -37,6 +37,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     private val defaultColor: Int
     private var errorDisabled: Boolean = false
     private var passwordVisible: Boolean = false
+    private var hasNext: Boolean = false
 
     var originalTranslationY = 0F
     var isWrong = false
@@ -71,6 +72,8 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         val customStyle = array.getResourceId(R.styleable.DSEditText_customStyle, 0)
         editColor = array.getColor(R.styleable.DSEditText_editColor, defaultColor)
         errorDisabled = array.getBoolean(R.styleable.DSEditText_disableError, false)
+        val nextFocus = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res/android", "nextFocusDown", -1)
+        hasNext = nextFocus != -1
 
         if (isPassword) setPassword()
         if (isLastField) setLastField(action)
@@ -84,7 +87,6 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
 
         txt_hint.text = if (uppercaseHint) hint.toUpperCase() else hint
         txt_hint.setTextColor(hintColor)
-        setListeners()
 
         originalTranslationY = editText.translationY
 
@@ -175,7 +177,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         edit_text.setOnFocusChangeListener { v, hasFocus ->
             focusListener(hasFocus)
             animateTranslation(hasFocus)
-            if (!hasFocus) KeyboardHelper.dismiss(context, edit_text)
+            if (!hasFocus && !hasNext) KeyboardHelper.dismiss(context, edit_text)
         }
     }
 
@@ -220,7 +222,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         editText.setOnFocusChangeListener listener@{ v, hasFocus ->
             focusListener(hasFocus)
             animateTranslation(hasFocus)
-            if (!hasFocus) KeyboardHelper.dismiss(context, edit_text)
+            if (!hasFocus && !hasNext) KeyboardHelper.dismiss(context, edit_text)
 
             // Set isWrong and hint with different color when focused
 
