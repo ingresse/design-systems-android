@@ -35,12 +35,12 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     private val textFormatType: TextFormatType
     private val editColor: Int
     private val defaultColor: Int
-    private var errorDisabled: Boolean = false
     private var passwordVisible: Boolean = false
     private var hasNext: Boolean = false
 
     var originalTranslationY = 0F
     var isWrong = false
+    var errorDisabled: Boolean = false
 
     private val resHelper = ResourcesHelper(context)
     private var focusListener: (hasFocus: Boolean) -> Unit = {}
