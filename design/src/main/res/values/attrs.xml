@@ -51,7 +51,7 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="CustomSpinner">
+    <declare-styleable name="DSSpinner">
         <attr name="customHint" format="string" />
         <attr name="customHintColor" format="color" />
     </declare-styleable>
@@ -100,6 +100,7 @@
 
     <declare-styleable name="DSButtonItem">
         <attr name="text" />
+        <attr name="textColor" />
         <attr name="withEndIcon" format="boolean" />
     </declare-styleable>
 
@@ -128,6 +129,7 @@
         <attr name="roundImage" format="boolean" />
         <attr name="smoothTransition" format="boolean" />
         <attr name="placeholder" format="reference" />
+        <attr name="adjustBounds" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="DSProfileImage">
