@@ -67,6 +67,14 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <!-- H4 -->
+    <style name="TextStyle.H4" parent="TextStyle">
+        <item name="android:textSize">@dimen/font_h4</item>
+    </style>
+    <style name="TextStyle.H4.Dark" parent="TextStyle.H4">
+        <item name="android:textColor">@color/oil</item>
+    </style>
+
     <!-- NORMAL -->
     <style name="TextStyle.Normal" parent="TextStyle">
         <item name="android:textSize">@dimen/font_normal</item>
@@ -139,8 +147,23 @@
     <style name="TextStyle.Small.White.Center" parent="TextStyle.Small.White">
         <item name="android:gravity">center</item>
     </style>
+    <style name="TextStyle.Small.LightGray" parent="TextStyle.Small">
+        <item name="android:textColor">@color/santas_gray</item>
+    </style>
+    <style name="TextStyle.Small.LightGray.Center" parent="TextStyle.Small.LightGray">
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="TextStyle.Small.LightGray.Center.Caps" parent="TextStyle.Small.LightGray.Center">
+        <item name="android:textAllCaps">true</item>
+    </style>
     <style name="TextStyle.Small.Gray" parent="TextStyle.Small">
         <item name="android:textColor">@color/mercury</item>
+    </style>
+    <style name="TextStyle.Small.Bold.Gray" parent="TextStyle.Small.Gray">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextStyle.Small.Bold.Gray.Caps" parent="TextStyle.Small.Bold.Gray">
+        <item name="android:textAllCaps">true</item>
     </style>
     <style name="TextStyle.Small.Link" parent="TextStyle.Small">
         <item name="android:textColor">@color/ocean</item>
@@ -167,6 +190,12 @@
     </style>
     <style name="TextStyle.VerySmall.Gray" parent="TextStyle.VerySmall">
         <item name="android:textColor">@color/mercury</item>
+    </style>
+    <style name="TextStyle.VerySmall.Dark" parent="TextStyle.VerySmall">
+        <item name="android:textColor">@color/oil</item>
+    </style>
+    <style name="TextStyle.VerySmall.Dark.Center" parent="TextStyle.VerySmall.Dark">
+        <item name="android:gravity">center</item>
     </style>
     <style name="TextStyle.VerySmall.White.Center" parent="TextStyle.VerySmall.White">
         <item name="android:gravity">center</item>
