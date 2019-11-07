@@ -271,4 +271,9 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         txt_hint.setTextColor(hintColor)
         isWrong = false
     }
+
+    fun validateEmptyEditTextError() {
+        if(edit_text.text.count() == 0) { setEditTextError() }
+        else { setEditTextDefault() }
+    }
 }
