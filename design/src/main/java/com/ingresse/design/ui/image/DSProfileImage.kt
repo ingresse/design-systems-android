@@ -1,6 +1,7 @@
 package com.ingresse.design.ui.image
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import com.ingresse.design.R
@@ -27,4 +28,5 @@ class DSProfileImage(context: Context, attrs: AttributeSet): FrameLayout(context
     }
 
     fun setImage(image: String, key: String) = userImage.setImage(image, key)
+    fun setImage(imageUri: Uri) = userImage.setImage(imageUri)
 }

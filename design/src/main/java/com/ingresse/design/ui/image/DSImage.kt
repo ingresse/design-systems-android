@@ -2,6 +2,7 @@ package com.ingresse.design.ui.image
 
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
+import android.net.Uri
 import android.util.AttributeSet
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
@@ -51,6 +52,25 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
         val glide = Glide.with(this)
                 .load(imageToLoad)
                 .signature(ObjectKey(key))
+                .transition(DrawableTransitionOptions().crossFade(factory))
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
+
+        if (blurTransform != BlurIntensity.ZERO) glide.transform(blurTransform.blur)
+        if (sizeTransform != ImageSize.ORIGINAL) glide.thumbnail(sizeTransform.multiplier)
+        if (!roundImage) {
+            glide.placeholder(placeholder).into(this)
+            return
+        }
+
+        glide.placeholder(placeholder).transform(CircleCrop()).into(this)
+    }
+
+    fun setImage(imageUri: Uri) {
+        val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(smoothTransition).build()
+
+        val glide = Glide.with(this)
+                .load(imageUri)
+                .signature(ObjectKey(imageUri))
                 .transition(DrawableTransitionOptions().crossFade(factory))
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
 
