@@ -27,6 +27,6 @@ class DSProfileImage(context: Context, attrs: AttributeSet): FrameLayout(context
         array.recycle()
     }
 
-    fun setImage(image: String, key: String) = userImage.setImage(image, key)
+    fun setImage(image: String, key: String) = userImage.setImage(image, key, userImage.drawable)
     fun setImage(imageUri: Uri) = userImage.setImage(imageUri)
 }
