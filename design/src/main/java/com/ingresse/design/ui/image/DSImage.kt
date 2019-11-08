@@ -1,11 +1,13 @@
 package com.ingresse.design.ui.image
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.util.AttributeSet
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.graphics.drawable.toDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
@@ -44,7 +46,7 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
         array.recycle()
     }
 
-    fun setImage(image: String, key: String) {
+    fun setImage(image: String, key: String, customPlaceholder: Drawable? = null) {
         val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(smoothTransition).build()
 
         val imageToLoad: Any = if (image.isNotEmpty()) image else resHelper.getDrawableHelper(placeholder)
@@ -58,11 +60,11 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
         if (blurTransform != BlurIntensity.ZERO) glide.transform(blurTransform.blur)
         if (sizeTransform != ImageSize.ORIGINAL) glide.thumbnail(sizeTransform.multiplier)
         if (!roundImage) {
-            glide.placeholder(placeholder).into(this)
+            glide.placeholder(customPlaceholder ?: placeholder.toDrawable()).into(this)
             return
         }
 
-        glide.placeholder(placeholder).transform(CircleCrop()).into(this)
+        glide.placeholder(customPlaceholder ?: placeholder.toDrawable()).transform(CircleCrop()).into(this)
     }
 
     fun setImage(imageUri: Uri) {
