@@ -9,6 +9,7 @@ import android.widget.*
 import com.ingresse.design.R
 import com.ingresse.design.helper.ResourcesHelper
 import kotlinx.android.synthetic.main.custom_spinner.view.*
+import kotlinx.android.synthetic.main.custom_spinner.view.txt_hint
 
 class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val hint: String
@@ -17,6 +18,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
 
     private val resHelper = ResourcesHelper(context)
     private var hasFirstItem = false
+    var isWrong = false
 
     private val textView: TextView get() = txt_hint
     val spinner: Spinner get() = custom_spinner
@@ -75,4 +77,21 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
     private fun DSSpinnerAdapter.putItemAsFirst(item: String?) { if (hasFirstItem) this.insert(item, 0) }
 
     private fun createAdapter() = DSSpinnerAdapter(context)
+
+    private fun setSpinnerHintTextDefault() {
+        txt_hint.setTextColor(hintColor)
+        isWrong = false
+    }
+
+    fun setSpinnerHintTextError() {
+        spinner.setSelection(0)
+        val errorColor = resHelper.getColorHelper(R.color.ruby)
+        txt_hint.setTextColor(errorColor)
+        isWrong = true
+    }
+
+    fun validateEmptyEditTextError() {
+        if(isWrong) { setSpinnerHintTextError() }
+        else { setSpinnerHintTextDefault() }
+    }
 }
