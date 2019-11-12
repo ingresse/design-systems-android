@@ -90,7 +90,10 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
     }
 
     fun validateEmptyEditTextError() {
-        if(isWrong) { setSpinnerHintTextError() }
-        else { setSpinnerHintTextDefault() }
+        if (isWrong)  {
+            setSpinnerHintTextError()
+            return
+        }
+        setSpinnerHintTextDefault()
     }
 }
