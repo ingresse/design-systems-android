@@ -268,7 +268,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     }
 
     fun validateEmptyEditTextError() {
-        if(edit_text.text.count() == 0) { setEditTextError() }
+        if(edit_text.text.isEmpty()) { setEditTextError() }
         else { setEditTextDefault() }
     }
 }

@@ -84,7 +84,6 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
     }
 
     fun setSpinnerHintTextError() {
-        spinner.setSelection(0)
         val errorColor = resHelper.getColorHelper(R.color.ruby)
         txt_hint.setTextColor(errorColor)
         isWrong = true
