@@ -78,7 +78,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
 
     private fun createAdapter() = DSSpinnerAdapter(context)
 
-    private fun setSpinnerHintTextDefault() {
+    fun setSpinnerHintTextDefault() {
         txt_hint.setTextColor(hintColor)
         isWrong = false
     }
