@@ -106,11 +106,13 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     }
 
     fun setTextDS(txt: String?, cleanWhenEmpty: Boolean = false, wrongWhenEmpty: Boolean = false) {
-        if (cleanWhenEmpty) {
+        if (cleanWhenEmpty && txt.isNullOrEmpty()) {
             editText.text.clear()
             if (!editText.hasFocus()) animateHintToCenter()
         }
-        if (wrongWhenEmpty) setEditTextError()
+
+        if (wrongWhenEmpty && txt.isNullOrEmpty()) setEditTextError()
+
         if (txt.isNullOrEmpty()) return
         editText.setText(txt)
         editText.setSelection(txt.length)

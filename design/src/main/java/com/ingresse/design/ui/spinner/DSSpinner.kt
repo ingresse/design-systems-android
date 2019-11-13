@@ -40,7 +40,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         val listener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (customHints.size > position) txt_hint.text = customHints[position]
-                animateTranslation(position)
+                if (position == 0) animateHintToCenter() else animateTranslation(position)
                 onItemSelected?.invoke(position)
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -58,6 +58,15 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
 
         val fontSize = if (hasFirstItem && position == 0) 16f else 14f
         txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
+    }
+
+    private fun animateHintToCenter() {
+        val movement = (textView.height * -0.6).toFloat()
+        val animation = TranslateAnimation(0F, 0F, movement, 0F)
+        animation.duration = 200
+        animation.fillAfter = true
+        textView.startAnimation(animation)
+        txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
     }
 
     fun setHint(newHint: String) { txt_hint.text = newHint }
@@ -83,14 +92,16 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         isWrong = false
     }
 
-    fun setSpinnerHintTextError() {
+    fun setSpinnerHintTextError(animation: Boolean = false) {
         val errorColor = resHelper.getColorHelper(R.color.ruby)
         txt_hint.setTextColor(errorColor)
+        if(animation) animateHintToCenter()
         isWrong = true
     }
 
     fun validateEmptyEditTextError() {
         if (isWrong)  {
+            animateHintToCenter()
             setSpinnerHintTextError()
             return
         }
