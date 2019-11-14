@@ -111,6 +111,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         if (txt.isNullOrEmpty()) return
         editText.setText(txt)
         editText.setSelection(txt.length)
+        setEditTextDefault()
         animateHintToTop()
     }
 

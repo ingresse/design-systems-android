@@ -54,6 +54,7 @@
     <declare-styleable name="DSSpinner">
         <attr name="customHint" format="string" />
         <attr name="customHintColor" format="color" />
+        <attr name="firstEmpty" format="boolean" />
     </declare-styleable>
 
     <!-- BUTTONS -->
