@@ -15,6 +15,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
     private val hint: String
     private val hintColor: Int
     private var customHints: List<String> = emptyList()
+    var firstEmpty: Boolean
 
     private val resHelper = ResourcesHelper(context)
     private var hasFirstItem = false
@@ -30,6 +31,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSSpinner, 0, 0)
         hint = array.getString(R.styleable.DSSpinner_customHint) ?: ""
         hintColor = array.getColor(R.styleable.DSSpinner_customHintColor, defaultColor)
+        firstEmpty = array.getBoolean(R.styleable.DSSpinner_firstEmpty, false)
 
         txt_hint.text = hint
         txt_hint.setTextColor(hintColor)
@@ -40,7 +42,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         val listener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (customHints.size > position) txt_hint.text = customHints[position]
-                if (position == 0) animateHintToCenter() else animateTranslation(position)
+                if (firstEmpty && position == 0) animateHintToCenter() else animateTranslation(position)
                 onItemSelected?.invoke(position)
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -78,12 +80,24 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         hasFirstItem = (firstItem != null)
         customHints = hints
         spinnerAdapter.putItemAsFirst(firstItem)
-        spinnerAdapter.items = items
+        spinnerAdapter.items = validateListItens(items)
         spinnerAdapter.shortItems = shortItems
         spinnerAdapter.notifyDataSetChanged()
     }
 
-    private fun DSSpinnerAdapter.putItemAsFirst(item: String?) { if (hasFirstItem) this.insert(item, 0) }
+    private fun DSSpinnerAdapter.putItemAsFirst(item: String?) {
+        if (hasFirstItem) this.insert(item, 0)
+    }
+
+    private fun validateListItens(items: List<String>): MutableList<String> {
+        if (firstEmpty) {
+            var listFirstEmpty: MutableList<String> = ArrayList()
+            listFirstEmpty.add(0, "")
+            listFirstEmpty.addAll(1, items)
+            return listFirstEmpty
+        }
+        return items.toMutableList()
+    }
 
     private fun createAdapter() = DSSpinnerAdapter(context)
 
