@@ -39,12 +39,13 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
     fun setListeners(onItemSelected: ((position: Int) -> Unit)? = null) {
         val listener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                var currentPosition = if (isWrong) -1 else position
-
-                if (customHints.size > position) txt_hint.text = customHints[currentPosition]
-                if (isWrong) animateHintToCenter() else animateTranslation(currentPosition)
+                if (isWrong) animateHintToCenter() else animateTranslation(position)
                 if (isWrong) validateEmptyEditTextError() else setSpinnerHintTextDefault()
-                onItemSelected?.invoke(currentPosition)
+                spinner.alpha = if (isWrong) 0F else 1F
+
+                if (customHints.size > position) txt_hint.text = customHints[position]
+                onItemSelected?.invoke(position)
+                isWrong = false
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -53,12 +54,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
 
     fun setSelectedItem(position: Int, error: Boolean) {
         isWrong = error
-        if (isWrong) {
-            spinner.setSelection(0)
-            spinner.visibility = View.INVISIBLE
-            return
-        }
-        spinner.visibility = View.VISIBLE
+        if (isWrong) return spinner.setSelection(0)
         spinner.setSelection(position)
     }
 

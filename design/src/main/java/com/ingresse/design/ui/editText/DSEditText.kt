@@ -108,10 +108,10 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         if (wrongWhenEmpty && txt.isNullOrEmpty()) setEditTextError()
 
         if (txt.isNullOrEmpty()) return
+        animateHintToTop()
         editText.setText(txt)
         editText.setSelection(txt.length)
         setEditTextDefault()
-        animateHintToTop()
     }
 
     fun getTextDS(): String = editText.text.toString()
@@ -272,10 +272,5 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         edit_text.setTextColor(textColor)
         txt_hint.setTextColor(hintColor)
         isWrong = false
-    }
-
-    fun validateEmptyEditTextError() {
-        if(edit_text.text.isEmpty()) { setEditTextError() }
-        else { setEditTextDefault() }
     }
 }
