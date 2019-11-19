@@ -113,10 +113,10 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         if (wrongWhenEmpty && txt.isNullOrEmpty()) setEditTextError()
 
         if (txt.isNullOrEmpty()) return
+        animateHintToTop()
         editText.setText(txt)
         editText.setSelection(txt.length)
         setEditTextDefault()
-        animateHintToTop()
     }
 
     fun getTextDS(): String = editText.text.toString()
