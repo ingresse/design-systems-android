@@ -59,12 +59,13 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
 
         if (blurTransform != BlurIntensity.ZERO) glide.transform(blurTransform.blur)
         if (sizeTransform != ImageSize.ORIGINAL) glide.thumbnail(sizeTransform.multiplier)
-        if (!roundImage) {
-            glide.placeholder(customPlaceholder ?: placeholder.toDrawable()).into(this)
-            return
-        }
 
-        glide.placeholder(customPlaceholder ?: placeholder.toDrawable()).transform(CircleCrop()).into(this)
+        when {
+            !roundImage && customPlaceholder == null -> glide.placeholder(placeholder).into(this)
+            !roundImage -> glide.placeholder(customPlaceholder).into(this)
+            customPlaceholder == null -> glide.placeholder(placeholder).transform(CircleCrop()).into(this)
+            else -> glide.placeholder(customPlaceholder).transform(CircleCrop()).into(this)
+        }
     }
 
     fun setImage(imageUri: Uri) {
