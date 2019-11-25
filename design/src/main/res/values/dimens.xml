@@ -40,6 +40,7 @@
     <dimen name="spacing_x4">16dp</dimen>
     <dimen name="spacing_x5">20dp</dimen>
     <dimen name="spacing_x6">24dp</dimen>
+    <dimen name="spacing_x7">28dp</dimen>
     <dimen name="spacing_x8">32dp</dimen>
     <dimen name="spacing_x9">36dp</dimen>
     <dimen name="spacing_x10">40dp</dimen>
