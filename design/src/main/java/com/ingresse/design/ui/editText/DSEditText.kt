@@ -238,14 +238,14 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
 
             // Set isWrong and hint with different color when focused
 
-            if (hasFocus) return@listener setEditTextDefault()
+            if (hasFocus) return@listener setEditTextDefault(true)
 
-            val textCount = editText.text.toString().count()
+            val textCount = getTextDS().count()
             val minCount = if (textFormatType == TextFormatType.MIXED_CPF_CNPJ
                     && textCount > textFormatType.minCharFormatted ?: 0) textFormatType.maxCharFormatted
             else textFormatType.minCharFormatted
 
-            if (textInputType == TextInputType.EMAIL && !editText.text.toString().isValidEmail()) {
+            if (textInputType == TextInputType.EMAIL && !getTextDS().isValidEmail()) {
                 setEditTextError()
                 return@listener
             }
@@ -273,9 +273,10 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         isWrong = true
     }
 
-    private fun setEditTextDefault() {
+    private fun setEditTextDefault(hasFocus: Boolean = false) {
+        val hintTextColor = if (hasFocus) defaultColor else hintColor
         edit_text.setTextColor(textColor)
-        txt_hint.setTextColor(hintColor)
+        txt_hint.setTextColor(hintTextColor)
         isWrong = false
     }
 }
