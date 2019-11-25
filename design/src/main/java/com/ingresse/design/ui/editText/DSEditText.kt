@@ -279,4 +279,10 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         txt_hint.setTextColor(hintTextColor)
         isWrong = false
     }
+
+    fun setWatcher(onTextChange: (text: String) -> Unit)
+        = editText.addTextChangedListener(singleListener {
+            if (textInputType == TextInputType.EMAIL) { isWrong = !getTextDS().isValidEmail() }
+            onTextChange.invoke(it)
+        })
 }
