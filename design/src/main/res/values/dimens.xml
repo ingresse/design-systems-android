@@ -31,6 +31,7 @@
     <dimen name="font_very_small">12sp</dimen>
 
     <!-- SPACING -->
+    <dimen name="spacing_x0">0dp</dimen>
     <dimen name="spacing_x0_5">2dp</dimen>
     <dimen name="spacing_x1">4dp</dimen>
     <dimen name="spacing_x1_5">6dp</dimen>
@@ -44,6 +45,7 @@
     <dimen name="spacing_x8">32dp</dimen>
     <dimen name="spacing_x9">36dp</dimen>
     <dimen name="spacing_x10">40dp</dimen>
+    <dimen name="spacing_x13">52dp</dimen>
     <dimen name="spacing_x22">88dp</dimen>
 
     <!-- DEFAULT HEIGHTS -->

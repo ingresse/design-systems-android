@@ -77,11 +77,13 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         val darkColor = when (type) {
             ButtonTheme.PRIMARY -> colorHelper.primaryDarkColor
             ButtonTheme.ACCENT -> colorHelper.secondaryDarkColor
+            ButtonTheme.CONFIRM -> colorHelper.confirmDarkColor
         }
 
         val normalColor = when (type) {
             ButtonTheme.PRIMARY -> colorHelper.primaryColor
             ButtonTheme.ACCENT -> colorHelper.secondaryColor
+            ButtonTheme.CONFIRM -> colorHelper.confirmColor
         }
 
         val colors = intArrayOf(
