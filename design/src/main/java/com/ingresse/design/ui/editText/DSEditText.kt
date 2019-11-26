@@ -22,7 +22,7 @@ import com.ingresse.design.helper.*
 import kotlinx.android.synthetic.main.ds_edit_text.view.*
 
 class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
-    private val hint: String
+    private var hint: String
     private val hintColor: Int
     private val textColor: Int
     private val isPassword: Boolean
@@ -93,6 +93,11 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         setFocusListener()
         setFormatType()
         array.recycle()
+    }
+
+    fun setHint(text: String) {
+        hint = text
+        txt_hint.text = if (uppercaseHint) hint.toUpperCase() else hint
     }
 
     fun clearText() {
