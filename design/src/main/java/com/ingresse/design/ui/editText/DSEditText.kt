@@ -26,6 +26,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     private val textColor: Int
     private val isPassword: Boolean
     private val isLastField: Boolean
+    private val isLoading: Boolean
     private val showSuggestions: Boolean
     private val clearButton: Boolean
     private val capitalization: Capitalization
@@ -59,6 +60,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         textColor = array.getColor(R.styleable.DSEditText_textColor, defaultColor)
         isPassword = array.getBoolean(R.styleable.DSEditText_isPassword, false)
         isLastField = array.getBoolean(R.styleable.DSEditText_isLastField, false)
+        isLoading = array.getBoolean(R.styleable.DSEditText_isLoading, false)
         val capsAttr = array.getInt(R.styleable.DSEditText_capitalization, 1)
         capitalization = Capitalization.fromId(capsAttr)
         showSuggestions = array.getBoolean(R.styleable.DSEditText_showSuggestion, true)
@@ -79,6 +81,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         if (capitalization != Capitalization.CAPITALIZED) setCapitalization()
         if (textInputType != TextInputType.NONE) setInputType()
         if (clearButton) setClearButton()
+        if (isLoading) setLoading()
         if (customStyle != 0) resHelper.setTextAppearanceHelper(editText, customStyle)
 
         edit_text.setText(text)
@@ -104,7 +107,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         editText.setSelection(0)
     }
 
-    fun setTextDS(txt: String?, cleanWhenEmpty: Boolean = false, wrongWhenEmpty: Boolean = false) {
+    fun setTextDS(txt: String?, cleanWhenEmpty: Boolean = false, wrongWhenEmpty: Boolean = false, animated: Boolean = true) {
         if (cleanWhenEmpty && txt.isNullOrEmpty()) {
             editText.text.clear()
             if (!editText.hasFocus()) animateHintToCenter()
@@ -113,7 +116,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         if (wrongWhenEmpty && txt.isNullOrEmpty()) setEditTextError()
 
         if (txt.isNullOrEmpty()) return
-        animateHintToTop()
+        animateHintToTop(animated)
         editText.setText(txt)
         editText.setSelection(txt.length)
         setEditTextDefault()
@@ -144,7 +147,10 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     }
 
     private fun setPassword() {
+        right_view_layout.visibility = View.VISIBLE
         btn_pass.visibility = View.VISIBLE
+        progressBar.visibility = View.GONE
+        progressBar.isIndeterminate = false
         btn_pass.setOnClickListener {
             passwordVisible = !passwordVisible
             val method = if (passwordVisible) SingleLineTransformationMethod() else PasswordTransformationMethod()
@@ -157,7 +163,8 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         edit_text.inputType = textType or InputType.TYPE_TEXT_VARIATION_PASSWORD
     }
 
-    private fun setClearButton() {
+    fun setClearButton() {
+        right_view_layout.visibility = View.GONE
         val cancel = resHelper.getDrawableHelper(R.drawable.ic_clear_text)
         cancel.setBounds(0, -25, cancel.intrinsicWidth, cancel.intrinsicHeight - 25)
 
@@ -183,6 +190,17 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         edit_text.addTextChangedListener(object: TextWatcherMin() {
             override fun afterTextChanged(s: Editable?) = updateRightButton()
         })
+
+        updateRightButton()
+    }
+
+    fun setLoading(show: Boolean = true) {
+        right_view_layout.setVisible(show)
+        progressBar.setVisible(show)
+        btn_pass.setVisible(!show)
+
+        if (show) return edit_text.setCompoundDrawables(null, null, null, null)
+        if (clearButton) setClearButton()
     }
 
     private fun setListeners() {
@@ -193,10 +211,10 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         }
     }
 
-    private fun animateHintToTop() {
+    private fun animateHintToTop(animated: Boolean = true) {
         val movement = resHelper.resources.getDimension(R.dimen.height_text_view_normal) * - 0.6F
         val animation = TranslateAnimation(0F, 0F, 0F, movement)
-        animation.duration = 200
+        animation.duration = if (animated) 200 else 0
         animation.fillAfter = true
         txt_hint.startAnimation(animation)
 
