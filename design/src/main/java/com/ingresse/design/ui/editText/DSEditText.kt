@@ -20,20 +20,20 @@ import com.ingresse.design.R
 import com.ingresse.design.helper.*
 import kotlinx.android.synthetic.main.ds_edit_text.view.*
 
-class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
-    private var hint: String
-    private val hintColor: Int
-    private val textColor: Int
-    private val isPassword: Boolean
-    private val isLastField: Boolean
-    private val showSuggestions: Boolean
-    private val clearButton: Boolean
-    private val capitalization: Capitalization
-    private val uppercaseHint: Boolean
-    private val textInputType: TextInputType
-    private val textFormatType: TextFormatType
-    private val editColor: Int
-    private val defaultColor: Int
+class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(context, attributes) {
+    private lateinit var hint: String
+    private var hintColor: Int = 0
+    private var textColor: Int = 0
+    private var isPassword: Boolean = false
+    private var isLastField: Boolean = false
+    private var showSuggestions: Boolean = false
+    private var clearButton: Boolean = false
+    private lateinit var capitalization: Capitalization
+    private var uppercaseHint: Boolean = false
+    private lateinit var textInputType: TextInputType
+    private lateinit var textFormatType: TextFormatType
+    private var editColor: Int = -1
+    private var defaultColor: Int = -1
     private var passwordVisible: Boolean = false
     private var hasNext: Boolean = false
 
@@ -49,6 +49,11 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
 
     init {
         View.inflate(context, R.layout.ds_edit_text, this)
+        config()
+    }
+
+    fun config(customAttrs: AttributeSet? = null) {
+        val attrs = customAttrs ?: attributes
 
         defaultColor = Color.parseColor(ColorHelper(context).primaryColor)
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSEditText, 0, 0)
@@ -122,7 +127,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     fun getTextDS(): String = editText.text.toString()
 
     private fun setFormatType() {
-         if (textFormatType == TextFormatType.NONE) return
+        if (textFormatType == TextFormatType.NONE) return
         FormatText(context).mask(editText, textFormatType)
     }
 
