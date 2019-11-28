@@ -37,6 +37,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     private val defaultColor: Int
     private var passwordVisible: Boolean = false
     private var hasNext: Boolean = false
+    private var isHintOnTop = false
 
     var originalTranslationY = 0F
     var isWrong = false
@@ -212,6 +213,7 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
     }
 
     private fun animateHintToTop(animated: Boolean = true) {
+        if (isHintOnTop) return
         val movement = resHelper.resources.getDimension(R.dimen.height_text_view_normal) * - 0.6F
         val animation = TranslateAnimation(0F, 0F, 0F, movement)
         animation.duration = if (animated) 200 else 0
@@ -220,9 +222,11 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
 
         val fontSize = 14f
         txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
+        isHintOnTop = true
     }
 
     private fun animateHintToCenter() {
+        if (!isHintOnTop) return
         val movement = resHelper.resources.getDimension(R.dimen.height_text_view_normal) * - 0.6F
         val animation = TranslateAnimation(0F, 0F, movement, 0F)
         animation.duration = 200
@@ -231,11 +235,11 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
 
         val fontSize = 16f
         txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
+        isHintOnTop = false
     }
 
     private fun animateTranslation(hasFocus: Boolean) {
-        if (!edit_text.text.isNullOrEmpty()) return
-        if (hasFocus) animateHintToTop() else animateHintToCenter()
+        if (edit_text.text.isNullOrEmpty() && !hasFocus) animateHintToCenter() else animateHintToTop()
     }
 
     fun setActionListener(listener: () -> Unit) {
