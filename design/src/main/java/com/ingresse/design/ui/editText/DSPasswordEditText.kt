@@ -28,7 +28,7 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
 
         halfLevel = resHelper.getDrawableHelper(R.drawable.progress_level_half)
         fullLevel = resHelper.getDrawableHelper(R.drawable.progress_level_full)
-        setEmptyValidation()
+        setStrengthByProgress(0)
 
         editText.config(attrs)
         setFocusListener()
@@ -38,10 +38,10 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
 
     fun setStrengthByProgress(progress: Int) {
         when(progress) {
-            1 -> setWeakPassword()
-            2 -> setMediumPassword()
-            3 -> setStrongPassword()
-            else -> setEmptyValidation()
+            1 -> setProgressValues(halfLevel, Strength.WEAK, 1)
+            2 -> setProgressValues(halfLevel, Strength.MEDIUM, 2)
+            3 -> setProgressValues(fullLevel, Strength.STRONG, 3)
+            else -> setProgressValues(fullLevel, Strength.NONE, 0)
         }
     }
 
