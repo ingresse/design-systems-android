@@ -36,6 +36,15 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
 
     private fun setEmptyValidation() = setProgressValues(fullLevel, Strength.NONE, 0)
 
+    fun setStrengthByProgress(progress: Int) {
+        when(progress) {
+            1 -> setWeakPassword()
+            2 -> setMediumPassword()
+            3 -> setStrongPassword()
+            else -> setEmptyValidation()
+        }
+    }
+
     private fun setProgressValues(level: Drawable, strength: Strength, progress: Int) {
         progress_strength_password.progressDrawable = level
 
