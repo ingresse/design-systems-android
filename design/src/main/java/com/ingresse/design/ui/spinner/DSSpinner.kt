@@ -9,6 +9,7 @@ import android.widget.*
 import com.ingresse.design.R
 import com.ingresse.design.helper.ResourcesHelper
 import kotlinx.android.synthetic.main.custom_spinner.view.*
+import kotlinx.android.synthetic.main.custom_spinner.view.txt_hint
 
 class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, attrs) {
     private val hint: String
@@ -17,6 +18,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
 
     private val resHelper = ResourcesHelper(context)
     private var hasFirstItem = false
+    var isWrong = false
 
     private val textView: TextView get() = txt_hint
     val spinner: Spinner get() = custom_spinner
@@ -37,13 +39,23 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
     fun setListeners(onItemSelected: ((position: Int) -> Unit)? = null) {
         val listener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (isWrong) animateHintToCenter() else animateTranslation(position)
+                if (isWrong) validateEmptyEditTextError() else setSpinnerHintTextDefault()
+                spinner.alpha = if (isWrong) 0F else 1F
+
                 if (customHints.size > position) txt_hint.text = customHints[position]
-                animateTranslation(position)
                 onItemSelected?.invoke(position)
+                isWrong = false
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
         spinner.onItemSelectedListener = listener
+    }
+
+    fun setSelectedItem(position: Int, error: Boolean) {
+        isWrong = error
+        if (isWrong) return spinner.setSelection(0)
+        spinner.setSelection(position)
     }
 
     private fun animateTranslation(position: Int) {
@@ -56,6 +68,15 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
 
         val fontSize = if (hasFirstItem && position == 0) 16f else 14f
         txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize)
+    }
+
+    private fun animateHintToCenter() {
+        val movement = (textView.height * -0.6).toFloat()
+        val animation = TranslateAnimation(0F, 0F, movement, 0F)
+        animation.duration = 200
+        animation.fillAfter = true
+        textView.startAnimation(animation)
+        txt_hint.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
     }
 
     fun setHint(newHint: String) { txt_hint.text = newHint }
@@ -72,7 +93,30 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         spinnerAdapter.notifyDataSetChanged()
     }
 
-    private fun DSSpinnerAdapter.putItemAsFirst(item: String?) { if (hasFirstItem) this.insert(item, 0) }
+    private fun DSSpinnerAdapter.putItemAsFirst(item: String?) {
+        if (hasFirstItem) this.insert(item, 0)
+    }
 
     private fun createAdapter() = DSSpinnerAdapter(context)
+
+    fun setSpinnerHintTextDefault() {
+        txt_hint.setTextColor(hintColor)
+        isWrong = false
+    }
+
+    fun setSpinnerHintTextError(animation: Boolean = false) {
+        val errorColor = resHelper.getColorHelper(R.color.ruby)
+        txt_hint.setTextColor(errorColor)
+        if(animation) animateHintToCenter()
+        isWrong = true
+    }
+
+    fun validateEmptyEditTextError() {
+        if (isWrong)  {
+            animateHintToCenter()
+            setSpinnerHintTextError()
+            return
+        }
+        setSpinnerHintTextDefault()
+    }
 }

@@ -1,7 +1,6 @@
 package com.ingresse.design.ui.editText
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.text.Editable
@@ -105,11 +104,19 @@ class DSEditText(context: Context, attrs: AttributeSet): FrameLayout(context, at
         editText.setSelection(0)
     }
 
-    fun setTextDS(txt: String?) {
+    fun setTextDS(txt: String?, cleanWhenEmpty: Boolean = false, wrongWhenEmpty: Boolean = false) {
+        if (cleanWhenEmpty && txt.isNullOrEmpty()) {
+            editText.text.clear()
+            if (!editText.hasFocus()) animateHintToCenter()
+        }
+
+        if (wrongWhenEmpty && txt.isNullOrEmpty()) setEditTextError()
+
         if (txt.isNullOrEmpty()) return
+        animateHintToTop()
         editText.setText(txt)
         editText.setSelection(txt.length)
-        animateHintToTop()
+        setEditTextDefault()
     }
 
     fun getTextDS(): String = editText.text.toString()

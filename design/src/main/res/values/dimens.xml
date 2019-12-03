@@ -43,6 +43,7 @@
     <dimen name="spacing_x8">32dp</dimen>
     <dimen name="spacing_x9">36dp</dimen>
     <dimen name="spacing_x10">40dp</dimen>
+    <dimen name="spacing_x22">88dp</dimen>
 
     <!-- DEFAULT HEIGHTS -->
     <dimen name="height_text_view_small">16dp</dimen>
