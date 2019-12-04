@@ -3,21 +3,23 @@
     <item
         android:id="@android:id/background"
         android:gravity="center_vertical|fill_horizontal">
-        <shape android:shape="rectangle">
-            <corners
-                android:bottomLeftRadius="@dimen/radius_small"
-                android:bottomRightRadius="@dimen/radius_small" />
-        </shape>
-    </item>
-    <item
-        android:id="@android:id/progress"
-        android:gravity="center_vertical|fill_horizontal">
-        <scale android:scaleWidth="100%">
+        <clip>
             <shape android:shape="rectangle">
                 <corners
                     android:bottomLeftRadius="@dimen/radius_small"
                     android:bottomRightRadius="@dimen/radius_small" />
             </shape>
-        </scale>
+        </clip>
+    </item>
+    <item
+        android:id="@android:id/progress"
+        android:gravity="center_vertical|fill_horizontal">
+        <clip>
+            <shape android:shape="rectangle">
+                <corners
+                    android:bottomLeftRadius="@dimen/radius_small"
+                    android:bottomRightRadius="@dimen/radius_small" />
+            </shape>
+        </clip>
     </item>
 </layer-list>

@@ -20,7 +20,7 @@ import com.ingresse.design.R
 import com.ingresse.design.helper.*
 import kotlinx.android.synthetic.main.ds_edit_text.view.*
 
-class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(context, attributes) {
+class DSEditText(context: Context, private val attributes: AttributeSet): FrameLayout(context, attributes) {
     private lateinit var hint: String
     private var hintColor: Int = 0
     private var textColor: Int = 0
@@ -32,14 +32,17 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
     private var uppercaseHint: Boolean = false
     private lateinit var textInputType: TextInputType
     private lateinit var textFormatType: TextFormatType
+    private lateinit var originalTextFormatType: TextFormatType
     private var editColor: Int = -1
     private var defaultColor: Int = -1
     private var passwordVisible: Boolean = false
     private var hasNext: Boolean = false
+    private var formatter = FormatText(context)
+    private var customValidation: Boolean = false
 
     var originalTranslationY = 0F
     var isWrong = false
-    var errorDisabled: Boolean = false
+    var isOptional: Boolean = false
 
     private val resHelper = ResourcesHelper(context)
     private var focusListener: (hasFocus: Boolean) -> Unit = {}
@@ -52,9 +55,7 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
         config()
     }
 
-    fun config(customAttrs: AttributeSet? = null) {
-        val attrs = customAttrs ?: attributes
-
+    fun config(attrs: AttributeSet = attributes) {
         defaultColor = Color.parseColor(ColorHelper(context).primaryColor)
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSEditText, 0, 0)
         hint = array.getString(R.styleable.DSEditText_hint) ?: ""
@@ -75,7 +76,8 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
         textFormatType = TextFormatType.fromId(formatType)
         val customStyle = array.getResourceId(R.styleable.DSEditText_customStyle, 0)
         editColor = array.getColor(R.styleable.DSEditText_editColor, defaultColor)
-        errorDisabled = array.getBoolean(R.styleable.DSEditText_disableError, false)
+        isOptional = array.getBoolean(R.styleable.DSEditText_isOptional, false)
+        customValidation = array.getBoolean(R.styleable.DSEditText_customValidation, false)
         val nextFocus = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res/android", "nextFocusDown", -1)
         hasNext = nextFocus != -1
 
@@ -93,9 +95,10 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
         txt_hint.setTextColor(hintColor)
 
         originalTranslationY = editText.translationY
+        originalTextFormatType = textFormatType
 
         setFocusListener()
-        setFormatType()
+        setOriginalTextFormatType()
         array.recycle()
     }
 
@@ -126,9 +129,15 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
 
     fun getTextDS(): String = editText.text.toString()
 
-    private fun setFormatType() {
-        if (textFormatType == TextFormatType.NONE) return
-        FormatText(context).mask(editText, textFormatType)
+    fun setOriginalTextFormatType() = setFormatType(originalTextFormatType)
+
+    fun resetFormatType() = setFormatType(TextFormatType.NONE)
+
+    private fun setFormatType(formatType: TextFormatType = TextFormatType.NONE) {
+        clearText()
+        textFormatType = formatType
+        formatter.removeTextFormat(editText)
+        formatter.mask(editText, textFormatType)
     }
 
     private fun setInputType() { editText.inputType = textInputType.type }
@@ -243,6 +252,7 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
 
             // Set isWrong and hint with different color when focused
 
+            if (customValidation) return@listener
             if (hasFocus) return@listener setEditTextDefault(true)
 
             val textCount = getTextDS().count()
@@ -262,7 +272,7 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
             }
 
             if ((textCount < textFormatType.minCharFormatted ?: 0
-                    || textCount == 0) && !errorDisabled) {
+                    || textCount == 0) && !isOptional) {
                 setEditTextError()
                 return@listener
             }
@@ -271,14 +281,14 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
         }
     }
 
-    private fun setEditTextError() {
+    fun setEditTextError() {
         val errorColor = resHelper.getColorHelper(R.color.ruby)
         edit_text.setTextColor(errorColor)
         txt_hint.setTextColor(errorColor)
         isWrong = true
     }
 
-    private fun setEditTextDefault(hasFocus: Boolean = false) {
+    fun setEditTextDefault(hasFocus: Boolean = false) {
         val hintTextColor = if (hasFocus) defaultColor else hintColor
         edit_text.setTextColor(textColor)
         txt_hint.setTextColor(hintTextColor)
@@ -286,8 +296,12 @@ class DSEditText(context: Context, val attributes: AttributeSet): FrameLayout(co
     }
 
     fun setWatcher(onTextChange: (text: String) -> Unit)
-        = editText.addTextChangedListener(singleListener {
-            if (textInputType == TextInputType.EMAIL) { isWrong = !getTextDS().isValidEmail() }
-            onTextChange.invoke(it)
+        = editText.addTextChangedListener(object : TextWatcherMin() {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                super.onTextChanged(s, start, before, count)
+                isWrong = count < textFormatType.minCharFormatted ?: if (isOptional) 0 else 1
+                if (textInputType == TextInputType.EMAIL) { isWrong = !getTextDS().isValidEmail() }
+                onTextChange.invoke(s.toString())
+            }
         })
 }

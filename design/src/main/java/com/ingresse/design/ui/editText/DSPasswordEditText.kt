@@ -1,28 +1,25 @@
 package com.ingresse.design.ui.editText
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.ColorRes
-import androidx.annotation.RequiresApi
 import com.ingresse.design.R
 import com.ingresse.design.helper.ResourcesHelper
 import kotlinx.android.synthetic.main.ds_password_edit_text.view.*
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
     private val resHelper = ResourcesHelper(context)
     private val halfLevel: Drawable
     private val fullLevel: Drawable
 
     var strength = Strength.NONE
-    fun isWrong(): Boolean = editText.isWrong
-            && (strength != Strength.STRONG || strength != Strength.MEDIUM)
+    fun isWrong() = strength == Strength.NONE || strength == Strength.WEAK || getTextCount() < 7
 
     val editText: DSEditText get() = edt_password
 
@@ -33,32 +30,37 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
         fullLevel = resHelper.getDrawableHelper(R.drawable.progress_level_full)
         setEmptyValidation()
 
-        editText.invalidate()
         editText.config(attrs)
+        setFocusListener()
     }
 
-    fun setWeakPassword() = setProgressValues(halfLevel, Strength.WEAK, 1)
-    fun setMediumPassword() = setProgressValues(halfLevel, Strength.MEDIUM, 2)
-    fun setStrongPassword() = setProgressValues(fullLevel, Strength.STRONG, 3)
-    fun setEmptyValidation() = setProgressValues(fullLevel, Strength.NONE, 0)
+    private fun setEmptyValidation() = setProgressValues(fullLevel, Strength.NONE, 0)
 
     private fun setProgressValues(level: Drawable, strength: Strength, progress: Int) {
-        setProgress(progress)
         progress_strength_password.progressDrawable = level
-        progress_strength_password.progressTintList = getProgressColor(strength)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            progress_strength_password.setProgress(progress, true)
+        } else {
+            progress_strength_password.progress = progress
+        }
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            progress_strength_password.progressTintList = getProgressColorList(strength)
+        } else {
+            progress_strength_password.progressDrawable.mutate().setColorFilter(getProgressColor(strength), PorterDuff.Mode.SRC_IN)
+        }
+
         this.strength = strength
     }
 
-    private fun setProgress(value: Int)
-        = ObjectAnimator.ofInt(progress_strength_password, "progress", value)
-            .setDuration(300)
-            .start()
-
-    private fun getProgressColor(color: Strength): ColorStateList {
+    private fun getProgressColorList(color: Strength): ColorStateList {
         val colors = intArrayOf(resHelper.getColorHelper(color.value))
         val states = arrayOf(intArrayOf())
         return ColorStateList(states, colors)
     }
+
+    private fun getProgressColor(color: Strength) = resHelper.getColorHelper(color.value)
 
     enum class Strength(@ColorRes val value: Int) {
         WEAK(R.color.ruby),
@@ -67,8 +69,33 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
         NONE(R.color.transparent)
     }
 
+    /**
+     * Open fun: change progress color by password strength
+     */
+    fun setPasswordStrength(progress: Int) {
+        when (progress) {
+            1 -> setProgressValues(halfLevel, Strength.WEAK, 1)
+            2 -> setProgressValues(halfLevel, Strength.MEDIUM, 2)
+            3 -> setProgressValues(fullLevel, Strength.STRONG, 3)
+            else -> setEmptyValidation()
+        }
+    }
+
+    /**
+     * Custom focus listener:
+     * Need to use attr customValidation = "true"
+     */
+    private fun setFocusListener() {
+        editText.setFocusChangeListener focus@{ hasFocus ->
+            if (hasFocus) return@focus editText.setEditTextDefault()
+            if (isWrong()) return@focus editText.setEditTextError()
+            editText.setEditTextDefault()
+        }
+    }
+
     // OVERRIDE METHODS TO EASY ACCESS
     fun getTextDS() = editText.getTextDS()
+    fun getTextCount() = editText.text.count()
     fun setWatcher(onTextChange: (text: String) -> Unit) = editText.setWatcher(onTextChange)
     fun setActionListener(listener: () -> Unit) = editText.setActionListener(listener)
 }

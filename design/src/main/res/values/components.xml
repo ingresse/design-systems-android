@@ -161,7 +161,7 @@
     </style>
 
     <style name="RegularDSEditText.NoError" parent="RegularDSEditText">
-        <item name="disableError">true</item>
+        <item name="isOptional">true</item>
     </style>
 
     <!-- Modal layout -->
