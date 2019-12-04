@@ -298,10 +298,10 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
     fun setWatcher(onTextChange: (text: String) -> Unit)
         = editText.addTextChangedListener(object : TextWatcherMin() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                super.onTextChanged(s, start, before, count)
-                isWrong = count < textFormatType.minCharFormatted ?: if (isOptional) 0 else 1
+                val textCount = s?.count() ?: 0
+                isWrong = textCount < textFormatType.minCharFormatted ?: if (isOptional) 0 else 1
                 if (textInputType == TextInputType.EMAIL) { isWrong = !getTextDS().isValidEmail() }
-                onTextChange.invoke(s.toString())
+                onTextChange(s.toString())
             }
         })
 }
