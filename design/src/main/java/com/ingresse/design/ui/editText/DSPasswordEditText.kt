@@ -87,7 +87,7 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
      */
     private fun setFocusListener() {
         editText.setFocusChangeListener focus@{ hasFocus ->
-            if (hasFocus) return@focus editText.setEditTextDefault()
+            if (hasFocus) return@focus editText.setEditTextDefault(hasFocus)
             if (isWrong()) return@focus editText.setEditTextError()
             editText.setEditTextDefault()
         }
