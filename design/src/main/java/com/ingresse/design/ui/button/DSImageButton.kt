@@ -43,11 +43,13 @@ class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButto
         val darkColor = when (theme) {
             ButtonTheme.PRIMARY -> colorHelper.primaryDarkColor
             ButtonTheme.ACCENT -> colorHelper.secondaryDarkColor
+            ButtonTheme.LINK -> colorHelper.linkDarkColor
         }
 
         val normalColor = when (theme) {
             ButtonTheme.PRIMARY -> colorHelper.primaryColor
             ButtonTheme.ACCENT -> colorHelper.secondaryColor
+            ButtonTheme.LINK -> colorHelper.linkColor
         }
 
         val colors = intArrayOf(

@@ -18,6 +18,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
     private val size: ButtonSize
     private val style: ButtonType
     private val isThemed: Boolean
+    private val isLink: Boolean
 
     private val resHelper = ResourcesHelper(context)
     private val colorHelper = ColorHelper(context)
@@ -28,6 +29,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         val styleAttr = array.getInt(R.styleable.DSButton_type, 0)
         val themeAttr = array.getInt(R.styleable.DSButton_buttonTheme, 0)
         isThemed = array.getBoolean(R.styleable.DSButton_isThemed, false)
+        isLink = array.getBoolean(R.styleable.DSButton_isLink, false)
 
         type = ButtonTheme.fromId(themeAttr)
         size = ButtonSize.fromId(sizeAttr)
@@ -51,7 +53,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
                 intArrayOf())
         val colors = intArrayOf(
                 resHelper.getColorHelper(R.color.mercury),
-                Color.WHITE)
+                if (!isLink) Color.WHITE else resHelper.getColorHelper(R.color.ocean))
         val textColors = ColorStateList(states, colors)
 
         setTextAppearance(context, R.style.TextStyle_Normal_Caps)
@@ -71,11 +73,13 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         val darkColor = when (type) {
             ButtonTheme.PRIMARY -> colorHelper.primaryDarkColor
             ButtonTheme.ACCENT -> colorHelper.secondaryDarkColor
+            ButtonTheme.LINK -> colorHelper.linkDarkColor
         }
 
         val normalColor = when (type) {
             ButtonTheme.PRIMARY -> colorHelper.primaryColor
             ButtonTheme.ACCENT -> colorHelper.secondaryColor
+            ButtonTheme.LINK -> colorHelper.linkColor
         }
 
         val colors = intArrayOf(
