@@ -19,6 +19,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
     private val style: ButtonType
     private val isThemed: Boolean
     private val isLink: Boolean
+    private val isTextAllCaps: Boolean
 
     private val resHelper = ResourcesHelper(context)
     private val colorHelper = ColorHelper(context)
@@ -30,6 +31,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         val themeAttr = array.getInt(R.styleable.DSButton_buttonTheme, 0)
         isThemed = array.getBoolean(R.styleable.DSButton_isThemed, false)
         isLink = array.getBoolean(R.styleable.DSButton_isLink, false)
+        isTextAllCaps = array.getBoolean(R.styleable.DSButton_isLink, true)
 
         type = ButtonTheme.fromId(themeAttr)
         size = ButtonSize.fromId(sizeAttr)
@@ -56,7 +58,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
                 if (!isLink) Color.WHITE else resHelper.getColorHelper(R.color.ocean))
         val textColors = ColorStateList(states, colors)
 
-        setTextAppearance(context, R.style.TextStyle_Normal_Caps)
+        setTextAppearance(context, if (isTextAllCaps) R.style.TextStyle_Normal_Caps else R.style.TextStyle_Normal)
         setTextColor(textColors)
     }
 

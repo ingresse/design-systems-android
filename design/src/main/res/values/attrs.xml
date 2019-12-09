@@ -92,6 +92,7 @@
         <attr name="buttonTheme" />
         <attr name="isThemed" />
         <attr name="isLink" />
+        <attr name="isTextAllCaps" />
     </declare-styleable>
 
     <declare-styleable name="DSImageButton">
