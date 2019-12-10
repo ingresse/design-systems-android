@@ -47,6 +47,8 @@
     <dimen name="spacing_x10">40dp</dimen>
     <dimen name="spacing_x13">52dp</dimen>
     <dimen name="spacing_x22">88dp</dimen>
+    <dimen name="spacing_x26">104dp</dimen>
+    <dimen name="spacing_x42">168dp</dimen>
 
     <!-- DEFAULT HEIGHTS -->
     <dimen name="height_text_view_small">16dp</dimen>
