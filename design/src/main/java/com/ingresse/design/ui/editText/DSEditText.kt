@@ -26,7 +26,7 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
     private var textColor: Int = 0
     private var isPassword: Boolean = false
     private var isLastField: Boolean = false
-    private val isLoading: Boolean = false
+    private var isLoading: Boolean = false
     private var showSuggestions: Boolean = false
     private var clearButton: Boolean = false
     private lateinit var capitalization: Capitalization

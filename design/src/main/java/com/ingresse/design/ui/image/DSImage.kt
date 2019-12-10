@@ -80,25 +80,6 @@ class DSImage(context: Context, attrs: AttributeSet): AppCompatImageView(context
         if (blurTransform != BlurIntensity.ZERO) glide.transform(blurTransform.blur)
         if (sizeTransform != ImageSize.ORIGINAL) glide.thumbnail(sizeTransform.multiplier)
         if (!roundImage) {
-            glide.placeholder(customPlaceholder ?: placeholder.toDrawable()).into(this)
-            return
-        }
-
-        glide.placeholder(customPlaceholder ?: placeholder.toDrawable()).transform(CircleCrop()).into(this)
-    }
-
-    fun setImage(imageUri: Uri) {
-        val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(smoothTransition).build()
-
-        val glide = Glide.with(this)
-                .load(imageUri)
-                .signature(ObjectKey(imageUri))
-                .transition(DrawableTransitionOptions().crossFade(factory))
-                .diskCacheStrategy(DiskCacheStrategy.DATA)
-
-        if (blurTransform != BlurIntensity.ZERO) glide.transform(blurTransform.blur)
-        if (sizeTransform != ImageSize.ORIGINAL) glide.thumbnail(sizeTransform.multiplier)
-        if (!roundImage) {
             glide.placeholder(placeholder).into(this)
             return
         }
