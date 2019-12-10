@@ -5,10 +5,10 @@ import androidx.annotation.DimenRes
 import com.ingresse.design.R
 
 enum class ButtonTheme(val id: Int) {
-    PRIMARY(0), ACCENT(1), LINK(5);
+    PRIMARY(0), ACCENT(1);
 
     companion object {
-        private val all = listOf(PRIMARY, ACCENT, LINK)
+        private val all = listOf(PRIMARY, ACCENT)
         fun fromId(id: Int) = all.firstOrNull { it.id == id } ?: PRIMARY
     }
 }
