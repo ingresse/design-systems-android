@@ -40,7 +40,8 @@ enum class TextFormatType(val id: Int,
     CNPJ(4, 18, 18, 14, 14),
     MIXED_CPF_CNPJ(5, 14, 18, 11, 14),
     CREDIT_CARD(6, 14, null, 12, null),
-    SIMPLE_DATE(7, 5, 5, 4, 4);
+    SIMPLE_DATE(7, 5, 5, 4, 4),
+    PHONE_9(8, 15, 15, 11, 11);
 
     companion object {
         fun fromId(id: Int) = values().find { it.id == id } ?: NONE

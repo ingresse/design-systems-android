@@ -2,6 +2,7 @@ package com.ingresse.design.helper
 
 import android.content.Context
 import android.text.Editable
+import android.text.TextWatcher
 import android.widget.EditText
 import com.ingresse.design.R
 import com.ingresse.design.ui.editText.TextFormatType
@@ -11,11 +12,13 @@ class FormatText(val context: Context) {
     private var deleting = false
     private var previousLength = 0
     private var stringFormat = ""
+    private var textWatcher: TextWatcher? = null
 
     fun mask(editText: EditText, format: TextFormatType) {
         stringFormat = when (format) {
             TextFormatType.NONE -> stringFormat
             TextFormatType.PHONE -> context.getString(R.string.format_phone_8_digits)
+            TextFormatType.PHONE_9 -> context.getString(R.string.format_phone_9_digits)
             TextFormatType.ZIPCODE -> context.getString(R.string.format_zipcode)
             TextFormatType.CPF -> context.getString(R.string.format_cpf)
             TextFormatType.CNPJ -> context.getString(R.string.format_cnpj)
@@ -24,12 +27,14 @@ class FormatText(val context: Context) {
             TextFormatType.SIMPLE_DATE -> context.getString(R.string.format_simple_date)
         }
 
-        editText.addTextChangedListener(object : TextWatcherMin() {
+        textWatcher = object : TextWatcherMin() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 deleting = count < before
             }
 
             override fun afterTextChanged(s: Editable?) {
+                if (format == TextFormatType.NONE) return
+
                 val currentText = s.unmask()
 
                 if (changing || (deleting && currentText.length != format.minChar)) {
@@ -46,8 +51,12 @@ class FormatText(val context: Context) {
                 editText.setText(formattedText)
                 editText.setSelection(formattedText.length)
             }
-        })
+        }
+
+        editText.addTextChangedListener(textWatcher)
     }
+
+    fun removeTextFormat(editText: EditText) = editText.removeTextChangedListener(textWatcher)
 
     private fun reformatText(text: String): String {
         var formattedText = ""

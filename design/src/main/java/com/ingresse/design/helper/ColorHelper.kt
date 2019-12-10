@@ -9,12 +9,16 @@ private const val KEY_PRIMARY_50_COLOR = "primary_50_color"
 private const val KEY_PRIMARY_DARK_COLOR = "primary_dark_color"
 private const val KEY_SECONDARY_COLOR = "secondary_color"
 private const val KEY_SECONDARY_DARK_COLOR = "secondary_dark_color"
+private const val KEY_CONFIRM_COLOR = "confirm_color"
+private const val KEY_CONFIRM_DARK_COLOR = "confirm_dark_color"
 
 private const val DEFAULT_PRIMARY = "#00A5DB"
 private const val DEFAULT_PRIMARY_50 = "#8000A5DB"
 private const val DEFAULT_PRIMARY_DARK = "#008BC1"
 private const val DEFAULT_SECONDARY = "#FCA311"
 private const val DEFAULT_SECONDARY_DARK = "#FA8409"
+private const val DEFAULT_CONFIRM = "#60C659"
+private const val DEFAULT_CONFIRM_DARK = "#42AD3C"
 
 class ColorHelper(val context: Context?) {
     var primaryColor: String
@@ -54,6 +58,22 @@ class ColorHelper(val context: Context?) {
         set(value) {
             val editor = getPreferences()?.edit() ?: return
             editor.putString(KEY_SECONDARY_DARK_COLOR, value)
+            editor.apply()
+        }
+
+    var confirmColor: String
+        get() = getPreferences()?.getString(KEY_CONFIRM_COLOR, null) ?: DEFAULT_CONFIRM
+        set(value) {
+            val editor = getPreferences()?.edit() ?: return
+            editor.putString(KEY_CONFIRM_COLOR, value)
+            editor.apply()
+        }
+
+    var confirmDarkColor: String
+        get() = getPreferences()?.getString(KEY_CONFIRM_DARK_COLOR, null) ?: DEFAULT_CONFIRM_DARK
+        set(value) {
+            val editor = getPreferences()?.edit() ?: return
+            editor.putString(KEY_CONFIRM_DARK_COLOR, value)
             editor.apply()
         }
 

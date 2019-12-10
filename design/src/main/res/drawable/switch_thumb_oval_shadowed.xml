@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false">
+        <layer-list>
+            <!-- EXTERNAL SHAPE - LAST -->
+            <item>
+                <shape android:shape="oval">
+                    <size android:width="26dp" android:height="28dp" />
+                    <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp" />
+                    <solid android:color="#00DADADA" />
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+
+            <!-- EXTERNAL SHAPE - MIDDLE -->
+            <item>
+                <shape android:shape="oval">
+                    <size android:width="26dp" android:height="28dp" />
+                    <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp" />
+                    <solid android:color="#10DADADA" />
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+
+            <!-- EXTERNAL SHAPE - MIDDLE -->
+            <item>
+                <shape android:shape="oval">
+                    <size android:width="26dp" android:height="28dp" />
+                    <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp" />
+                    <solid android:color="#20DADADA" />
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+
+            <!-- EXTERNAL SHAPE - FIRST -->
+            <item>
+                <shape android:shape="oval">
+                    <size android:width="26dp" android:height="28dp" />
+                    <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp" />
+                    <solid android:color="#30DADADA" />
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+
+            <!-- CENTER CIRCLE -->
+            <item>
+                <shape android:shape="oval">
+                    <size android:width="26dp" android:height="28dp" />
+                    <solid android:color="@android:color/white" />
+                    <corners android:radius="3dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
