@@ -82,6 +82,9 @@
     <style name="TextStyle.Normal.Caps" parent="TextStyle.Normal">
         <item name="android:textAllCaps">true</item>
     </style>
+    <style name="TextStyle.Normal.No.Caps" parent="TextStyle.Normal">
+        <item name="android:textAllCaps">false</item>
+    </style>
     <style name="TextStyle.Normal.Bold" parent="TextStyle.Normal">
         <item name="android:textStyle">bold</item>
     </style>
