@@ -76,6 +76,7 @@
         <enum name="confirm" value="2" />
         <enum name="destructive" value="3" />
         <enum name="crystal" value="4" />
+        <enum name="link" value="5" />
     </attr>
 
     <attr name="size" format="enum">
@@ -90,6 +91,8 @@
         <attr name="type" />
         <attr name="buttonTheme" />
         <attr name="isThemed" />
+        <attr name="isLink" />
+        <attr name="isTextAllCaps" />
     </declare-styleable>
 
     <declare-styleable name="DSImageButton">

@@ -18,10 +18,11 @@ enum class ButtonType(val id: Int, @ColorRes val normal: Int, @ColorRes val pres
     SECONDARY(1, R.color.ocean, R.color.ocean_dark),
     CONFIRM(2, R.color.bamboo, R.color.bamboo_dark),
     DESTRUCTIVE(3, R.color.ruby, R.color.ruby_dark),
-    CRYSTAL(4, R.color.white_20, R.color.white_10);
+    CRYSTAL(4, R.color.white_20, R.color.white_10),
+    LINK(5, R.color.white, R.color.white_73);
 
     companion object {
-        private val all = listOf(PRIMARY, SECONDARY, CONFIRM, DESTRUCTIVE, CRYSTAL)
+        private val all = listOf(PRIMARY, SECONDARY, CONFIRM, DESTRUCTIVE, CRYSTAL, LINK)
         fun fromId(id: Int) = all.firstOrNull { it.id == id } ?: PRIMARY
     }
 }
