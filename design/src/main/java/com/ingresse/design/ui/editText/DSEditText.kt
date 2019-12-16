@@ -135,6 +135,8 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
 
     fun setOriginalTextFormatType() = setFormatType(originalTextFormatType)
 
+    fun setInternationalPhoneTextFormat() = setFormatType(TextFormatType.INTERNATIONAL_PHONE)
+
     fun resetFormatType() = setFormatType(TextFormatType.NONE)
 
     private fun setFormatType(formatType: TextFormatType = TextFormatType.NONE) {

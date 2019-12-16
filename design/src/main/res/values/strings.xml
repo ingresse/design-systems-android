@@ -51,6 +51,7 @@
     <!-- TEXT FORMAT -->
     <string name="format_phone_8_digits">(##) ####-####</string>
     <string name="format_phone_9_digits">(##) #####-####</string>
+    <string name="format_international_phone">################</string>
     <string name="format_zipcode">#####-###</string>
     <string name="format_cpf">###.###.###-##</string>
     <string name="format_cnpj">##.###.###/####-##</string>
