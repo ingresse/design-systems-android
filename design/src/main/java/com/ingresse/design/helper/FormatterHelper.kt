@@ -19,6 +19,7 @@ class FormatText(val context: Context) {
             TextFormatType.NONE -> stringFormat
             TextFormatType.PHONE -> context.getString(R.string.format_phone_8_digits)
             TextFormatType.PHONE_9 -> context.getString(R.string.format_phone_9_digits)
+            TextFormatType.INTERNATIONAL_PHONE -> context.getString(R.string.format_international_phone)
             TextFormatType.ZIPCODE -> context.getString(R.string.format_zipcode)
             TextFormatType.CPF -> context.getString(R.string.format_cpf)
             TextFormatType.CNPJ -> context.getString(R.string.format_cnpj)
