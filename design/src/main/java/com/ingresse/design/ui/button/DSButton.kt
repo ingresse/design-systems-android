@@ -31,7 +31,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         val themeAttr = array.getInt(R.styleable.DSButton_buttonTheme, 0)
         isThemed = array.getBoolean(R.styleable.DSButton_isThemed, false)
         isLink = array.getBoolean(R.styleable.DSButton_isLink, false)
-        isTextAllCaps = array.getBoolean(R.styleable.DSButton_isTextAllCaps, true)
+        isTextAllCaps = array.getBoolean(R.styleable.DSButton_isTextAllCaps, false)
 
         type = ButtonTheme.fromId(themeAttr)
         size = ButtonSize.fromId(sizeAttr)

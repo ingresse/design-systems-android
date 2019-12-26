@@ -36,6 +36,7 @@
         <attr name="editColor" format="color" />
         <attr name="isPassword" format="boolean" />
         <attr name="isLastField" format="boolean" />
+        <attr name="isLoading" format="boolean" />
         <attr name="showSuggestion" format="boolean" />
         <attr name="clearButton" format="boolean" />
         <attr name="actionLabel" format="string" />
