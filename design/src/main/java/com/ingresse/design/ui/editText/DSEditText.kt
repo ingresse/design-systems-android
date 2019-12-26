@@ -127,7 +127,7 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
         if (txt.isNullOrEmpty()) return
         animateHintToTop(animated)
         editText.setText(txt)
-        editText.setSelection(txt.length)
+        editText.setSelection(txt.length - 1)
         setEditTextDefault()
     }
 
