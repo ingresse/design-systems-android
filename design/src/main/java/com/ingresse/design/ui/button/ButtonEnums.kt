@@ -5,7 +5,7 @@ import androidx.annotation.DimenRes
 import com.ingresse.design.R
 
 enum class ButtonTheme(val id: Int) {
-    PRIMARY(0), ACCENT(1);
+    PRIMARY(0), ACCENT(1), CONFIRM(2);
 
     companion object {
         private val all = listOf(PRIMARY, ACCENT)
