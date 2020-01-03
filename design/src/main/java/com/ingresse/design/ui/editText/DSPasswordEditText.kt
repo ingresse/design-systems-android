@@ -95,7 +95,7 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
 
     // OVERRIDE METHODS TO EASY ACCESS
     fun getTextDS() = editText.getTextDS()
-    fun getTextCount() = editText.text.count()
+    fun getTextCount() = editText.getTextCount()
     fun setWatcher(onTextChange: (text: String) -> Unit) = editText.setWatcher(onTextChange)
     fun setActionListener(listener: () -> Unit) = editText.setActionListener(listener)
 }

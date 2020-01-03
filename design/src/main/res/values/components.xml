@@ -165,11 +165,14 @@
     </style>
 
     <!-- Modal layout -->
+    <style name="ModalLayout.Spacing" parent="ModalLayout">
+        <item name="android:layout_marginTop">@dimen/spacing_x3</item>
+    </style>
+
     <style name="ModalLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@drawable/background_white_modal</item>
-        <item name="android:layout_marginTop">@dimen/spacing_x3</item>
         <item name="android:fitsSystemWindows">true</item>
     </style>
 
