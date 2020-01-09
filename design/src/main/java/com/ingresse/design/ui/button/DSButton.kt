@@ -27,7 +27,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSButton, 0, 0)
         val sizeAttr = array.getInt(R.styleable.DSButton_size, 0)
-        val styleAttr = array.getInt(R.styleable.DSButton_DStype, 0)
+        val styleAttr = array.getInt(R.styleable.DSButton_ds_type, 0)
         val themeAttr = array.getInt(R.styleable.DSButton_buttonTheme, 0)
         isThemed = array.getBoolean(R.styleable.DSButton_isThemed, false)
         isLink = array.getBoolean(R.styleable.DSButton_isLink, false)

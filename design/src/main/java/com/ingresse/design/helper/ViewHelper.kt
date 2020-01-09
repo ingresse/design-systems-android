@@ -16,3 +16,8 @@ fun View.setVisible(condition: Boolean = true) {
 fun View.setInvisible(condition: Boolean = true) {
     visibility = if (condition) View.INVISIBLE else View.VISIBLE
 }
+
+fun View.setViewEnabled(condition: Boolean = true) {
+    isEnabled = condition
+    alpha = if (condition) 1.0f else 0.6f
+}

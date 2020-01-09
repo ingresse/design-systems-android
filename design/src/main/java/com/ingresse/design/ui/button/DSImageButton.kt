@@ -23,7 +23,7 @@ class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButto
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSImageButton, 0, 0)
         val themeAttr = array.getInt(R.styleable.DSImageButton_buttonTheme, 0)
-        val typeAttr = array.getInt(R.styleable.DSImageButton_DStype, 0)
+        val typeAttr = array.getInt(R.styleable.DSImageButton_ds_type, 0)
         isThemed = array.getBoolean(R.styleable.DSImageButton_isThemed, false)
 
         theme = ButtonTheme.fromId(themeAttr)
