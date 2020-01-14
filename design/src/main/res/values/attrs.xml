@@ -24,6 +24,19 @@
         <enum name="cnpj" value="4" />
         <enum name="mixedCpfCnpj" value="5" />
         <enum name="creditCard" value="6" />
+        <enum name="phone9Digits" value="8" />
+    </attr>
+
+    <attr name="alignment">
+        <flag name="center" value="17" />
+        <flag name="center_horizontal" value="1" />
+        <flag name="center_vertical" value="16" />
+        <flag name="start" value="8388611" />
+        <flag name="end" value="8388613" />
+        <flag name="left" value="3" />
+        <flag name="right" value="5" />
+        <flag name="top" value="48" />
+        <flag name="bottom" value="80" />
     </attr>
 
     <declare-styleable name="DSEditText">
@@ -42,7 +55,8 @@
         <attr name="actionLabel" format="string" />
         <attr name="customStyle" format="reference" />
         <attr name="uppercaseHint" format="boolean" />
-        <attr name="disableError" format="boolean" />
+        <attr name="isOptional" format="boolean" />
+        <attr name="customValidation" format="boolean" />
         <attr name="textInputType" />
         <attr name="formatType" />
         <attr name="capitalization" format="enum">
@@ -94,6 +108,7 @@
         <attr name="isThemed" />
         <attr name="isLink" />
         <attr name="isTextAllCaps" />
+        <attr name="alignment" />
     </declare-styleable>
 
     <declare-styleable name="DSImageButton">

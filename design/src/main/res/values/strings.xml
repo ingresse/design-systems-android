@@ -4,7 +4,6 @@
     <string name="ops">Ops!</string>
     <string name="ok">OK</string>
     <string name="enter">Entrar</string>
-    <string name="cancel">Cancelar</string>
     <string name="button_no">Não</string>
 
     <string name="yesterday">Ontem</string>
@@ -51,9 +50,13 @@
     <!-- TEXT FORMAT -->
     <string name="format_phone_8_digits">(##) ####-####</string>
     <string name="format_phone_9_digits">(##) #####-####</string>
+    <string name="format_international_phone">################</string>
     <string name="format_zipcode">#####-###</string>
     <string name="format_cpf">###.###.###-##</string>
     <string name="format_cnpj">##.###.###/####-##</string>
     <string name="format_credit_card">####.####.####.####.####</string>
     <string name="format_simple_date">##/##</string>
+
+    <!-- FACEBOOK -->
+    <string name="login_with_facebook">Entrar com o facebook</string>
 </resources>

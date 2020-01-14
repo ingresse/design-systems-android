@@ -3,6 +3,7 @@ package com.ingresse.design.ui.spinner
 import android.content.Context
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.MotionEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.*
@@ -52,7 +53,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         spinner.onItemSelectedListener = listener
     }
 
-    fun setSelectedItem(position: Int, error: Boolean) {
+    fun setSelectedItem(position: Int, error: Boolean = false) {
         isWrong = error
         if (isWrong) return spinner.setSelection(0)
         spinner.setSelection(position)
@@ -119,4 +120,7 @@ class DSSpinner(context: Context, attrs: AttributeSet): FrameLayout(context, att
         }
         setSpinnerHintTextDefault()
     }
+
+    fun setTouchListener(listener: (v: View, event: MotionEvent) -> Boolean)
+        = spinner.setOnTouchListener(listener)
 }

@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
+import android.view.Gravity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import com.ingresse.design.helper.ColorHelper
@@ -29,6 +31,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         val sizeAttr = array.getInt(R.styleable.DSButton_size, 0)
         val styleAttr = array.getInt(R.styleable.DSButton_type, 0)
         val themeAttr = array.getInt(R.styleable.DSButton_buttonTheme, 0)
+        val alignment = array.getInt(R.styleable.DSButton_alignment, Gravity.CENTER)
         isThemed = array.getBoolean(R.styleable.DSButton_isThemed, false)
         isLink = array.getBoolean(R.styleable.DSButton_isLink, false)
         isTextAllCaps = array.getBoolean(R.styleable.DSButton_isTextAllCaps, false)
@@ -36,6 +39,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         type = ButtonTheme.fromId(themeAttr)
         size = ButtonSize.fromId(sizeAttr)
         style = ButtonType.fromId(styleAttr)
+        gravity = alignment
 
         setupSize()
         setupFont()
@@ -58,7 +62,10 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
                 if (!isLink) Color.WHITE else resHelper.getColorHelper(R.color.ocean))
         val textColors = ColorStateList(states, colors)
 
-        setTextAppearance(context, if (isTextAllCaps) R.style.TextStyle_Normal_Caps else R.style.TextStyle_Normal_No_Caps)
+        val style = if (isTextAllCaps) R.style.TextStyle_Normal_Caps else R.style.TextStyle_Normal_No_Caps
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) setTextAppearance(style)
+        else setTextAppearance(context, style)
+
         setTextColor(textColors)
     }
 
@@ -75,11 +82,13 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         val darkColor = when (type) {
             ButtonTheme.PRIMARY -> colorHelper.primaryDarkColor
             ButtonTheme.ACCENT -> colorHelper.secondaryDarkColor
+            ButtonTheme.CONFIRM -> colorHelper.confirmDarkColor
         }
 
         val normalColor = when (type) {
             ButtonTheme.PRIMARY -> colorHelper.primaryColor
             ButtonTheme.ACCENT -> colorHelper.secondaryColor
+            ButtonTheme.CONFIRM -> colorHelper.confirmColor
         }
 
         val colors = intArrayOf(

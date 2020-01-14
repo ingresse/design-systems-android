@@ -14,8 +14,13 @@
     </style>
 
     <style name="CustomSwitch" parent="TextStyle.Normal">
-        <item name="thumbTint">@color/white</item>
-        <item name="trackTint">@color/checked_green_else_mercury_light</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:thumb">@drawable/switch_thumb_oval_shadowed</item>
+        <item name="android:track">@drawable/switch_track_rectangle_rounded</item>
+        <item name="android:background">@drawable/switch_ripple_gray</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingStart">@dimen/spacing_x2</item>
+        <item name="android:paddingEnd">@dimen/spacing_x2</item>
     </style>
 
     <style name="Default.Button" parent="@style/Base.Widget.AppCompat.Button.Borderless">
@@ -168,6 +173,21 @@
     </style>
 
     <style name="RegularDSEditText.NoError" parent="RegularDSEditText">
-        <item name="disableError">true</item>
+        <item name="isOptional">true</item>
+    </style>
+
+    <!-- Modal layout -->
+    <style name="ModalLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/background_white_modal</item>
+        <item name="android:layout_marginTop">@dimen/spacing_x3</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <!-- Custom dialog -->
+    <style name="TransparentDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:background">@color/transparent</item>
     </style>
 </resources>
