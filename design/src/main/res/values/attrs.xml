@@ -85,7 +85,7 @@
         <enum name="accent" value="1" />
     </attr>
 
-    <attr name="type" format="enum">
+    <attr name="ds_type" format="enum">
         <enum name="primary" value="0" />
         <enum name="secondary" value="1" />
         <enum name="confirm" value="2" />
@@ -103,7 +103,7 @@
 
     <declare-styleable name="DSButton">
         <attr name="size" />
-        <attr name="type" />
+        <attr name="ds_type" />
         <attr name="buttonTheme" />
         <attr name="isThemed" />
         <attr name="isLink" />
@@ -112,7 +112,7 @@
     </declare-styleable>
 
     <declare-styleable name="DSImageButton">
-        <attr name="type" />
+        <attr name="ds_type" />
         <attr name="buttonTheme" />
         <attr name="isThemed" />
     </declare-styleable>
