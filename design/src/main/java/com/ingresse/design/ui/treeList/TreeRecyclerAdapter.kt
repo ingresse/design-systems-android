@@ -19,13 +19,13 @@ class TreeRecyclerAdapter(val viewHolder: (level: Int, parent: ViewGroup) -> Tre
     fun add(count: Int, path: List<String>) {
         val position = items.indexOfFirst { path.dropLast(1) == it.path }
         items[position].count += count
-        notifyItemChanged(position)
+        notifyDataSetChanged()
     }
 
     fun remove(count: Int, path: List<String>) {
         val position = items.indexOfFirst { path.dropLast(1) == it.path }
         items[position].count -= count
-        notifyItemChanged(position)
+        notifyDataSetChanged()
     }
 
     override fun getItemCount() = items.size

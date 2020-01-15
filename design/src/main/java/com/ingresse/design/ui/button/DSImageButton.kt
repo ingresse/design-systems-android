@@ -23,7 +23,7 @@ class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButto
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSImageButton, 0, 0)
         val themeAttr = array.getInt(R.styleable.DSImageButton_buttonTheme, 0)
-        val typeAttr = array.getInt(R.styleable.DSImageButton_type, 0)
+        val typeAttr = array.getInt(R.styleable.DSImageButton_ds_type, 0)
         isThemed = array.getBoolean(R.styleable.DSImageButton_isThemed, false)
 
         theme = ButtonTheme.fromId(themeAttr)
@@ -43,11 +43,13 @@ class DSImageButton(context: Context, attrs: AttributeSet) : AppCompatImageButto
         val darkColor = when (theme) {
             ButtonTheme.PRIMARY -> colorHelper.primaryDarkColor
             ButtonTheme.ACCENT -> colorHelper.secondaryDarkColor
+            ButtonTheme.CONFIRM -> colorHelper.confirmDarkColor
         }
 
         val normalColor = when (theme) {
             ButtonTheme.PRIMARY -> colorHelper.primaryColor
             ButtonTheme.ACCENT -> colorHelper.secondaryColor
+            ButtonTheme.CONFIRM -> colorHelper.confirmColor
         }
 
         val colors = intArrayOf(
