@@ -11,6 +11,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x gradle
     - name: Gradle test
-      run: gradlew test
+      run: gradle test
