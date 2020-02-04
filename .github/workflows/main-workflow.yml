@@ -16,7 +16,7 @@ jobs:
       run: gradle lint
     - uses: actions/upload-artifact@v1
       with:
-        name: lint-reports
-        path: ./design/build/reports
+        name: lint-report
+        path: ./design/build/reports/lint-results.html
     - name: Gradle test
       run: gradle test
