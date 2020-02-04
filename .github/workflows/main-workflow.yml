@@ -17,6 +17,6 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: lint-reports
-        path: ./design-systems-android/design/build/reports
+        path: ./design/build/reports
     - name: Gradle test
       run: gradle test
