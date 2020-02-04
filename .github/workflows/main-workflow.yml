@@ -14,5 +14,9 @@ jobs:
       run: chmod +x gradle
     - name: Run Lint
       run: gradle lint
+    - uses: actions/upload-artifact@v1
+      with:
+        name: lint-reports
+        path: ./design-systems-android/design/build/reports
     - name: Gradle test
       run: gradle test
