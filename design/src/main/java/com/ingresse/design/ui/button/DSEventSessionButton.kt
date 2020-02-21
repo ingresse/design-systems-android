@@ -58,6 +58,19 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet): LinearLayout(
         updateTexts()
     }
 
+    fun setSessionDate(weekDay: String, date: String, hour: String) {
+        this.weekDay = weekDay
+        this.date = date
+        this.hour = hour
+        isPassport(false)
+        updateTexts()
+    }
+
+    fun setSessionPassport(passportName: String) {
+        setPassportName(passportName)
+        isPassport(true)
+    }
+
     override fun setSelected(isSelected: Boolean) {
         super.setSelected(isSelected)
         selected = isSelected

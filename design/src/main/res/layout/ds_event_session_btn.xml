@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/layout_ds_event_session">
+    android:id="@+id/layout_ds_event_session"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/lbl_week_day"

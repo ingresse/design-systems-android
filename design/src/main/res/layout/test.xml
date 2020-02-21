@@ -3,13 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/mercury_crystal"
+    android:gravity="center">
 
     <com.ingresse.design.ui.button.DSEventSessionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:week_day="Domingo"
+        app:selected="true"
+        app:is_passport="true"
         app:date="11 / Dez"
         app:hour="21:00"/>
+
+    <com.ingresse.design.ui.button.DSUnitController
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.ingresse.design.ui.button.DSTicketInfo
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ds_info_type="passkey"/>
 
 </LinearLayout>

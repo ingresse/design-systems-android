@@ -9,4 +9,15 @@
         <attr name="is_passport" format="boolean"/>
         <attr name="selected" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="DSTicketInfo">
+        <attr name="ds_info_type" />
+    </declare-styleable>
+
+    <attr name="ds_info_type" format="enum">
+        <enum name="description" value="0" />
+        <enum name="max" value="1" />
+        <enum name="min" value="2" />
+        <enum name="passkey" value="3" />
+    </attr>
 </resources>

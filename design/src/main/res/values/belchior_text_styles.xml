@@ -123,4 +123,9 @@
     <style name="DSTextStyle.Regular.Caption" parent="DSTextStyle.Regular">
         <item name="android:textSize">@dimen/font_caption</item>
     </style>
+
+    <!-- Ticket Info Passkey -->
+    <style name="DSTextStyle.TicketInfo.Passkey" parent="DSTextStyle.Medium.Caption">
+        <item name="android:textColor">@color/mint_dark</item>
+    </style>
 </resources>
