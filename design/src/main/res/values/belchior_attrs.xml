@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- BUTTONS -->
+    <declare-styleable name="DSEventSessionButton">
+        <attr name="week_day" />
+        <attr name="date" />
+        <attr name="hour" />
+        <attr name="enabled" format="boolean"/>
+        <attr name="is_passport" format="boolean"/>
+        <attr name="selected" format="boolean"/>
+    </declare-styleable>
+</resources>

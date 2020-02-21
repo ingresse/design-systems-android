@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_ds_event_session">
+
+    <TextView
+        android:id="@+id/lbl_week_day"
+        style="@style/DSTextStyle.Bold.T2"
+        android:layout_width="92dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/ocean_light"
+        tools:text="Domingo" />
+
+    <TextView
+        android:id="@+id/lbl_date"
+        style="@style/DSTextStyle.Bold.T2"
+        android:layout_width="92dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/ocean_light"
+        tools:text="22 / Dez" />
+
+    <TextView
+        android:id="@+id/lbl_hour"
+        style="@style/DSTextStyle.Bold.T2"
+        android:layout_width="92dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/ocean_light"
+        tools:text="22:00" />
+
+    <TextView
+        android:id="@+id/lbl_passport_name"
+        style="@style/DSTextStyle.Bold.T1"
+        android:layout_width="148dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/ocean_light"
+        tools:text="Passaporte"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/lbl_passport_description"
+        style="@style/DSTextStyle.Medium.B2"
+        android:layout_width="148dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:lines="2"
+        android:textColor="@color/ocean_light"
+        tools:text="Ingressos para mais de uma data"
+        android:visibility="gone"/>
+
+</LinearLayout>
