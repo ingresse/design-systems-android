@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mercury_crystal"
+    android:background="@color/ocean_crystal"
     android:gravity="center">
 
     <com.ingresse.design.ui.button.DSEventSessionButton
@@ -27,6 +27,9 @@
 
     <com.ingresse.design.ui.button.DSSessionDate
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:week_day="Sex"
+        app:datetime="22 / Dez - 22:00"
+        app:is_selected="true"/>
 
 </LinearLayout>

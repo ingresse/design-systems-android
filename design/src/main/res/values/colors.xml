@@ -56,6 +56,7 @@
     <color name="bunker">#2D2D2D</color>
 
     <color name="white">#FFF</color>
+    <color name="white_overlay">#80ffffff</color>
     <color name="white_07">#11FFFFFF</color>
     <color name="white_10">#1AFFFFFF</color>
     <color name="white_20">#33FFFFFF</color>
