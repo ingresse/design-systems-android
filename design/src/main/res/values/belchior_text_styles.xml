@@ -128,4 +128,12 @@
     <style name="DSTextStyle.TicketInfo.Passkey" parent="DSTextStyle.Medium.Caption">
         <item name="android:textColor">@color/mint_dark</item>
     </style>
+
+    <style name="DSTextStyle.TicketPrice.Tax" parent="DSTextStyle.Regular.Caption">
+        <item name="android:textColor">#b9bfc4</item>
+    </style>
+
+    <style name="DSTextStyle.TicketPrice.Tax.Selected" parent="DSTextStyle.Regular.Caption">
+        <item name="android:textColor">#d2eefa</item>
+    </style>
 </resources>

@@ -17,7 +17,7 @@ class DSSessionDate(context: Context, attrs: AttributeSet): LinearLayout(context
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSSessionDate, 0, 0)
         weekDay = array.getString(R.styleable.DSSessionDate_week_day) ?: ""
         datetime = array.getString(R.styleable.DSSessionDate_datetime) ?: ""
-        selected = array.getBoolean(R.styleable.DSSessionDate_is_selected, false)
+        selected = array.getBoolean(R.styleable.DSSessionDate_selected, false)
 
         updateState()
         updateTexts()
@@ -34,7 +34,6 @@ class DSSessionDate(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     override fun setSelected(isSelected: Boolean) {
-        super.setSelected(isSelected)
         selected = isSelected
         updateState()
     }

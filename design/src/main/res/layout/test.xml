@@ -4,8 +4,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ocean_crystal"
+    android:background="@color/tangerine_crystal"
     android:gravity="center">
+
+    <com.ingresse.design.ui.button.DSTicketView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:have_description="true"
+        app:single_date="false"
+        app:passkey="teste"
+        app:selected="true"/>
 
     <com.ingresse.design.ui.button.DSEventSessionButton
         android:layout_width="wrap_content"
@@ -23,13 +31,21 @@
     <com.ingresse.design.ui.button.DSTicketInfo
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:ds_info_type="passkey"/>
+        app:ds_info_type="passkey"
+        app:ds_rounded_bottom="false"/>
 
     <com.ingresse.design.ui.button.DSSessionDate
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:week_day="Sex"
         app:datetime="22 / Dez - 22:00"
-        app:is_selected="true"/>
+        app:selected="true"/>
+
+    <com.ingresse.design.ui.button.DSTicketPrice
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:price="152.33"
+        app:tax="15.23"
+        app:selected="false"/>
 
 </LinearLayout>

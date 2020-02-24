@@ -12,12 +12,29 @@
 
     <declare-styleable name="DSTicketInfo">
         <attr name="ds_info_type" />
+        <attr name="ds_rounded_bottom" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="DSSessionDate">
         <attr name="week_day" />
         <attr name="datetime" />
-        <attr name="is_selected" format="boolean"/>
+        <attr name="selected"/>
+    </declare-styleable>
+
+    <declare-styleable name="DSTicketView">
+        <attr name="selected"/>
+        <attr name="max" format="integer"/>
+        <attr name="min" format="integer"/>
+        <attr name="passkey" format="string"/>
+        <attr name="have_description" format="boolean"/>
+        <attr name="single_date" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="DSTicketPrice">
+        <attr name="price" format="float"/>
+        <attr name="tax" format="float"/>
+        <attr name="singleLine" format="boolean"/>
+        <attr name="selected"/>
     </declare-styleable>
 
     <attr name="ds_info_type" format="enum">

@@ -23,13 +23,15 @@ enum class TicketInfoType(val id: Int) {
 
 class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
     private var type: TicketInfoType
-    private var passkey: String = "Passkey"
+    private var passkey: String = ""
     private var max: Int = 0
     private var min: Int = 0
+    private var bottomRounded: Boolean = false
 
     init {
         inflate(context, R.layout.ds_ticket_info, this)
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSTicketInfo, 0, 0)
+        bottomRounded = array.getBoolean(R.styleable.DSTicketInfo_ds_rounded_bottom, false)
         val infoType = array.getInt(R.styleable.DSTicketInfo_ds_info_type, 0)
         type = TicketInfoType.fromId(infoType)
         updateStyle()
@@ -52,6 +54,11 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     fun setDescription() = setType(TicketInfoType.DESCRIPTION)
+
+    fun isBottomRounded(bottomRounded: Boolean) {
+        this.bottomRounded = bottomRounded
+        updateBackgroundColor()
+    }
 
     private fun setType(type: TicketInfoType) {
         this.type = type
@@ -98,10 +105,14 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun updateBackgroundColor() {
-        val backgroundRes = when(type) {
-            TicketInfoType.MAX -> R.color.tangerine_crystal
-            TicketInfoType.MIN -> R.color.tangerine_crystal
-            TicketInfoType.PASSKEY -> R.color.mint_crystal
+        val backgroundRes = when {
+            type == TicketInfoType.MAX && bottomRounded -> R.drawable.ds_ticket_info_max_min_bottom_bg
+            type == TicketInfoType.MIN && bottomRounded -> R.drawable.ds_ticket_info_max_min_bottom_bg
+            type == TicketInfoType.PASSKEY && bottomRounded -> R.drawable.ds_ticket_info_passkey_bottom_bg
+            type == TicketInfoType.DESCRIPTION && bottomRounded -> R.drawable.ds_ticket_info_description_bottom_bg
+            type == TicketInfoType.MAX && !bottomRounded -> R.color.tangerine_crystal
+            type == TicketInfoType.MIN && !bottomRounded -> R.color.tangerine_crystal
+            type == TicketInfoType.PASSKEY && !bottomRounded -> R.color.mint_crystal
             else -> R.color.ocean_crystal
         }
 
