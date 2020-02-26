@@ -75,5 +75,5 @@
     <string name="ticket_info_passkey">Ingresso liberado pelo código: %1$s</string>
 
     <string name="ticket_tax_price">+ R$ %1$.2f de taxa</string>
-    <string name="ticket_price">R$%1$.2f</string>
+    <string name="ticket_price">R$ %1$.2f</string>
 </resources>

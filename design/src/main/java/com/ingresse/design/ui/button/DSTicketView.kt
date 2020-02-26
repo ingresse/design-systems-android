@@ -26,8 +26,8 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
 
     init {
         inflate(context, R.layout.ds_ticket_view, this)
-        updateState()
         setupButtons()
+        updateState()
     }
 
     override fun setSelected(isSelected: Boolean) {
@@ -113,6 +113,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun updateViews() {
+        ticket_info_description.setDescription()
         ticket_info_description.isVisible = haveDescription
 
         ticket_info_passkey.isVisible = passkey.isNotEmpty()

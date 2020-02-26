@@ -72,7 +72,6 @@
 
     </LinearLayout>
 
-
     <com.ingresse.design.ui.button.DSTicketInfo
         android:id="@+id/ticket_info_description"
         android:layout_width="match_parent"
@@ -83,22 +82,18 @@
         android:id="@+id/ticket_info_passkey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:ds_info_type="passkey" />
+        android:visibility="gone" />
 
     <com.ingresse.design.ui.button.DSTicketInfo
         android:id="@+id/ticket_info_min"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:ds_info_type="min" />
+        android:visibility="gone"/>
 
     <com.ingresse.design.ui.button.DSTicketInfo
         android:id="@+id/ticket_info_max"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:ds_info_type="max"
-        app:ds_rounded_bottom="true" />
+        android:visibility="gone" />
 
 </LinearLayout>
