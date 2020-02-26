@@ -1,7 +1,6 @@
 package com.ingresse.design.ui.button
 
 import android.content.Context
-import android.os.Build
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
@@ -13,22 +12,16 @@ import com.ingresse.design.helper.ResourcesHelper
 import kotlinx.android.synthetic.main.ds_ticket_price.view.*
 
 class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
-    private var price: Double
-    private var tax: Double
-    private var selected: Boolean
-    private var singleLine: Boolean
+    private var price: Double = 0.0
+    private var tax: Double = 0.0
+    private var selected: Boolean = false
+    private var singleLine: Boolean = true
 
     private val resourcesHelper = ResourcesHelper(context)
 
     init {
         inflate(context, R.layout.ds_ticket_price, this)
-        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSTicketPrice, 0, 0)
-        selected = array.getBoolean(R.styleable.DSTicketPrice_selected, false)
-        singleLine = array.getBoolean(R.styleable.DSTicketPrice_singleLine, true)
-        price = array.getFloat(R.styleable.DSTicketPrice_price, 0.0f).toDouble()
-        tax = array.getFloat(R.styleable.DSTicketPrice_tax, 0.0f).toDouble()
         updateText()
-        array.recycle()
     }
 
     fun setPrice(price: Double) {
@@ -61,7 +54,12 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
 
         val taxAppearance = TextAppearanceSpan(context, textStyle)
         val info = SpannableString(lblText)
-        info.setSpan(taxAppearance, info.length - taxString.length, info.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        info.setSpan(
+            taxAppearance,
+            info.length - taxString.length,
+            info.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
 
         val textColorRes = if (selected) R.color.white else R.color.mercury_70
         lbl_ticket_price.setTextColor(resourcesHelper.getColorHelper(textColorRes))

@@ -72,4 +72,6 @@
     <color name="black_60">#99000000</color>
 
     <color name="transparent">#00000000</color>
+    <color name="tax_color">#b9bfc4</color>
+    <color name="selected_tax_color">#d2eefa</color>
 </resources>

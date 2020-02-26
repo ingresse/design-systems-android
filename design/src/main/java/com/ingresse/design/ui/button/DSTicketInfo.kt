@@ -22,8 +22,8 @@ enum class TicketInfoType(val id: Int) {
     }
 }
 
-class DSTicketInfo(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
-    private var type: TicketInfoType
+class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
+    private var type: TicketInfoType = TicketInfoType.DESCRIPTION
     private var passkey: String = ""
     private var max: Int = 0
     private var min: Int = 0
@@ -33,12 +33,7 @@ class DSTicketInfo(context: Context, attrs: AttributeSet) : LinearLayout(context
 
     init {
         inflate(context, R.layout.ds_ticket_info, this)
-        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSTicketInfo, 0, 0)
-        bottomRounded = array.getBoolean(R.styleable.DSTicketInfo_ds_rounded_bottom, false)
-        val infoType = array.getInt(R.styleable.DSTicketInfo_ds_info_type, 0)
-        type = TicketInfoType.fromId(infoType)
         updateStyle()
-        array.recycle()
     }
 
     fun setPasskey(passkey: String) {

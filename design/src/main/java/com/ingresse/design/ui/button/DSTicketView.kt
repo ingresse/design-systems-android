@@ -61,12 +61,14 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         updateState()
     }
 
-    fun setTicket(name: String,
-                  max: Int = 99,
-                  min: Int = 0,
-                  passkey: String = "",
-                  haveDescription: Boolean = false,
-                  showDates: Boolean = false) {
+    fun setTicket(
+        name: String,
+        max: Int = 99,
+        min: Int = 0,
+        passkey: String = "",
+        haveDescription: Boolean = false,
+        showDates: Boolean = false
+    ) {
         this.ticketName = name
         this.max = max
         this.min = min
@@ -83,7 +85,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         updateViews()
         updateBackground()
     }
-    
+
     private fun setupButtons() {
         ticket_unit_controller.setOnPlusClickListener {
             if (ticket_unit_controller.count == max) return@setOnPlusClickListener
@@ -132,7 +134,9 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun updateBackground() {
-        val ticketInfos = listOf(ticket_info_description, ticket_info_passkey, ticket_info_min, ticket_info_max)
+        val ticketInfos =
+            listOf(ticket_info_description, ticket_info_passkey, ticket_info_min, ticket_info_max)
+        
         val lastView = ticketInfos.lastOrNull { it != null && it.isVisible }
         ticket_info_description.isBottomRounded(lastView == ticket_info_description)
         ticket_info_passkey.isBottomRounded(lastView == ticket_info_passkey)

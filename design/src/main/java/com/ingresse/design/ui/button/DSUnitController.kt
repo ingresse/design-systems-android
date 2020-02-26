@@ -35,12 +35,12 @@ class DSUnitController(context: Context, attrs: AttributeSet): LinearLayout(cont
     }
 
     fun plus() {
-        count+=plusStep
+        count += plusStep
         updateCount()
     }
 
     fun minus() {
-        count-=minusStep
+        count -= minusStep
         updateCount()
     }
 

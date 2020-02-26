@@ -130,10 +130,10 @@
     </style>
 
     <style name="DSTextStyle.TicketPrice.Tax" parent="DSTextStyle.Regular.Caption">
-        <item name="android:textColor">#b9bfc4</item>
+        <item name="android:textColor">@color/tax_color</item>
     </style>
 
     <style name="DSTextStyle.TicketPrice.Tax.Selected" parent="DSTextStyle.Regular.Caption">
-        <item name="android:textColor">#d2eefa</item>
+        <item name="android:textColor">@color/selected_tax_color</item>
     </style>
 </resources>

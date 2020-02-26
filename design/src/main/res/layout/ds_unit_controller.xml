@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/ds_unit_controller_bg"
     android:gravity="center"
-    android:background="@drawable/ds_unit_controller_bg">
+    android:orientation="horizontal">
 
     <ImageButton
         android:id="@+id/btn_minus"
-        android:background="@color/transparent"
-        android:src="@drawable/ic_minus"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/width_btn_controler"
+        android:layout_height="@dimen/height_btn_controler"
         android:layout_marginStart="@dimen/spacing_x3"
         android:layout_marginTop="@dimen/spacing_x2"
-        android:layout_marginBottom="@dimen/spacing_x2" />
+        android:layout_marginBottom="@dimen/spacing_x2"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_minus" />
 
     <TextView
         android:id="@+id/lbl_count"
         style="@style/DSTextStyle.Bold.T1"
-        android:textColor="@color/mercury_70"
-        android:layout_width="24dp"
+        android:layout_width="@dimen/width_btn_controler"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_x2"
-        android:layout_marginEnd="@dimen/spacing_x2"
         android:layout_marginTop="@dimen/spacing_x2"
+        android:layout_marginEnd="@dimen/spacing_x2"
         android:layout_marginBottom="@dimen/spacing_x2"
         android:gravity="center"
         android:lines="1"
-        tools:text="1"/>
+        android:textColor="@color/mercury_70"
+        tools:text="1" />
 
     <ImageButton
         android:id="@+id/btn_plus"
-        android:background="@color/transparent"
-        android:src="@drawable/ic_plus"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="@dimen/spacing_x3"
+        android:layout_width="@dimen/width_btn_controler"
+        android:layout_height="@dimen/height_btn_controler"
         android:layout_marginTop="@dimen/spacing_x2"
-        android:layout_marginBottom="@dimen/spacing_x2" />
+        android:layout_marginEnd="@dimen/spacing_x3"
+        android:layout_marginBottom="@dimen/spacing_x2"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_plus" />
 
 </LinearLayout>
