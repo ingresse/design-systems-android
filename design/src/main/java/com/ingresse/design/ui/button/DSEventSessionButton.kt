@@ -10,12 +10,12 @@ import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_event_session_btn.view.*
 
 class DSEventSessionButton(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
-    private var weekDay: String
-    private var date: String
-    private var hour: String
-    private var enabled: Boolean
-    private var selected: Boolean
-    private var isPassport: Boolean
+    private var weekDay: String = ""
+    private var date: String = ""
+    private var hour: String = ""
+    private var enabled: Boolean = true
+    private var selected: Boolean = false
+    private var isPassport: Boolean = false
     private var passportName: String = resources.getString(R.string.passport)
 
     private val enabledColorRes: Int = R.color.ocean_light
@@ -26,15 +26,6 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet): LinearLayout(
 
     init {
         inflate(context, R.layout.ds_event_session_btn, this)
-
-        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSEventSessionButton, 0, 0)
-        weekDay = array.getString(R.styleable.DSEventSessionButton_week_day) ?: ""
-        date = array.getString(R.styleable.DSEventSessionButton_date) ?: ""
-        hour = array.getString(R.styleable.DSEventSessionButton_hour) ?: ""
-        enabled = array.getBoolean(R.styleable.DSEventSessionButton_enabled, true)
-        selected = array.getBoolean(R.styleable.DSEventSessionButton_selected, false)
-        isPassport = array.getBoolean(R.styleable.DSEventSessionButton_is_passport, false)
-
         updateLayout()
         updateBackgroundColor()
         updateTextColor()

@@ -44,11 +44,14 @@
     <dimen name="spacing_x0">0dp</dimen>
     <dimen name="spacing_x0_5">2dp</dimen>
     <dimen name="spacing_x1">4dp</dimen>
+    <dimen name="spacing_x1_3">5dp</dimen>
     <dimen name="spacing_x1_5">6dp</dimen>
     <dimen name="spacing_x2">8dp</dimen>
     <dimen name="spacing_x2_5">10dp</dimen>
     <dimen name="spacing_x3">12dp</dimen>
+    <dimen name="spacing_x3_8">15dp</dimen>
     <dimen name="spacing_x4">16dp</dimen>
+    <dimen name="spacing_x4_5">18dp</dimen>
     <dimen name="spacing_x5">20dp</dimen>
     <dimen name="spacing_x6">24dp</dimen>
     <dimen name="spacing_x7">28dp</dimen>
@@ -78,4 +81,11 @@
 
     <!-- ICONS -->
     <dimen name="ic_normal">20dp</dimen>
+
+    <!-- EVENT SESSION BUTTON -->
+    <dimen name="height_text_event_session">24dp</dimen>
+    <dimen name="width_text_event_session">92dp</dimen>
+    <dimen name="height_text_event_session_passport">32dp</dimen>
+    <dimen name="width_text_event_session_passport">148dp</dimen>
+
 </resources>
