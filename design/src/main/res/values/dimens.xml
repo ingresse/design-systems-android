@@ -88,4 +88,10 @@
     <dimen name="height_text_event_session_passport">32dp</dimen>
     <dimen name="width_text_event_session_passport">148dp</dimen>
 
+    <!-- SESSION DATE -->
+    <dimen name="height_text_week_day">40dp</dimen>
+    <dimen name="width_text_week_day">48dp</dimen>
+    <dimen name="height_text_datetime">32dp</dimen>
+    <dimen name="width_text_datetime">104dp</dimen>
+
 </resources>

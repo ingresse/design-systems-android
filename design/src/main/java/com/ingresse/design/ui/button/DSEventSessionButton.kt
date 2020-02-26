@@ -1,7 +1,6 @@
 package com.ingresse.design.ui.button
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.ingresse.design.R
@@ -9,7 +8,7 @@ import com.ingresse.design.helper.ResourcesHelper
 import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_event_session_btn.view.*
 
-class DSEventSessionButton(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
+class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private var weekDay: String = ""
     private var date: String = ""
     private var hour: String = ""

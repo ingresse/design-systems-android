@@ -6,12 +6,6 @@
         <attr name="ds_rounded_bottom" format="boolean"/>
     </declare-styleable>
 
-    <declare-styleable name="DSSessionDate">
-        <attr name="week_day" />
-        <attr name="datetime" />
-        <attr name="selected"/>
-    </declare-styleable>
-
     <declare-styleable name="DSTicketPrice">
         <attr name="price" format="float"/>
         <attr name="tax" format="float"/>

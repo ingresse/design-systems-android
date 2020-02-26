@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/layout_ds_event_session"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/layout_ds_event_session"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/lbl_week_day"
@@ -13,8 +13,8 @@
         android:layout_width="@dimen/width_text_event_session"
         android:layout_height="@dimen/height_text_event_session"
         android:layout_marginStart="@dimen/spacing_x1_3"
-        android:layout_marginEnd="@dimen/spacing_x1_3"
         android:layout_marginTop="@dimen/spacing_x3"
+        android:layout_marginEnd="@dimen/spacing_x1_3"
         android:gravity="center"
         android:lines="1"
         android:textColor="@color/ocean_light"
@@ -58,8 +58,8 @@
         android:gravity="center"
         android:lines="1"
         android:textColor="@color/ocean_light"
-        tools:text="Passaporte"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        tools:text="Passaporte" />
 
     <TextView
         android:id="@+id/lbl_passport_description"
@@ -67,13 +67,13 @@
         android:layout_width="@dimen/width_text_event_session_passport"
         android:layout_height="@dimen/height_text_event_session_passport"
         android:layout_marginStart="@dimen/spacing_x3_8"
-        android:layout_marginEnd="@dimen/spacing_x3_8"
         android:layout_marginTop="@dimen/spacing_x2_5"
+        android:layout_marginEnd="@dimen/spacing_x3_8"
         android:layout_marginBottom="@dimen/spacing_x4_5"
         android:gravity="center"
         android:lines="2"
         android:textColor="@color/ocean_light"
-        tools:text="Ingressos para mais de uma data"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        tools:text="Ingressos para mais de uma data" />
 
 </LinearLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,13 +12,7 @@
 
     <com.ingresse.design.ui.button.DSEventSessionButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:enabled="true"
-        app:week_day="Domingo"
-        app:selected="true"
-        app:is_passport="true"
-        app:date="11 / Dez"
-        app:hour="21:00"/>
+        android:layout_height="wrap_content" />
 
     <com.ingresse.design.ui.button.DSUnitController
         android:layout_width="wrap_content"
@@ -27,22 +20,14 @@
 
     <com.ingresse.design.ui.button.DSTicketInfo
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:ds_info_type="passkey"
-        app:ds_rounded_bottom="false"/>
+        android:layout_height="wrap_content" />
 
     <com.ingresse.design.ui.button.DSSessionDate
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:week_day="Sex"
-        app:datetime="22 / Dez - 22:00"
-        app:selected="true"/>
+        android:layout_height="wrap_content" />
 
     <com.ingresse.design.ui.button.DSTicketPrice
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:price="152.33"
-        app:tax="15.23"
-        app:selected="false"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
