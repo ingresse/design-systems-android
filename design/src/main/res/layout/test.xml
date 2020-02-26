@@ -9,11 +9,7 @@
 
     <com.ingresse.design.ui.button.DSTicketView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:have_description="true"
-        app:single_date="false"
-        app:passkey="teste"
-        app:selected="true"/>
+        android:layout_height="wrap_content"/>
 
     <com.ingresse.design.ui.button.DSEventSessionButton
         android:layout_width="wrap_content"

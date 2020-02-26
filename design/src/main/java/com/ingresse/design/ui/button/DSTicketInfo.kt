@@ -9,6 +9,7 @@ import android.text.style.TextAppearanceSpan
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.ingresse.design.R
+import com.ingresse.design.helper.ResourcesHelper
 import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_ticket_info.view.*
 
@@ -21,12 +22,14 @@ enum class TicketInfoType(val id: Int) {
     }
 }
 
-class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
+class DSTicketInfo(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private var type: TicketInfoType
     private var passkey: String = ""
     private var max: Int = 0
     private var min: Int = 0
     private var bottomRounded: Boolean = false
+
+    private val resourcesHelper = ResourcesHelper(context)
 
     init {
         inflate(context, R.layout.ds_ticket_info, this)
@@ -83,15 +86,21 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun updateText() {
-        lbl_info.text = when(type) {
+        lbl_info.text = when (type) {
             TicketInfoType.MAX -> resources.getQuantityString(R.plurals.ticket_info_max, max, max)
             TicketInfoType.MIN -> resources.getQuantityString(R.plurals.ticket_info_min, min, min)
             TicketInfoType.PASSKEY -> {
                 val passkeyRes = context.getString(R.string.ticket_info_passkey)
-                val passkeyAppearence = TextAppearanceSpan(context, R.style.DSTextStyle_TicketInfo_Passkey)
+                val passkeyAppearence =
+                    TextAppearanceSpan(context, R.style.DSTextStyle_TicketInfo_Passkey)
                 val info = SpannableString(String.format(passkeyRes, passkey.toUpperCase()))
                 if (passkey.isNotEmpty()) {
-                    info.setSpan(passkeyAppearence, info.length - passkey.length, info.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    info.setSpan(
+                        passkeyAppearence,
+                        info.length - passkey.length,
+                        info.length,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
                 }
                 SpannableStringBuilder().append(info)
             }
@@ -116,21 +125,14 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
             else -> R.color.ocean_crystal
         }
 
-        val currentBackground = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) context.getDrawable(backgroundRes)
-        else resources.getDrawable(backgroundRes)
-
-        layout_ds_ticket_info.background = currentBackground
+        layout_ds_ticket_info.background = resourcesHelper.getDrawableHelper(backgroundRes)
     }
 
-    private fun getTextColor(): Int {
-        val colorRes = when(type) {
-            TicketInfoType.MAX -> R.color.tangerine_dark
-            TicketInfoType.MIN -> R.color.tangerine_dark
-            TicketInfoType.PASSKEY -> R.color.mint_dark
-            else -> R.color.ocean_dark
+    private fun getTextColor(): Int =
+        when (type) {
+            TicketInfoType.MAX -> resourcesHelper.getColorHelper(R.color.tangerine_dark)
+            TicketInfoType.MIN -> resourcesHelper.getColorHelper(R.color.tangerine_dark)
+            TicketInfoType.PASSKEY -> resourcesHelper.getColorHelper(R.color.mint_dark)
+            else -> resourcesHelper.getColorHelper(R.color.ocean_dark)
         }
-
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) context.getColor(colorRes)
-        else resources.getColor(colorRes)
-    }
 }

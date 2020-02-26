@@ -9,6 +9,7 @@ import android.text.style.TextAppearanceSpan
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.ingresse.design.R
+import com.ingresse.design.helper.ResourcesHelper
 import kotlinx.android.synthetic.main.ds_ticket_price.view.*
 
 class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
@@ -16,6 +17,8 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
     private var tax: Double
     private var selected: Boolean
     private var singleLine: Boolean
+
+    private val resourcesHelper = ResourcesHelper(context)
 
     init {
         inflate(context, R.layout.ds_ticket_price, this)
@@ -61,10 +64,7 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
         info.setSpan(taxAppearance, info.length - taxString.length, info.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         val textColorRes = if (selected) R.color.white else R.color.mercury_70
-        val priceColor = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) context.getColor(textColorRes)
-        else resources.getColor(textColorRes)
-
-        lbl_ticket_price.setTextColor(priceColor)
+        lbl_ticket_price.setTextColor(resourcesHelper.getColorHelper(textColorRes))
         lbl_ticket_price.text = SpannableStringBuilder().append(info)
     }
 }

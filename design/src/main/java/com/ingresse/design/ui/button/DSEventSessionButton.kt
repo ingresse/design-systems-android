@@ -5,6 +5,7 @@ import android.os.Build
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.ingresse.design.R
+import com.ingresse.design.helper.ResourcesHelper
 import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_event_session_btn.view.*
 
@@ -20,6 +21,8 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet): LinearLayout(
     private val enabledColorRes: Int = R.color.ocean_light
     private val disabledColorRes: Int = R.color.mercury_10
     private val selectedColorRes: Int = R.color.white
+
+    private val resourcesHelper = ResourcesHelper(context)
 
     init {
         inflate(context, R.layout.ds_event_session_btn, this)
@@ -115,22 +118,15 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet): LinearLayout(
             else -> R.drawable.ds_event_session_enabled_bg
         }
 
-        val currentBackground = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) context.getDrawable(backgroundRes)
-        else resources.getDrawable(backgroundRes)
-
-        layout_ds_event_session.background = currentBackground
+        layout_ds_event_session.background = resourcesHelper.getDrawableHelper(backgroundRes)
     }
 
-    private fun getTextColor(): Int {
-        val colorRes = when {
-            !enabled -> disabledColorRes
-            enabled && selected -> selectedColorRes
-            else -> enabledColorRes
+    private fun getTextColor(): Int =
+        when {
+            !enabled -> resourcesHelper.getColorHelper(disabledColorRes)
+            enabled && selected -> resourcesHelper.getColorHelper(selectedColorRes)
+            else -> resourcesHelper.getColorHelper(enabledColorRes)
         }
-
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) context.getColor(colorRes)
-        else resources.getColor(colorRes)
-    }
 
     private fun updateTextColor() {
         val currentColor = getTextColor()
