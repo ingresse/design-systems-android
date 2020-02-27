@@ -61,15 +61,8 @@
     <string name="login_with_facebook">Entrar com o facebook</string>
 
     <!-- DS_TICKET_INFO -->
-    <plurals name="ticket_info_max">
-        <item quantity="one">O pedido máximo é de 1 ingresso</item>
-        <item quantity="other">O pedido máximo é de %1$s ingressos</item>
-    </plurals>
-
-    <plurals name="ticket_info_min">
-        <item quantity="one">O pedido mínimo é de 1 ingresso</item>
-        <item quantity="other">O pedido mínimo é de %1$s ingressos</item>
-    </plurals>
+    <string name="ticket_info_max">{0,choice,0#O pedido máximo é de 0 ingressos|1#O pedido máximo é de 1 ingresso|1&lt;O pedido máximo é de {0} ingressos}</string>
+    <string name="ticket_info_min">{0,choice,0#O pedido mínimo é de 0 ingressos|1#O pedido mínimo é de 1 ingresso|1&lt;O pedido mínimo é de {0} ingressos}</string>
 
     <string name="ticket_info_description">Leia a descrição do ingresso</string>
     <string name="ticket_info_passkey">Ingresso liberado pelo código: %1$s</string>

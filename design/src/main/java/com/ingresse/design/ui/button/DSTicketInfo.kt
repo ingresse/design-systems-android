@@ -12,6 +12,7 @@ import com.ingresse.design.helper.animateBackground
 import com.ingresse.design.helper.animateColor
 import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_ticket_info.view.*
+import java.text.MessageFormat
 
 enum class TicketInfoType(val id: Int) {
     DESCRIPTION(0), MAX(1), MIN(2), PASSKEY(3);
@@ -98,8 +99,8 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
 
     private fun updateText() {
         lbl_info.text = when (type) {
-            TicketInfoType.MAX -> resources.getQuantityString(R.plurals.ticket_info_max, max, max)
-            TicketInfoType.MIN -> resources.getQuantityString(R.plurals.ticket_info_min, min, min)
+            TicketInfoType.MAX -> MessageFormat.format(resources.getString(R.string.ticket_info_max), max)
+            TicketInfoType.MIN -> MessageFormat.format(resources.getString(R.string.ticket_info_min), min)
             TicketInfoType.PASSKEY -> {
                 val passkeyRes = context.getString(R.string.ticket_info_passkey)
                 val passkeyAppearence =
@@ -122,15 +123,19 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
     private fun updateTextColor() = lbl_info.animateColor(getTextColor(), context)
 
     private fun updateBackgroundColor() {
-        val backgroundRes = when {
-            type == TicketInfoType.MAX && bottomRounded -> R.drawable.ds_ticket_info_max_min_bottom_bg
-            type == TicketInfoType.MIN && bottomRounded -> R.drawable.ds_ticket_info_max_min_bottom_bg
-            type == TicketInfoType.PASSKEY && bottomRounded -> R.drawable.ds_ticket_info_passkey_bottom_bg
-            type == TicketInfoType.DESCRIPTION && bottomRounded -> R.drawable.ds_ticket_info_description_bottom_bg
-            type == TicketInfoType.MAX && !bottomRounded -> R.color.tangerine_crystal
-            type == TicketInfoType.MIN && !bottomRounded -> R.color.tangerine_crystal
-            type == TicketInfoType.PASSKEY && !bottomRounded -> R.color.mint_crystal
-            else -> R.color.ocean_crystal
+        val backgroundRes = when(type) {
+            TicketInfoType.MAX ->
+                if (bottomRounded) R.drawable.ds_ticket_info_max_min_bottom_bg
+                else R.color.tangerine_crystal
+            TicketInfoType.MIN ->
+                if (bottomRounded) R.drawable.ds_ticket_info_max_min_bottom_bg
+                else R.color.tangerine_crystal
+            TicketInfoType.PASSKEY ->
+                if (bottomRounded) R.drawable.ds_ticket_info_passkey_bottom_bg
+                else  R.color.mint_crystal
+            TicketInfoType.DESCRIPTION ->
+                if (bottomRounded) R.drawable.ds_ticket_info_description_bottom_bg
+                else  R.color.ocean_crystal
         }
 
         layout_ds_ticket_info.animateBackground(backgroundRes, context)
