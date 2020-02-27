@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DSTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_height">@dimen/height_text_view</item>
+    </style>
+
+    <!-- Text Weights -->
+    <style name="DSTextStyle.Bold" parent="DSTextStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DSTextStyle.Medium" parent="DSTextStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="DSTextStyle.Regular" parent="DSTextStyle">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- Header1 -->
+    <style name="DSTextStyle.Bold.H1" parent="DSTextStyle.Bold">
+        <item name="android:textSize">@dimen/font_header_1</item>
+    </style>
+
+    <style name="DSTextStyle.Medium.H1" parent="DSTextStyle.Medium">
+        <item name="android:textSize">@dimen/font_header_1</item>
+    </style>
+
+    <style name="DSTextStyle.Regular.H1" parent="DSTextStyle.Regular">
+        <item name="android:textSize">@dimen/font_header_1</item>
+    </style>
+
+    <!-- Header2 -->
+    <style name="DSTextStyle.Bold.H2" parent="DSTextStyle.Bold">
+        <item name="android:textSize">@dimen/font_header_2</item>
+    </style>
+
+    <style name="DSTextStyle.Medium.H2" parent="DSTextStyle.Medium">
+        <item name="android:textSize">@dimen/font_header_2</item>
+    </style>
+
+    <style name="DSTextStyle.Regular.H2" parent="DSTextStyle.Regular">
+        <item name="android:textSize">@dimen/font_header_2</item>
+    </style>
+
+    <!-- Header3 -->
+    <style name="DSTextStyle.Bold.H3" parent="DSTextStyle.Bold">
+        <item name="android:textSize">@dimen/font_header_3</item>
+    </style>
+
+    <style name="DSTextStyle.Medium.H3" parent="DSTextStyle.Medium">
+        <item name="android:textSize">@dimen/font_header_3</item>
+    </style>
+
+    <style name="DSTextStyle.Regular.H3" parent="DSTextStyle.Regular">
+        <item name="android:textSize">@dimen/font_header_3</item>
+    </style>
+
+    <!-- Title1 -->
+    <style name="DSTextStyle.Bold.T1" parent="DSTextStyle.Bold">
+        <item name="android:textSize">@dimen/font_title_1</item>
+    </style>
+
+    <style name="DSTextStyle.Medium.T1" parent="DSTextStyle.Medium">
+        <item name="android:textSize">@dimen/font_title_1</item>
+    </style>
+
+    <style name="DSTextStyle.Regular.T1" parent="DSTextStyle.Regular">
+        <item name="android:textSize">@dimen/font_title_1</item>
+    </style>
+
+    <!-- Title2 -->
+    <style name="DSTextStyle.Bold.T2" parent="DSTextStyle.Bold">
+        <item name="android:textSize">@dimen/font_title_2</item>
+    </style>
+
+    <style name="DSTextStyle.Medium.T2" parent="DSTextStyle.Medium">
+        <item name="android:textSize">@dimen/font_title_2</item>
+    </style>
+
+    <style name="DSTextStyle.Regular.T2" parent="DSTextStyle.Regular">
+        <item name="android:textSize">@dimen/font_title_2</item>
+    </style>
+
+    <!-- Body1 -->
+    <style name="DSTextStyle.Bold.B1" parent="DSTextStyle.Bold">
+        <item name="android:textSize">@dimen/font_body_1</item>
+    </style>
+
+    <style name="DSTextStyle.Medium.B1" parent="DSTextStyle.Medium">
+        <item name="android:textSize">@dimen/font_body_1</item>
+    </style>
+
+    <style name="DSTextStyle.Regular.B1" parent="DSTextStyle.Regular">
+        <item name="android:textSize">@dimen/font_body_1</item>
+    </style>
+
+    <!-- Body2 -->
+    <style name="DSTextStyle.Bold.B2" parent="DSTextStyle.Bold">
+        <item name="android:textSize">@dimen/font_body_2</item>
+    </style>
+
+    <style name="DSTextStyle.Medium.B2" parent="DSTextStyle.Medium">
+        <item name="android:textSize">@dimen/font_body_2</item>
+    </style>
+
+    <style name="DSTextStyle.Regular.B2" parent="DSTextStyle.Regular">
+        <item name="android:textSize">@dimen/font_body_2</item>
+    </style>
+
+    <!-- Caption -->
+    <style name="DSTextStyle.Bold.Caption" parent="DSTextStyle.Bold">
+        <item name="android:textSize">@dimen/font_caption</item>
+    </style>
+
+    <style name="DSTextStyle.Medium.Caption" parent="DSTextStyle.Medium">
+        <item name="android:textSize">@dimen/font_caption</item>
+    </style>
+
+    <style name="DSTextStyle.Regular.Caption" parent="DSTextStyle.Regular">
+        <item name="android:textSize">@dimen/font_caption</item>
+    </style>
+
+    <!-- Ticket Info Passkey -->
+    <style name="DSTextStyle.TicketInfo.Passkey" parent="DSTextStyle.Medium.Caption">
+        <item name="android:textColor">@color/mint_dark</item>
+    </style>
+
+    <style name="DSTextStyle.TicketPrice.Tax" parent="DSTextStyle.Regular.Caption">
+        <item name="android:textColor">@color/tax_color</item>
+    </style>
+
+    <style name="DSTextStyle.TicketPrice.Tax.Selected" parent="DSTextStyle.Regular.Caption">
+        <item name="android:textColor">@color/selected_tax_color</item>
+    </style>
+</resources>

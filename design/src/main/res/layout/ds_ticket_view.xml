@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_ds_ticket_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/ds_ticket_bg">
+
+        <TextView
+            android:id="@+id/lbl_ticket_name"
+            style="@style/DSTextStyle.Bold.T1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:layout_marginTop="@dimen/spacing_x3"
+            android:layout_marginEnd="@dimen/spacing_x2"
+            android:layout_toStartOf="@+id/ticket_unit_controller"
+            android:textColor="@color/mercury_70"
+            tools:text="Meia" />
+
+        <com.ingresse.design.ui.button.DSTicketPrice
+            android:id="@+id/ticket_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbl_ticket_name"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:layout_marginBottom="@dimen/spacing_x4"
+            android:layout_toStartOf="@id/ticket_unit_controller" />
+
+        <com.ingresse.design.ui.button.DSUnitController
+            android:id="@+id/ticket_unit_controller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/spacing_x4"
+            android:layout_marginEnd="@dimen/spacing_x2"
+            android:layout_marginBottom="@dimen/spacing_x4" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_dates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_dates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_x1"
+            android:layout_marginBottom="@dimen/spacing_x1"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_x2"
+            android:paddingEnd="@dimen/spacing_x0_5"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/ds_session_date" />
+
+    </LinearLayout>
+
+    <com.ingresse.design.ui.button.DSTicketInfo
+        android:id="@+id/ticket_info_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <com.ingresse.design.ui.button.DSTicketInfo
+        android:id="@+id/ticket_info_passkey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <com.ingresse.design.ui.button.DSTicketInfo
+        android:id="@+id/ticket_info_min"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <com.ingresse.design.ui.button.DSTicketInfo
+        android:id="@+id/ticket_info_max"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

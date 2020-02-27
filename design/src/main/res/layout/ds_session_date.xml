@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_ds_session_date"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/spacing_x1"
+    android:background="@drawable/ds_session_date_bg"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/lbl_week_day"
+        style="@style/DSTextStyle.Bold.B2"
+        android:layout_width="@dimen/width_text_week_day"
+        android:layout_height="@dimen/height_text_week_day"
+        android:background="@drawable/ds_session_date_weekday_bg"
+        android:gravity="center"
+        android:lines="1"
+        android:maxLength="3"
+        android:textColor="@color/white"
+        tools:text="Sex" />
+
+    <TextView
+        android:id="@+id/lbl_datetime"
+        style="@style/DSTextStyle.Bold.B2"
+        android:layout_width="@dimen/width_text_datetime"
+        android:layout_height="@dimen/height_text_datetime"
+        android:layout_marginStart="@dimen/spacing_x2"
+        android:layout_marginTop="@dimen/spacing_x1"
+        android:layout_marginEnd="@dimen/spacing_x2"
+        android:layout_marginBottom="@dimen/spacing_x1"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/mercury_50"
+        tools:text="22 / Dez - 22:00" />
+
+</LinearLayout>
