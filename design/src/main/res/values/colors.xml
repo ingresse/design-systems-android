@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="mariner_dark">#4C619D</color>
-    <color name="mariner">#5c77ba</color>
+    <color name="mariner">#5C77BA</color>
     <color name="ocean_dark">#0086C9</color>
     <color name="ocean">#00A5DB</color>
     <color name="ocean_light">#00C0E8</color>
@@ -16,9 +16,9 @@
     <color name="mercury">#7A8085</color>
     <color name="mercury_light">#989FA3</color>
     <color name="mercury_crystal">#DDDFE0</color>
-    <color name="mercury_70">#44494d</color>
-    <color name="mercury_50">#757b80</color>
-    <color name="mercury_10">#e2e4e6</color>
+    <color name="mercury_70">#44494D</color>
+    <color name="mercury_50">#757B80</color>
+    <color name="mercury_10">#E2E4E6</color>
 
     <color name="bamboo_dark">#42AD3C</color>
     <color name="bamboo">#60C659</color>
@@ -57,7 +57,7 @@
 
     <color name="white">#FFF</color>
     <color name="off_white">#FAFAFA</color>
-    <color name="white_overlay">#80ffffff</color>
+    <color name="white_overlay">#80FFFFFF</color>
     <color name="white_07">#11FFFFFF</color>
     <color name="white_10">#1AFFFFFF</color>
     <color name="white_20">#33FFFFFF</color>
