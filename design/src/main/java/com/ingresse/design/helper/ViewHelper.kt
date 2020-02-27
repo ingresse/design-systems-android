@@ -26,9 +26,12 @@ fun View.setViewEnabled(condition: Boolean = true) {
     alpha = if (condition) 1.0f else 0.6f
 }
 
-// Functions to increase view hit area
+/**
+ * Method to increase hit box around view
+ *
+ * @param dp - how many dp will be increase around view
+ */
 fun View.increaseHitArea(dp: Float) {
-    // increase the hit area
     val increasedArea = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().displayMetrics).toInt()
     val parent = parent as View
     parent.post {
@@ -42,8 +45,15 @@ fun View.increaseHitArea(dp: Float) {
     }
 }
 
+/**
+ * Method to increase hit box around view
+ *
+ * @param top - how many dp will be increase top of view
+ * @param bottom - how many dp will be increase bottom of view
+ * @param left - how many dp will be increase left of view
+ * @param right - how many dp will be increase right of view
+ */
 fun View.increaseHitArea(top: Float, bottom: Float, left: Float, right: Float) {
-    // increase the hit area
     val topIncrease = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, top, Resources.getSystem().displayMetrics).toInt()
     val bottomIncrease = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, bottom, Resources.getSystem().displayMetrics).toInt()
     val leftIncrease = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, left, Resources.getSystem().displayMetrics).toInt()

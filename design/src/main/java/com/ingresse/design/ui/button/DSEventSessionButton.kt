@@ -50,6 +50,13 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
         updateTexts()
     }
 
+    /**
+     * Method to set view to date mode
+     *
+     * @param weekDay - session date week day
+     * @param date - session date
+     * @param hour - session hour
+     */
     fun setSessionDate(weekDay: String, date: String, hour: String) {
         this.weekDay = weekDay
         this.date = date
@@ -58,6 +65,11 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
         updateTexts()
     }
 
+    /**
+     * Method to set view to passport mode
+     *
+     * @param passportName - attribute to set passport name to label
+     */
     fun setSessionPassport(passportName: String) {
         setPassportName(passportName)
         isPassport(true)

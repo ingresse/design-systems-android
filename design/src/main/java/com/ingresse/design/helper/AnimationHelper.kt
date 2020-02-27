@@ -10,7 +10,8 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 
 fun TextView.animateColor(@ColorRes newColor: Int, context: Context, duration: Long = 200) {
-    val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), this.textColors.defaultColor, ResourcesHelper(context).getColorHelper(newColor))
+    val color = ResourcesHelper(context).getColorHelper(newColor)
+    val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), this.textColors.defaultColor, color)
     colorAnimation.addUpdateListener { animator -> this.setTextColor(animator.animatedValue as Int) }
     colorAnimation.duration = duration
     colorAnimation.start()

@@ -29,6 +29,18 @@ class DSSessionDate(context: Context, attrs: AttributeSet): LinearLayout(context
         updateTexts()
     }
 
+    /**
+     * Method to set properties to SessionDate
+     *
+     * @param weekDay - week day from date
+     * @param datetime - view date and time to be showed
+     */
+    fun setProperties(weekDay: String, datetime: String) {
+        this.weekDay = weekDay
+        this.datetime = datetime
+        updateTexts()
+    }
+
     override fun setSelected(isSelected: Boolean) {
         selected = isSelected
         updateState()

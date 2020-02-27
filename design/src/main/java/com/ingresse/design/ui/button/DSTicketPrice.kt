@@ -32,6 +32,18 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
         updateText()
     }
 
+    /**
+     * Method to set values to TicketPrice
+     *
+     * @param price - price of related item
+     * @param tax - tax of related item
+     */
+    fun setValues(price: Double, tax: Double) {
+        this.price = price
+        this.tax = tax
+        updateText()
+    }
+
     override fun setSelected(isSelected: Boolean) {
         selected = isSelected
         updateText()

@@ -34,21 +34,39 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
         updateStyle()
     }
 
+    /**
+     * Method to set view to 'passkey' mode
+     *
+     * @param passkey - passkey related to view
+     */
     fun setPasskey(passkey: String) {
         this.passkey = passkey
         setType(TicketInfoType.PASSKEY)
     }
 
+    /**
+     * Method to set view to 'max' mode
+     *
+     * @param max - max limit to be showed on view
+     */
     fun setMax(max: Int) {
         this.max = max
         setType(TicketInfoType.MAX)
     }
 
+    /**
+     * Method to set view to 'min' mode
+     *
+     * @param min - min limit to be showed on view
+     */
     fun setMin(min: Int) {
         this.min = min
         setType(TicketInfoType.MIN)
     }
 
+    /**
+     * Method to set view to 'description' mode
+     */
     fun setDescription() = setType(TicketInfoType.DESCRIPTION)
 
     fun isBottomRounded(bottomRounded: Boolean) {

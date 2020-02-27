@@ -10,7 +10,6 @@ import com.ingresse.design.helper.animateColor
 import com.ingresse.design.helper.increaseHitArea
 import kotlinx.android.synthetic.main.ds_ticket_view.view.*
 
-
 class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
     private var selected: Boolean = false
     private var max: Int = 99
@@ -59,6 +58,16 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
 
     fun setOnDescriptionInfoClick(listener: () -> Unit) = ticket_info_description.setOnClickListener { listener() }
 
+    /**
+     * Method to set ticket infos to TicketView
+     *
+     * @param name - name of ticket
+     * @param max - limit of selected tickets
+     * @param min - min of selected tickets
+     * @param passkey - passkey code related to ticket (if have)
+     * @param haveDescription - if true show TicketInfo description label
+     * @param showDates - if true show carousel with ticket dates
+     */
     fun setTicket(
         name: String,
         max: Int = 99,
