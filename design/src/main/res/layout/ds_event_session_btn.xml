@@ -74,6 +74,6 @@
         android:lines="2"
         android:textColor="@color/ocean_light"
         android:visibility="gone"
-        tools:text="Ingressos para mais de uma data" />
+        android:text="@string/passport_description" />
 
 </LinearLayout>

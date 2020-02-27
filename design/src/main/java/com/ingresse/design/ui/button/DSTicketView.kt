@@ -1,17 +1,14 @@
 package com.ingresse.design.ui.button
 
 import android.content.Context
-import android.content.res.Resources
-import android.graphics.Rect
 import android.util.AttributeSet
-import android.util.TypedValue
-import android.view.TouchDelegate
-import android.view.View
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import com.ingresse.design.R
-import com.ingresse.design.helper.ResourcesHelper
+import com.ingresse.design.helper.animateBackground
+import com.ingresse.design.helper.animateColor
 import kotlinx.android.synthetic.main.ds_ticket_view.view.*
+
 
 class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
     private var selected: Boolean = false
@@ -21,8 +18,6 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     private var haveDescription: Boolean = false
     private var showDates: Boolean = false
     private var ticketName: String = ""
-
-    private val resourcesHelper = ResourcesHelper(context)
 
     init {
         inflate(context, R.layout.ds_ticket_view, this)
@@ -130,7 +125,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
 
     private fun updateTextColor() {
         val nameColorRes = if (selected) R.color.white else R.color.mercury_70
-        lbl_ticket_name.setTextColor(resourcesHelper.getColorHelper(nameColorRes))
+        lbl_ticket_name.animateColor(nameColorRes, context)
         ticket_price.isSelected = selected
     }
 
@@ -152,7 +147,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
             else -> R.color.off_white
         }
 
-        layout_dates.background = resourcesHelper.getDrawableHelper(recyclerBGRes)
+        layout_dates.animateBackground(recyclerBGRes, context)
 
         val ticketBG = when {
             lastView == null && selected -> R.drawable.ds_ticket_selected_bg_rounded
@@ -161,6 +156,6 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
             else -> R.drawable.ds_ticket_bg
         }
 
-        layout_ds_ticket_view.background = resourcesHelper.getDrawableHelper(ticketBG)
+        layout_ds_ticket_view.animateBackground(ticketBG, context)
     }
 }

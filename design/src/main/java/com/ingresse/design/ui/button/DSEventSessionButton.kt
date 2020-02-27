@@ -4,7 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.ingresse.design.R
-import com.ingresse.design.helper.ResourcesHelper
+import com.ingresse.design.helper.animateBackground
+import com.ingresse.design.helper.animateColor
 import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_event_session_btn.view.*
 
@@ -20,8 +21,6 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
     private val enabledColorRes: Int = R.color.ocean_light
     private val disabledColorRes: Int = R.color.mercury_10
     private val selectedColorRes: Int = R.color.white
-
-    private val resourcesHelper = ResourcesHelper(context)
 
     init {
         inflate(context, R.layout.ds_event_session_btn, this)
@@ -108,24 +107,24 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
             else -> R.drawable.ds_event_session_enabled_bg
         }
 
-        layout_ds_event_session.background = resourcesHelper.getDrawableHelper(backgroundRes)
+        layout_ds_event_session.animateBackground(backgroundRes, context)
     }
 
     private fun getTextColor(): Int =
         when {
-            !enabled -> resourcesHelper.getColorHelper(disabledColorRes)
-            enabled && selected -> resourcesHelper.getColorHelper(selectedColorRes)
-            else -> resourcesHelper.getColorHelper(enabledColorRes)
+            !enabled -> disabledColorRes
+            enabled && selected -> selectedColorRes
+            else -> enabledColorRes
         }
 
     private fun updateTextColor() {
         val currentColor = getTextColor()
 
-        lbl_passport_name.setTextColor(currentColor)
-        lbl_passport_description.setTextColor(currentColor)
+        lbl_passport_name.animateColor(currentColor, context)
+        lbl_passport_description.animateColor(currentColor, context)
 
-        lbl_week_day.setTextColor(currentColor)
-        lbl_date.setTextColor(currentColor)
-        lbl_hour.setTextColor(currentColor)
+        lbl_week_day.animateColor(currentColor, context)
+        lbl_date.animateColor(currentColor, context)
+        lbl_hour.animateColor(currentColor, context)
     }
 }

@@ -76,4 +76,5 @@
 
     <string name="ticket_tax_price">+ R$ %1$.2f de taxa</string>
     <string name="ticket_price">R$ %1$.2f</string>
+    <string name="passport_description">Ingressos para mais de uma data</string>
 </resources>

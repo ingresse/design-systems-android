@@ -1,7 +1,6 @@
 package com.ingresse.design.ui.button
 
 import android.content.Context
-import android.os.Build
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
@@ -9,7 +8,8 @@ import android.text.style.TextAppearanceSpan
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.ingresse.design.R
-import com.ingresse.design.helper.ResourcesHelper
+import com.ingresse.design.helper.animateBackground
+import com.ingresse.design.helper.animateColor
 import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_ticket_info.view.*
 
@@ -28,8 +28,6 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
     private var max: Int = 0
     private var min: Int = 0
     private var bottomRounded: Boolean = false
-
-    private val resourcesHelper = ResourcesHelper(context)
 
     init {
         inflate(context, R.layout.ds_ticket_info, this)
@@ -103,10 +101,7 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
         }
     }
 
-    private fun updateTextColor() {
-        val currentColor = getTextColor()
-        lbl_info.setTextColor(currentColor)
-    }
+    private fun updateTextColor() = lbl_info.animateColor(getTextColor(), context)
 
     private fun updateBackgroundColor() {
         val backgroundRes = when {
@@ -120,14 +115,13 @@ class DSTicketInfo(context: Context, attrs: AttributeSet): LinearLayout(context,
             else -> R.color.ocean_crystal
         }
 
-        layout_ds_ticket_info.background = resourcesHelper.getDrawableHelper(backgroundRes)
+        layout_ds_ticket_info.animateBackground(backgroundRes, context)
     }
 
     private fun getTextColor(): Int =
         when (type) {
-            TicketInfoType.MAX -> resourcesHelper.getColorHelper(R.color.tangerine_dark)
-            TicketInfoType.MIN -> resourcesHelper.getColorHelper(R.color.tangerine_dark)
-            TicketInfoType.PASSKEY -> resourcesHelper.getColorHelper(R.color.mint_dark)
-            else -> resourcesHelper.getColorHelper(R.color.ocean_dark)
+            TicketInfoType.MAX, TicketInfoType.MIN -> R.color.tangerine_dark
+            TicketInfoType.PASSKEY -> R.color.mint_dark
+            else -> R.color.ocean_dark
         }
 }
