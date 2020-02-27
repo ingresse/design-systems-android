@@ -55,7 +55,6 @@ class DSSessionDate(context: Context, attrs: AttributeSet): LinearLayout(context
         lbl_week_day.animateBackground(weekDayBGRes, context)
     }
 
-
     private fun updateTextColor() {
         val weekDayColorRes = if (selected) R.color.ocean else R.color.white
         val dateTimeColorRes = if (selected) R.color.ocean else R.color.mercury_50

@@ -80,6 +80,8 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
         updateLayout()
     }
 
+    fun setOnClick(listener: () -> Unit) = setOnClickListener { listener() }
+
     private fun updateState() {
         updateTextColor()
         updateBackgroundColor()

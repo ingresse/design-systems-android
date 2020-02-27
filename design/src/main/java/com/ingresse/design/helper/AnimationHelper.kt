@@ -26,5 +26,6 @@ fun View.animateBackground(@DrawableRes newBackground: Int, context: Context, du
     val crossfader = TransitionDrawable(backgrounds)
 
     background = crossfader
+    crossfader.isCrossFadeEnabled = true
     crossfader.startTransition(duration)
 }

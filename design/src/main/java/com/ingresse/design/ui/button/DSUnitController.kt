@@ -26,12 +26,12 @@ class DSUnitController(context: Context, attrs: AttributeSet): LinearLayout(cont
         setOnMinusClickListener()
     }
 
-    fun setOnPlusClickListener(listener: (() -> Unit)? = null) {
-        btn_plus.setOnClickListener { listener?.invoke() ?: plus() }
+    fun setOnPlusClickListener(listener: (() -> Unit) = { plus() }) {
+        btn_plus.setOnClickListener { listener() }
     }
 
-    fun setOnMinusClickListener(listener: (() -> Unit)? = null) {
-        btn_minus.setOnClickListener { listener?.invoke() ?: minus() }
+    fun setOnMinusClickListener(listener: (() -> Unit) = { minus() }) {
+        btn_minus.setOnClickListener { listener() }
     }
 
     fun plus() {

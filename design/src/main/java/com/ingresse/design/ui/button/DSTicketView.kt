@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import com.ingresse.design.R
 import com.ingresse.design.helper.animateBackground
 import com.ingresse.design.helper.animateColor
+import com.ingresse.design.helper.increaseHitArea
 import kotlinx.android.synthetic.main.ds_ticket_view.view.*
 
 
@@ -56,6 +57,8 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         updateState()
     }
 
+    fun setOnDescriptionInfoClick(listener: () -> Unit) = ticket_info_description.setOnClickListener { listener() }
+
     fun setTicket(
         name: String,
         max: Int = 99,
@@ -82,29 +85,25 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun setupButtons() {
-        ticket_unit_controller.setOnPlusClickListener {
-            if (ticket_unit_controller.count == max) return@setOnPlusClickListener
+        ticket_unit_controller.setOnPlusClickListener listener@ {
+            if (ticket_unit_controller.count == max) return@listener
             ticket_unit_controller.plusStep = if (ticket_unit_controller.count < min) min else 1
             ticket_unit_controller.plus()
 
-            ticket_info_min.isVisible = min != 0 && ticket_unit_controller.count <= min
-            ticket_info_max.isVisible = ticket_unit_controller.count == max
-
             selected = ticket_unit_controller.count > 0
             updateState()
         }
 
-        ticket_unit_controller.setOnMinusClickListener {
-            if (ticket_unit_controller.count == 0) return@setOnMinusClickListener
+        ticket_unit_controller.setOnMinusClickListener listener@ {
+            if (ticket_unit_controller.count == 0) return@listener
             ticket_unit_controller.minusStep = if (ticket_unit_controller.count == min) min else 1
             ticket_unit_controller.minus()
 
-            ticket_info_min.isVisible = min != 0 && ticket_unit_controller.count <= min
-            ticket_info_max.isVisible = ticket_unit_controller.count == max
-
             selected = ticket_unit_controller.count > 0
             updateState()
         }
+
+        ticket_info_description.increaseHitArea(8f, 0f, 0f, 0f)
     }
 
     private fun updateViews() {
