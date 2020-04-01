@@ -133,6 +133,8 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
 
     fun getTextDS(): String = editText.text.toString()
 
+    fun getTextCount(): Int = editText.text.count()
+
     fun setOriginalTextFormatType() = setFormatType(originalTextFormatType)
 
     fun setInternationalPhoneTextFormat() = setFormatType(TextFormatType.INTERNATIONAL_PHONE)
