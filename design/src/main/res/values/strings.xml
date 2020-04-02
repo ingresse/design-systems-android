@@ -56,7 +56,6 @@
     <string name="format_cnpj">##.###.###/####-##</string>
     <string name="format_credit_card">####.####.####.####.####</string>
     <string name="format_simple_date">##/##</string>
-    <string name="format_international_phone">################</string>
 
     <!-- FACEBOOK -->
     <string name="login_with_facebook">Entrar com o facebook</string>
