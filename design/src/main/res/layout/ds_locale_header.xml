@@ -8,6 +8,21 @@
     android:background="@color/white"
     android:padding="@dimen/spacing_x3">
 
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_x1"
+        android:background="@color/transparent"
+        android:padding="@dimen/spacing_x1"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_back"
+        android:tint="@color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_place"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_category" />
+
     <TextView
         android:id="@+id/txt_category"
         style="@style/TextStyle.VerySmall"
