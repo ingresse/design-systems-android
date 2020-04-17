@@ -19,9 +19,9 @@
         android:src="@drawable/ic_back"
         android:tint="@color/black"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_place"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txt_category" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_category"
