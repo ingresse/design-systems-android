@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.RecyclerView
 import com.ingresse.design.R
 import com.ingresse.design.helper.animateBackground
 import com.ingresse.design.helper.animateColor
@@ -18,6 +19,15 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     private var haveDescription: Boolean = false
     private var showDates: Boolean = false
     private var ticketName: String = ""
+    private var datesAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>? = null
+    private var quantityListener: ((Int) -> Unit)? = null
+
+    var quantity: Int
+    get() = ticket_unit_controller.count
+    set(value) {
+        ticket_unit_controller.count = value
+        updateState()
+    }
 
     init {
         inflate(context, R.layout.ds_ticket_view, this)
@@ -56,7 +66,13 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         updateState()
     }
 
+    fun setDatesAdapter(adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>) {
+        recycler_dates.adapter = adapter
+    }
+
     fun setOnDescriptionInfoClick(listener: () -> Unit) = ticket_info_description.setOnClickListener { listener() }
+
+    fun setQuantityListener(listener: (quantity: Int) -> Unit) { quantityListener = listener }
 
     /**
      * Method to set ticket infos to TicketView
@@ -87,6 +103,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun updateState() {
+        selected = ticket_unit_controller.count > 0
         updateBackground()
         updateTextColor()
         updateViews()
@@ -98,21 +115,19 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
             if (ticket_unit_controller.count == max) return@listener
             ticket_unit_controller.plusStep = if (ticket_unit_controller.count < min) min else 1
             ticket_unit_controller.plus()
-
-            selected = ticket_unit_controller.count > 0
             updateState()
+            quantityListener?.invoke(quantity)
         }
 
         ticket_unit_controller.setOnMinusClickListener listener@ {
             if (ticket_unit_controller.count == 0) return@listener
             ticket_unit_controller.minusStep = if (ticket_unit_controller.count == min) min else 1
             ticket_unit_controller.minus()
-
-            selected = ticket_unit_controller.count > 0
             updateState()
+            quantityListener?.invoke(quantity)
         }
 
-        ticket_info_description.increaseHitArea(8f, 0f, 0f, 0f)
+//        ticket_info_description.increaseHitArea(8f, 0f, 0f, 0f)
     }
 
     private fun updateViews() {
@@ -122,7 +137,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         ticket_info_passkey.isVisible = passkey.isNotEmpty()
         ticket_info_passkey.setPasskey(passkey)
 
-        ticket_info_min.isVisible = min != 0 && ticket_unit_controller.count <= min
+        ticket_info_min.isVisible = min > 1 && ticket_unit_controller.count <= min
         ticket_info_min.setMin(min)
 
         ticket_info_max.isVisible = ticket_unit_controller.count == max
@@ -158,9 +173,9 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         layout_dates.animateBackground(recyclerBGRes, context)
 
         val ticketBG = when {
-            lastView == null && selected -> R.drawable.ds_ticket_selected_bg_rounded
-            lastView == null && !selected -> R.drawable.ds_ticket_bg_rounded
-            lastView != null && selected -> R.drawable.ds_ticket_selected_bg
+            (!datesIsLastView && lastView == null) && selected -> R.drawable.ds_ticket_selected_bg_rounded
+            (!datesIsLastView && lastView == null) && !selected -> R.drawable.ds_ticket_bg_rounded
+            (datesIsLastView || lastView != null) && selected -> R.drawable.ds_ticket_selected_bg
             else -> R.drawable.ds_ticket_bg
         }
 

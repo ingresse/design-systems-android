@@ -9,6 +9,11 @@ import kotlinx.android.synthetic.main.ds_unit_controller.view.*
 
 class DSUnitController(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
     var count: Int = 0
+    set(value) {
+        field = value
+        updateCount()
+    }
+
     var plusStep: Int = 1
     var minusStep: Int = 1
 
@@ -17,8 +22,8 @@ class DSUnitController(context: Context, attrs: AttributeSet): LinearLayout(cont
         updateCount()
         setupButtons()
 
-        btn_plus.increaseHitArea(12f)
-        btn_minus.increaseHitArea(12f)
+//        btn_plus.increaseHitArea(12f)
+//        btn_minus.increaseHitArea(12f)
     }
 
     private fun setupButtons() {
@@ -34,15 +39,9 @@ class DSUnitController(context: Context, attrs: AttributeSet): LinearLayout(cont
         btn_minus.setOnClickListener { listener() }
     }
 
-    fun plus() {
-        count += plusStep
-        updateCount()
-    }
+    fun plus() { count += plusStep }
 
-    fun minus() {
-        count -= minusStep
-        updateCount()
-    }
+    fun minus() { count -= minusStep }
 
     private fun updateCount() { lbl_count.text = count.toString() }
 }
