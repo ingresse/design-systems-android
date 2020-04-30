@@ -88,6 +88,8 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         name: String,
         max: Int = 99,
         min: Int = 0,
+        price: Double = 0.0,
+        tax: Double = 0.0,
         passkey: String = "",
         haveDescription: Boolean = false,
         showDates: Boolean = false
@@ -98,6 +100,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         this.passkey = passkey
         this.haveDescription = haveDescription
         this.showDates = showDates
+        ticket_price.setValues(price, tax)
         lbl_ticket_name.text = ticketName
         updateState()
     }

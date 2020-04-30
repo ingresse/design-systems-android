@@ -70,4 +70,7 @@
     <string name="ticket_tax_price">+ R$ %1$.2f de taxa</string>
     <string name="ticket_price">R$ %1$.2f</string>
     <string name="passport_description">Ingressos para mais de uma data</string>
+
+    <!-- DS_CART_View -->
+    <string name="cart_info">{0,choice,0#0 itens - R$ 0,00|1#1 item - {1}|1&lt;{0} itens - {1}}</string>
 </resources>

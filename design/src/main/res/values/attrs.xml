@@ -123,6 +123,10 @@
         <attr name="withEndIcon" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="DSEventSessionButton">
+        <attr name="isPassport" format="boolean"/>
+    </declare-styleable>
+
     <!-- IMAGE -->
     <attr name="imageSize" format="enum">
         <enum name="original" value="0" />

@@ -24,6 +24,9 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
 
     init {
         inflate(context, R.layout.ds_event_session_btn, this)
+        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSEventSessionButton, 0, 0)
+        isPassport = array.getBoolean(R.styleable.DSEventSessionButton_isPassport, false)
+
         updateLayout()
         updateBackgroundColor()
         updateTextColor()

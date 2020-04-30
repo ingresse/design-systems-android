@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ds_cart_view_bg">
+
+        <TextView
+            style="@style/DSTextStyle.Medium.B1"
+            android:id="@+id/lbl_cart_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mercury_dark"
+            android:layout_marginStart="@dimen/spacing_x6"
+            android:layout_marginTop="@dimen/spacing_x7_5"
+            android:layout_marginBottom="@dimen/spacing_x7_5"
+            android:layout_marginEnd="@dimen/spacing_x2"
+            android:layout_toStartOf="@+id/btn_confirm"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="1 item - R$ 150,00"/>
+
+        <com.ingresse.design.ui.button.DSButton
+            android:id="@+id/btn_confirm"
+            style="@style/Button.NoCaps.Bold"
+            android:layout_width="112dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/spacing_x5"
+            android:layout_marginBottom="@dimen/spacing_x5"
+            app:isThemed="true"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:text="Continuar"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
