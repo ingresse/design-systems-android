@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ingresse.design.R
 import com.ingresse.design.helper.animateBackground
 import com.ingresse.design.helper.animateColor
-import com.ingresse.design.helper.increaseHitArea
 import kotlinx.android.synthetic.main.ds_ticket_view.view.*
 
 class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {

@@ -10,7 +10,6 @@ import java.text.MessageFormat
 import java.text.NumberFormat
 
 class DSCartView(context: Context, attrs: AttributeSet): RelativeLayout(context, attrs) {
-    val items = mutableListOf<Any>()
     var quantity = 0
     set(value) {
         field = value
@@ -36,6 +35,8 @@ class DSCartView(context: Context, attrs: AttributeSet): RelativeLayout(context,
             lbl_cart_info.text = message
         }, { oldValue = value }, 300)
     }
+
+    fun setOnClick(listener: () -> Unit) = btn_confirm.setOnClickListener { listener() }
 }
 
 fun Double.toCurrency(): String {
