@@ -4,7 +4,6 @@ import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.drawable.TransitionDrawable
-import android.text.format.DateUtils
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorRes

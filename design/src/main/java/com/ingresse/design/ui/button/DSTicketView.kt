@@ -128,8 +128,6 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
             updateState()
             quantityListener?.invoke(quantity)
         }
-
-//        ticket_info_description.increaseHitArea(8f, 0f, 0f, 0f)
     }
 
     private fun updateViews() {

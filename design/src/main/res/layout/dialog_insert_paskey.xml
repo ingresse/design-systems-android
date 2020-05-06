@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/transparent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="@dimen/radius_enormous">
+
+        <RelativeLayout
+            android:id="@+id/layout_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_x4"
+                android:layout_marginTop="@dimen/spacing_x4"
+                android:layout_marginEnd="@dimen/spacing_x4"
+                android:layout_marginBottom="@dimen/spacing_x4"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lbl_title"
+                    style="@style/DSTextStyle.Bold.T1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/insert_passkey_dialog_title"
+                    android:textColor="@color/mercury_70" />
+
+                <EditText
+                    android:id="@+id/edt_passkey"
+                    style="@style/DSTextStyle.Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="@dimen/spacing_x7"
+                    android:gravity="center"
+                    android:background="@null"
+                    android:textColor="@color/mercury_70"
+                    android:hint="@string/insert_passkey_dialog_hint"
+                    android:textColorHint="@color/mercury_crystal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_x7">
+
+                    <com.ingresse.design.ui.button.DSButton
+                        android:id="@+id/btn_confirm"
+                        style="@style/Button.NoCaps.Bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:text="@string/insert_passkey_dialog_confirm_btn"
+                        app:ds_type="confirm"
+                        app:isThemed="false"
+                        android:layout_centerInParent="true"/>
+
+                    <com.ingresse.design.ui.button.DSImageButton
+                        android:id="@+id/btn_valid_passkey"
+                        style="@style/Button.NoCaps.Bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="@dimen/spacing_x7"
+                        app:ds_type="crystal"
+                        android:src="@drawable/ic_check"
+                        android:visibility="invisible"
+                        android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress_paskey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_x15"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

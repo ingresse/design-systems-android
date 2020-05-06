@@ -55,8 +55,12 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     private fun updateText() {
-        val priceString = String.format(resources.getString(R.string.ticket_price), price)
-        val taxString = String.format(resources.getString(R.string.ticket_tax_price), tax)
+        val priceString = if (price != 0.0) price.toCurrency()
+        else resources.getString(R.string.free_tickets)
+
+        val taxString = if (tax != 0.0) String.format(resources.getString(R.string.ticket_tax_price),
+            tax.toCurrency()) else ""
+
         val lblText = if (singleLine) "$priceString $taxString" else "$priceString\n$taxString"
 
         val textStyle = if (selected) R.style.DSTextStyle_TicketPrice_Tax_Selected

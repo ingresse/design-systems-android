@@ -18,7 +18,7 @@ import java.lang.Exception
 class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, attrs, R.style.Button) {
     private val type: ButtonTheme
     private val size: ButtonSize
-    private val style: ButtonType
+    private var style: ButtonType
     private val isThemed: Boolean
     private val isLink: Boolean
     private val isTextAllCaps: Boolean
@@ -109,5 +109,10 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         ViewCompat.setBackgroundTintList(this, bgColors)
         ViewCompat.setBackgroundTintMode(this, PorterDuff.Mode.MULTIPLY)
         ViewCompat.setBackground(this, resHelper.getDrawableHelper(R.drawable.btn_solid_bg))
+    }
+
+    fun setStyle(buttonType: ButtonType) {
+        style = buttonType
+        setupStyle()
     }
 }
