@@ -106,6 +106,7 @@
         <attr name="ds_type" />
         <attr name="buttonTheme" />
         <attr name="isThemed" />
+        <attr name="isBordered" format="boolean"/>
         <attr name="isLink" />
         <attr name="isTextAllCaps" />
         <attr name="alignment" />

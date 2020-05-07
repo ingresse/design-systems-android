@@ -4,16 +4,16 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
+import com.ingresse.design.R
 import com.ingresse.design.helper.ColorHelper
 import com.ingresse.design.helper.ResourcesHelper
-import com.ingresse.design.R
-import java.lang.Exception
 
 class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, attrs, R.style.Button) {
     private val type: ButtonTheme
@@ -22,6 +22,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
     private val isThemed: Boolean
     private val isLink: Boolean
     private val isTextAllCaps: Boolean
+    private val isBordered: Boolean
 
     private val resHelper = ResourcesHelper(context)
     private val colorHelper = ColorHelper(context)
@@ -35,6 +36,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         isThemed = array.getBoolean(R.styleable.DSButton_isThemed, false)
         isLink = array.getBoolean(R.styleable.DSButton_isLink, false)
         isTextAllCaps = array.getBoolean(R.styleable.DSButton_isTextAllCaps, false)
+        isBordered = array.getBoolean(R.styleable.DSButton_isBordered, false)
 
         type = ButtonTheme.fromId(themeAttr)
         size = ButtonSize.fromId(sizeAttr)
@@ -43,7 +45,12 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
 
         setupSize()
         setupFont()
-        if (isThemed) setupThemedBackground() else setupStyle()
+
+        when {
+            isBordered -> setBorderedButton()
+            isThemed -> setupThemedBackground()
+            else -> setupStyle()
+        }
 
         array.recycle()
     }
@@ -76,6 +83,16 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
             resHelper.getColorHelper(style.normal))
 
         setBackgroundColors(colors)
+    }
+
+    private fun setBorderedButton() {
+        val color = resHelper.getColorHelper(style.normal)
+        setBackgroundResource(R.drawable.ds_stroked_button_bg)
+        setTextColor(color)
+        (background as LayerDrawable).apply {
+            getDrawable(0).setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
+            getDrawable(1).setColorFilter(color, PorterDuff.Mode.SRC_IN)
+        }
     }
 
     private fun setupThemedBackground() {
