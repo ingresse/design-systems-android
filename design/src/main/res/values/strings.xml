@@ -76,6 +76,7 @@
     <string name="insert_passkey_dialog_title">Adicionar código</string>
     <string name="insert_passkey_dialog_hint">Digite seu código aqui</string>
     <string name="insert_passkey_dialog_confirm_btn">Avançar</string>
+    <string name="invalid_passkey">Código inválido</string>
 
     <!-- PASSKEY_TICKETS_BF_DIALOG -->
     <string name="count_passkey_tickets">{0,choice,0#Nenhum ingresso liberado pelo código|1#1 ingresso liberado pelo código|1&lt;{0} ingressos liberados pelo código}</string>

@@ -21,6 +21,11 @@ fun TextView.animateColor(@ColorRes newColor: Int, context: Context, duration: L
     colorAnimation.start()
 }
 
+fun View.changeBackground(@DrawableRes newBackground: Int, context: Context, withAnimation: Boolean = true, duration: Int = 100) {
+    if (withAnimation) return animateBackground(newBackground, context, duration)
+    background = ResourcesHelper(context).getDrawableHelper(newBackground)
+}
+
 fun View.animateBackground(@DrawableRes newBackground: Int, context: Context, duration: Int = 100) {
     if (background == null) {
         background = ResourcesHelper(context).getDrawableHelper(newBackground)
