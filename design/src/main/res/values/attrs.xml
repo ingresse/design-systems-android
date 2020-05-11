@@ -148,6 +148,7 @@
         <enum name="simple" value="0" />
         <enum name="returnType" value="1" />
         <enum name="closeType" value="2" />
+        <enum name="returnModalType" value="3" />
     </attr>
 
     <declare-styleable name="DSHeader">
