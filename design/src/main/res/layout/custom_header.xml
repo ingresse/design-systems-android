@@ -41,6 +41,15 @@
             android:scaleType="centerInside"
             android:src="@drawable/ic_close" />
 
+        <ImageButton
+            android:id="@+id/btn_refresh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:background="@color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_refresh" />
+
     </LinearLayout>
 
     <TextView

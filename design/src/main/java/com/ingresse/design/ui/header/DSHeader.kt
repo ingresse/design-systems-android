@@ -28,6 +28,7 @@ class DSHeader(context: Context, attrs: AttributeSet): FrameLayout(context, attr
             1 -> setReturnType()
             2 -> setCloseType()
             3 -> setReturnModalType()
+            4 -> setModalAndRefreshType()
         }
 
         val primaryColor = ColorHelper(context).primaryColor
@@ -35,6 +36,14 @@ class DSHeader(context: Context, attrs: AttributeSet): FrameLayout(context, attr
         btn_back.setColorFilter(iconColor)
         btn_close.setColorFilter(iconColor)
     }
+
+    private fun setModalAndRefreshType() {
+        btn_close.visibility = View.GONE
+        btn_refresh.visibility = View.VISIBLE
+        btn_back.visibility = View.VISIBLE
+        btn_back.rotation = -90f
+    }
+
 
     private fun setReturnModalType() {
         btn_close.visibility = View.INVISIBLE
