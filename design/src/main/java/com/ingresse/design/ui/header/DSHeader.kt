@@ -71,4 +71,9 @@ class DSHeader(context: Context, attrs: AttributeSet): FrameLayout(context, attr
         btn_close.setOnClickListener(listener)
         btn_back.setOnClickListener(listener)
     }
+
+    fun setRefreshAction(action: () -> Unit) {
+        val listener = OnClickListener { action() }
+        btn_refresh.setOnClickListener(listener)
+    }
 }
