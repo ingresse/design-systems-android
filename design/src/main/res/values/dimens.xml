@@ -69,6 +69,8 @@
     <dimen name="spacing_x13">52dp</dimen>
     <dimen name="spacing_x14">56dp</dimen>
     <dimen name="spacing_x15">60dp</dimen>
+    <dimen name="spacing_x16">64dp</dimen>
+    <dimen name="spacing_x17">68dp</dimen>
     <dimen name="spacing_x22">88dp</dimen>
     <dimen name="spacing_x23">92dp</dimen>
     <dimen name="spacing_x26">104dp</dimen>
