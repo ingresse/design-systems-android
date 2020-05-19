@@ -16,6 +16,7 @@
         app:cardElevation="8dp">
 
         <RelativeLayout
+            android:id="@+id/layout_credit_card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/ds_credit_card_view_bg">
@@ -32,8 +33,9 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:gravity="center"
-                android:textColor="@color/mercury_10"
-                android:text="•••• •••• •••• ••••"/>
+                android:textColor="@color/white"
+                android:hint="•••• •••• •••• ••••"
+                android:textColorHint="@color/mercury_10" />
 
             <TextView
                 style="@style/DSTextStyle.Medium.T2"
@@ -49,8 +51,9 @@
                 android:singleLine="true"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="@color/mercury_10"
-                android:text="Nome"/>
+                android:textColor="@color/white"
+                android:hint="Nome"
+                android:textColorHint="@color/mercury_10" />
 
             <TextView
                 style="@style/DSTextStyle.Medium.T2"
@@ -64,8 +67,10 @@
                 android:singleLine="true"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="@color/mercury_10"
-                android:text="MM/YY"/>
+                android:textColor="@color/white"
+                android:gravity="end"
+                android:hint="MM/YY"
+                android:textColorHint="@color/mercury_10" />
 
             <ImageView
                 style="@style/DSTextStyle.Medium.T2"

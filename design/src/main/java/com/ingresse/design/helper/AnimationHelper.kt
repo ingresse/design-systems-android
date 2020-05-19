@@ -1,8 +1,10 @@
 package com.ingresse.design.helper
 
 import android.animation.ArgbEvaluator
+import android.animation.TimeAnimator
 import android.animation.ValueAnimator
 import android.content.Context
+import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.TransitionDrawable
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -68,6 +70,20 @@ fun TextView.animateValue(from: Double,
         val value = it.animatedValue as Float
         listener(value)
     }, onEnd = onEnd)
+}
+
+fun animateGradient(gradientBackground: GradientDrawable, start: Int, end: Int, duration: Long = 500) {
+    val evaluator = ArgbEvaluator()
+    val animator = TimeAnimator.ofFloat(0.0f, 1.0f)
+    animator.duration = duration
+    animator.addUpdateListener {
+        val fraction = it.animatedFraction
+        val newStart = evaluator.evaluate(fraction, end, start) as Int
+        val newEnd = evaluator.evaluate(fraction, start, end) as Int
+
+        gradientBackground.colors = intArrayOf(newStart, newEnd)
+    }
+    animator.start()
 }
 
 fun View.hide(duration: Long = 300) {
