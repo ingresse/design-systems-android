@@ -6,6 +6,8 @@
     <dimen name="radius_card">5dp</dimen>
     <dimen name="radius_large">8dp</dimen>
     <dimen name="radius_big">10dp</dimen>
+    <dimen name="radius_enormous">16dp</dimen>
+    <dimen name="radius_giant">20dp</dimen>
 
     <!-- ELEVATION -->
     <dimen name="elevation_normal">4dp</dimen>
@@ -30,15 +32,29 @@
     <dimen name="font_small">14sp</dimen>
     <dimen name="font_very_small">12sp</dimen>
 
+    <!-- BELCHIOR FONTS-->
+    <dimen name="font_header_1">32sp</dimen>
+    <dimen name="font_header_2">28sp</dimen>
+    <dimen name="font_header_3">24sp</dimen>
+    <dimen name="font_title_1">21sp</dimen>
+    <dimen name="font_title_2">18sp</dimen>
+    <dimen name="font_body_1">16sp</dimen>
+    <dimen name="font_body_2">14sp</dimen>
+    <dimen name="font_caption">12sp</dimen>
+
     <!-- SPACING -->
     <dimen name="spacing_x0">0dp</dimen>
     <dimen name="spacing_x0_5">2dp</dimen>
     <dimen name="spacing_x1">4dp</dimen>
+    <dimen name="spacing_x1_3">5dp</dimen>
     <dimen name="spacing_x1_5">6dp</dimen>
     <dimen name="spacing_x2">8dp</dimen>
+    <dimen name="spacing_x2_3">9dp</dimen>
     <dimen name="spacing_x2_5">10dp</dimen>
     <dimen name="spacing_x3">12dp</dimen>
+    <dimen name="spacing_x3_8">15dp</dimen>
     <dimen name="spacing_x4">16dp</dimen>
+    <dimen name="spacing_x4_5">18dp</dimen>
     <dimen name="spacing_x5">20dp</dimen>
     <dimen name="spacing_x6">24dp</dimen>
     <dimen name="spacing_x7">28dp</dimen>
@@ -68,4 +84,24 @@
 
     <!-- ICONS -->
     <dimen name="ic_normal">20dp</dimen>
+
+    <!-- EVENT SESSION BUTTON -->
+    <dimen name="height_text_event_session">24dp</dimen>
+    <dimen name="width_text_event_session">92dp</dimen>
+    <dimen name="height_text_event_session_passport">32dp</dimen>
+    <dimen name="width_text_event_session_passport">148dp</dimen>
+
+    <!-- SESSION DATE -->
+    <dimen name="height_text_week_day">40dp</dimen>
+    <dimen name="width_text_week_day">48dp</dimen>
+    <dimen name="height_text_datetime">32dp</dimen>
+    <dimen name="width_text_datetime">104dp</dimen>
+
+    <!-- UNIT CONTROLLER -->
+    <dimen name="height_btn_controler">24dp</dimen>
+    <dimen name="width_btn_controler">24dp</dimen>
+
+    <!-- TICKET INFO -->
+    <dimen name="height_ticket_info_icon">24dp</dimen>
+    <dimen name="width_ticket_info_icon">24dp</dimen>
 </resources>
