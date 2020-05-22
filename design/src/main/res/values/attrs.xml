@@ -170,4 +170,10 @@
         <attr name="title" format="string" />
         <attr name="description" format="string" />
     </declare-styleable>
+
+    <!-- LOCALE HEADER -->
+
+    <declare-styleable name="DSLocaleHeader">
+        <attr name="returnButtonEnabled" format="boolean" />
+    </declare-styleable>
 </resources>
