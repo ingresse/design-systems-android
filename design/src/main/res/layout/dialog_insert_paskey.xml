@@ -74,6 +74,7 @@
                         android:background="@null"
                         android:gravity="center"
                         android:hint="@string/insert_passkey_dialog_hint"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:textColor="@color/mercury_70"
                         android:textColorHint="@color/mercury_crystal"
@@ -99,6 +100,7 @@
                             android:layout_height="48dp"
                             android:layout_alignParentBottom="true"
                             android:text="@string/insert_passkey_dialog_confirm_btn"
+                            android:enabled="false"
                             app:ds_type="confirm"
                             app:isThemed="false" />
 

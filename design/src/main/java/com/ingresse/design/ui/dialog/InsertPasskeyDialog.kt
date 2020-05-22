@@ -4,6 +4,7 @@ import android.content.Context
 import com.ingresse.design.R
 import com.ingresse.design.helper.animateColor
 import com.ingresse.design.helper.changeBackground
+import com.ingresse.design.helper.listen
 import com.ingresse.design.helper.setInvisible
 import com.ingresse.design.ui.button.PasskeyDialogStatus
 import kotlinx.android.synthetic.main.dialog_insert_paskey.*
@@ -28,6 +29,8 @@ class InsertPasskeyDialog(context: Context): DSBaseDialog(R.layout.dialog_insert
 
         edt_passkey.isEnabled = dialogStatus != PasskeyDialogStatus.VALID
 
+        edt_passkey.listen { btn_confirm.isEnabled = it.isNotEmpty() }
+
         btn_confirm.setInvisible(dialogStatus == PasskeyDialogStatus.VALID)
         btn_valid_passkey.setInvisible(dialogStatus != PasskeyDialogStatus.VALID)
 
@@ -39,6 +42,7 @@ class InsertPasskeyDialog(context: Context): DSBaseDialog(R.layout.dialog_insert
         super.dismiss()
         isLoading = false
         dialogStatus = PasskeyDialogStatus.EMPTY
+        btn_confirm.isEnabled = false
         edt_passkey.setText("")
         setupComponents(false)
     }

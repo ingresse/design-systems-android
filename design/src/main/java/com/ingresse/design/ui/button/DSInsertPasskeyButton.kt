@@ -49,7 +49,7 @@ class DSInsertPasskeyButton(context: Context, attrs: AttributeSet): LinearLayout
 
     private fun updateComponentsColor() {
         val colorRes = if (isSelected) R.color.white else R.color.mercury_30
-        val ticketRes = if (isSelected) R.drawable.icon_ticket_fill else R.drawable.icon_ticket_stroke
+        val ticketRes = if (isSelected) R.drawable.icon_ticket_fill_left else R.drawable.icon_ticket_stroke_left
         lbl_info.animateColor(colorRes, context)
 
         iv_ticket.setImageDrawable(resourcesHelper.getDrawableHelper(ticketRes))
