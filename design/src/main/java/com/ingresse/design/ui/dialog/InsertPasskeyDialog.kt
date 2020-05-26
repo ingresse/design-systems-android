@@ -53,8 +53,8 @@ class InsertPasskeyDialog(context: Context): DSBaseDialog(R.layout.dialog_insert
             val message = MessageFormat.format(
                 context.resources.getString(R.string.count_passkey_tickets), tickets)
 
-            top_snackbar.showPositiveMessage(message)
             setupComponents()
+            dismiss()
             return
         }
 
