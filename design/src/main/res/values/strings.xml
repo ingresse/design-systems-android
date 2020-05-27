@@ -55,6 +55,7 @@
     <string name="format_cpf">###.###.###-##</string>
     <string name="format_cnpj">##.###.###/####-##</string>
     <string name="format_credit_card">####.####.####.####.####</string>
+    <string name="format_credit_card_cvv">####</string>
     <string name="format_simple_date">##/##</string>
 
     <!-- FACEBOOK -->

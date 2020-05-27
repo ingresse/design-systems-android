@@ -14,7 +14,8 @@ enum class TextFormatType(val id: Int,
     CREDIT_CARD(6, 14, null, 12, null),
     SIMPLE_DATE(7, 5, 5, 4, 4),
     PHONE_9(8, 15, 15, 11, 11),
-    INTERNATIONAL_PHONE(9, null, null, null, null);
+    INTERNATIONAL_PHONE(9, null, null, null, null),
+    CREDIT_CARD_CVV(10, null, null, 3, 4);
 
     companion object {
         fun fromId(id: Int) = values().find { it.id == id } ?: NONE
