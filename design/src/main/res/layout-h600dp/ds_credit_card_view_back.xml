@@ -25,12 +25,12 @@
             <View
                 android:id="@+id/view_black_bar"
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="@dimen/spacing_x4"
                 android:background="@drawable/black_gradient_bg"/>
 
             <TextView
-                style="@style/DSTextStyle.Medium.B1"
+                style="@style/DSTextStyle.Medium.T1"
                 android:id="@+id/lbl_credit_card_cvv"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
