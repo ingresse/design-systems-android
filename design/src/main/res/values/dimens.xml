@@ -44,6 +44,7 @@
 
     <!-- SPACING -->
     <dimen name="spacing_x0">0dp</dimen>
+    <dimen name="spacing_x0_25">1dp</dimen>
     <dimen name="spacing_x0_5">2dp</dimen>
     <dimen name="spacing_x1">4dp</dimen>
     <dimen name="spacing_x1_3">5dp</dimen>

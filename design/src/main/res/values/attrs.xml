@@ -66,6 +66,10 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="error">
+        <attr name="isWrong" format="boolean" />
+    </declare-styleable>
+
     <declare-styleable name="DSSpinner">
         <attr name="customHint" format="string" />
         <attr name="customHintColor" format="color" />
