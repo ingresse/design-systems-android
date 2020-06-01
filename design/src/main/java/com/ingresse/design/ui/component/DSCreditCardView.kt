@@ -25,19 +25,39 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
 
     var frontVisible = true
 
+    var cardNumber = ""
+    set(value) {
+        field = value
+        lbl_credit_card_number.text = value.replace(".", " ")
+        val unmaskedNumber = value.unmask()
+        if (unmaskedNumber.length < 10) return updateBrand(null)
+        val brand = CardBrands.findByRegex(unmaskedNumber)
+        updateBrand(brand)
+    }
+
+    var holderName = ""
+    set(value) {
+        field = value
+        lbl_credit_card_name.text = value
+    }
+
+    var expirationDate = ""
+    set(value) {
+        field = value
+        lbl_credit_card_expiration_date.text = value
+    }
+
+    var cvv = ""
+    set(value) {
+        field = value
+        lbl_credit_card_cvv.text = cvv
+    }
+
     init {
         inflate(context, R.layout.ds_credit_card_view, this)
         views = listOf(front_view, back_view)
         flipAnimation =  FlipAnimation(context, views)
         updateBrand(null)
-    }
-
-    fun setCardNumber(number: String) {
-        lbl_credit_card_number.text = number.replace(".", " ")
-        val unmaskedNumber = number.unmask()
-        if (unmaskedNumber.length < 10) return updateBrand(null)
-        val brand = CardBrands.findByRegex(unmaskedNumber)
-        updateBrand(brand)
     }
 
     private fun updateBrand(brand: CardBrands?) {
@@ -62,18 +82,6 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
                 resHelper.getColorHelper(resOne),
                 resHelper.getColorHelper(resTwo))
         }
-    }
-
-    fun setCardName(name: String) {
-        lbl_credit_card_name.text = name
-    }
-
-    fun setCardExpirationDate(date: String) {
-        lbl_credit_card_expiration_date.text = date
-    }
-
-    fun setCVV(cvv: String) {
-        lbl_credit_card_cvv.text = cvv
     }
 
     fun flipCard() {

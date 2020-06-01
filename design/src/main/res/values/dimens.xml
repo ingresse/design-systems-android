@@ -53,6 +53,7 @@
     <dimen name="spacing_x2_3">9dp</dimen>
     <dimen name="spacing_x2_5">10dp</dimen>
     <dimen name="spacing_x3">12dp</dimen>
+    <dimen name="spacing_x3_5">14dp</dimen>
     <dimen name="spacing_x3_8">15dp</dimen>
     <dimen name="spacing_x4">16dp</dimen>
     <dimen name="spacing_x4_5">18dp</dimen>

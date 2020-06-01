@@ -14,7 +14,7 @@
         android:layout_marginBottom="@dimen/spacing_x2"
         app:cardBackgroundColor="@color/desert_storm"
         app:cardCornerRadius="@dimen/radius_large"
-        app:cardElevation="8dp">
+        app:cardElevation="4dp">
 
         <RelativeLayout
             android:id="@+id/layout_credit_card_front"
