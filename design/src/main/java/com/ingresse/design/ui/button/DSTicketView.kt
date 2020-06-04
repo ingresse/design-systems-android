@@ -11,7 +11,6 @@ import com.ingresse.design.helper.animateColor
 import kotlinx.android.synthetic.main.ds_ticket_view.view.*
 
 class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
-    private var selected: Boolean = false
     private var max: Int = 99
     private var min: Int = 0
     private var passkey: String = ""
@@ -35,8 +34,8 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     override fun setSelected(isSelected: Boolean) {
-        selected = isSelected
-        ticket_price.isSelected = selected
+        super.setSelected(isSelected)
+        ticket_price.isSelected = isSelected
         updateBackground()
     }
 
@@ -105,7 +104,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun updateState() {
-        selected = ticket_unit_controller.count > 0
+        isSelected = ticket_unit_controller.count > 0
         updateBackground()
         updateTextColor()
         updateViews()
@@ -147,9 +146,9 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun updateTextColor() {
-        val nameColorRes = if (selected) R.color.white else R.color.mercury_70
+        val nameColorRes = if (isSelected) R.color.white else R.color.mercury_70
         lbl_ticket_name.animateColor(nameColorRes, context)
-        ticket_price.isSelected = selected
+        ticket_price.isSelected = isSelected
     }
 
     private fun updateBackground() {
@@ -164,18 +163,18 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
 
         val datesIsLastView = (lastView == null && layout_dates.isVisible)
         val recyclerBGRes = when {
-            datesIsLastView && selected -> R.drawable.ds_ticket_info_description_bottom_bg
-            datesIsLastView && !selected -> R.drawable.ds_layout_dates_bottom_bg
-            selected -> R.color.ocean_crystal
+            datesIsLastView && isSelected -> R.drawable.ds_ticket_info_description_bottom_bg
+            datesIsLastView && !isSelected -> R.drawable.ds_layout_dates_bottom_bg
+            isSelected -> R.color.ocean_crystal
             else -> R.color.off_white
         }
 
         layout_dates.animateBackground(recyclerBGRes, context)
 
         val ticketBG = when {
-            (!datesIsLastView && lastView == null) && selected -> R.drawable.ds_ticket_selected_bg_rounded
-            (!datesIsLastView && lastView == null) && !selected -> R.drawable.ds_ticket_bg_rounded
-            (datesIsLastView || lastView != null) && selected -> R.drawable.ds_ticket_selected_bg
+            (!datesIsLastView && lastView == null) && isSelected -> R.drawable.ds_ticket_selected_bg_rounded
+            (!datesIsLastView && lastView == null) && !isSelected -> R.drawable.ds_ticket_bg_rounded
+            (datesIsLastView || lastView != null) && isSelected -> R.drawable.ds_ticket_selected_bg
             else -> R.drawable.ds_ticket_bg
         }
 

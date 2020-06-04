@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.ds_ticket_price.view.*
 class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
     private var price: Double = 0.0
     private var tax: Double = 0.0
-    private var selected: Boolean = false
     private var singleLine: Boolean = true
 
     init {
@@ -46,7 +45,7 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     override fun setSelected(isSelected: Boolean) {
-        selected = isSelected
+        super.setSelected(isSelected)
         updateText()
     }
 
@@ -64,7 +63,7 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
 
         val lblText = if (singleLine) "$priceString $taxString" else "$priceString\n$taxString"
 
-        val textStyle = if (selected) R.style.DSTextStyle_TicketPrice_Tax_Selected
+        val textStyle = if (isSelected) R.style.DSTextStyle_TicketPrice_Tax_Selected
         else R.style.DSTextStyle_TicketPrice_Tax
 
         val taxAppearance = TextAppearanceSpan(context, textStyle)
@@ -76,7 +75,7 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
 
-        val textColorRes = if (selected) R.color.white else R.color.mercury_70
+        val textColorRes = if (isSelected) R.color.white else R.color.mercury_70
         lbl_ticket_price.animateColor(textColorRes, context)
         lbl_ticket_price.text = SpannableStringBuilder().append(info)
     }

@@ -14,7 +14,6 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
     private var date: String = ""
     private var hour: String = ""
     private var enabled: Boolean = true
-    private var selected: Boolean = false
     private var isPassport: Boolean = false
     private var passportName: String = resources.getString(R.string.passport)
 
@@ -80,7 +79,6 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
 
     override fun setSelected(isSelected: Boolean) {
         super.setSelected(isSelected)
-        selected = isSelected
         updateState()
     }
 
@@ -120,7 +118,7 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
     private fun updateBackgroundColor() {
         val backgroundRes = when {
             !enabled -> R.drawable.ds_event_session_disabled_bg
-            enabled && selected -> R.drawable.ds_event_session_selected_bg
+            enabled && isSelected -> R.drawable.ds_event_session_selected_bg
             else -> R.drawable.ds_event_session_enabled_bg
         }
 
@@ -130,7 +128,7 @@ class DSEventSessionButton(context: Context, attrs: AttributeSet) : LinearLayout
     private fun getTextColor(): Int =
         when {
             !enabled -> disabledColorRes
-            enabled && selected -> selectedColorRes
+            enabled && isSelected -> selectedColorRes
             else -> enabledColorRes
         }
 
