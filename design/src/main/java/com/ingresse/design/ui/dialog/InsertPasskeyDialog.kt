@@ -50,9 +50,6 @@ class InsertPasskeyDialog(context: Context): DSBaseDialog(R.layout.dialog_insert
     fun showDialogStatusBy(tickets: Int) {
         if (tickets > 0) {
             dialogStatus = PasskeyDialogStatus.VALID
-            val message = MessageFormat.format(
-                context.resources.getString(R.string.count_passkey_tickets), tickets)
-
             setupComponents()
             dismiss()
             return
