@@ -9,8 +9,8 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="@color/off_white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_change_passkey">
+        app:layout_constraintEnd_toStartOf="@id/btn_change_passkey"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/iv_ticket"
@@ -28,10 +28,10 @@
             style="@style/DSTextStyle.Bold.B1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/add_passkey_code"
-            android:textColor="@color/mercury_30"
             android:layout_marginStart="@dimen/spacing_x2"
             android:layout_marginEnd="@dimen/spacing_x2"
+            android:text="@string/add_passkey_code"
+            android:textColor="@color/mercury_30"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/iv_arrow"
             app:layout_constraintStart_toEndOf="@+id/iv_ticket"
@@ -51,16 +51,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        style="@style/DSTextStyle.Medium.B2"
         android:id="@+id/btn_change_passkey"
+        style="@style/DSTextStyle.Medium.B2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toEndOf="@id/layout_add_passkey"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="@dimen/spacing_x3"
         android:gravity="center"
+        android:text="@string/change_passkey_code"
         android:textColor="@color/mercury_50"
         android:visibility="gone"
-        android:text="@string/change_passkey_code"/>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/layout_add_passkey" />
 </androidx.constraintlayout.widget.ConstraintLayout>
