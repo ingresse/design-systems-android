@@ -13,7 +13,7 @@ open class DSBaseDialog(@LayoutRes layout: Int, context: Context): Dialog(contex
     init {
         val transparentColor = ColorDrawable(resourcesHelper.getColorHelper(R.color.transparent))
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(layout)
+        this.setContentView(layout)
         window?.setBackgroundDrawable(transparentColor)
         window?.attributes?.windowAnimations = R.style.BottomUpDialogAnimation
     }

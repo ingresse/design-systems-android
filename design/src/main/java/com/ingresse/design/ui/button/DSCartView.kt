@@ -29,12 +29,12 @@ class DSCartView(context: Context, attrs: AttributeSet): RelativeLayout(context,
     }
     
     private fun updateTexts() {
-        lbl_cart_info.animateValue(oldValue, value, {
+        lbl_cart_info.animateValue(from = oldValue, to =  value, listener = {
             val value = it.toDouble().toCurrency()
             val messagePattern = resources.getString(R.string.cart_info)
             val message = MessageFormat.format(messagePattern, quantity, value)
             lbl_cart_info.text = message
-        }, { oldValue = value }, 300)
+        }, onEnd = { oldValue = value }, duration = 300)
     }
 
     fun setOnClick(listener: () -> Unit) = btn_confirm.setOnClickListener { listener() }

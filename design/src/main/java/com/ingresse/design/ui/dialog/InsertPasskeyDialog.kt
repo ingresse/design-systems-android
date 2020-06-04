@@ -8,7 +8,6 @@ import com.ingresse.design.helper.listen
 import com.ingresse.design.helper.setInvisible
 import com.ingresse.design.ui.button.PasskeyDialogStatus
 import kotlinx.android.synthetic.main.dialog_insert_paskey.*
-import java.text.MessageFormat
 
 class InsertPasskeyDialog(context: Context): DSBaseDialog(R.layout.dialog_insert_paskey, context) {
     private var dialogStatus: PasskeyDialogStatus = PasskeyDialogStatus.EMPTY

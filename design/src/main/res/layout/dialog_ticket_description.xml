@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="@dimen/elevation_normal"
+        app:elevation="@dimen/elevation_normal"
         app:cardCornerRadius="@dimen/radius_large">
 
         <LinearLayout

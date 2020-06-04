@@ -11,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.ingresse.design.R
+import com.google.android.material.R as GMaterialRes
 
 open class DSBottomFragmentDialog(@LayoutRes val layout: Int,
                                   @StyleRes val style: Int = R.style.SheetDialog,
@@ -32,7 +33,7 @@ open class DSBottomFragmentDialog(@LayoutRes val layout: Int,
     }
 
     private fun setFullScreen(dialog: BottomSheetDialog) {
-        val bottomSheet = dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+        val bottomSheet = dialog.findViewById<View>(GMaterialRes.id.design_bottom_sheet)
         BottomSheetBehavior.from(bottomSheet).state = BottomSheetBehavior.STATE_EXPANDED
     }
 }

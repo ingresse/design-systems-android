@@ -17,7 +17,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="@dimen/spacing_x3"
-            android:src="@drawable/icon_ticket_stroke_left"
+            android:src="@drawable/ic_ticket_stroke"
             android:tint="@color/mercury_30"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
