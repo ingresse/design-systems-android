@@ -5,9 +5,9 @@ import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.ingresse.design.R
 import com.ingresse.design.helper.animateValue
+import com.ingresse.design.helper.toCurrency
 import kotlinx.android.synthetic.main.ds_cart_view.view.*
 import java.text.MessageFormat
-import java.text.NumberFormat
 
 class DSCartView(context: Context, attrs: AttributeSet): RelativeLayout(context, attrs) {
     var quantity = 0
@@ -31,15 +31,11 @@ class DSCartView(context: Context, attrs: AttributeSet): RelativeLayout(context,
     private fun updateTexts() {
         lbl_cart_info.animateValue(oldValue, value, {
             val value = it.toDouble().toCurrency()
-            val message = MessageFormat.format(resources.getString(R.string.cart_info), quantity, value)
+            val messagePattern = resources.getString(R.string.cart_info)
+            val message = MessageFormat.format(messagePattern, quantity, value)
             lbl_cart_info.text = message
         }, { oldValue = value }, 300)
     }
 
     fun setOnClick(listener: () -> Unit) = btn_confirm.setOnClickListener { listener() }
-}
-
-fun Double.toCurrency(): String {
-    val formatter = NumberFormat.getCurrencyInstance()
-    return formatter.format(this)
 }

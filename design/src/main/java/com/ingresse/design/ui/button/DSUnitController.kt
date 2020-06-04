@@ -21,9 +21,6 @@ class DSUnitController(context: Context, attrs: AttributeSet): LinearLayout(cont
         inflate(context, R.layout.ds_unit_controller, this)
         updateCount()
         setupButtons()
-
-//        btn_plus.increaseHitArea(12f)
-//        btn_minus.increaseHitArea(12f)
     }
 
     private fun setupButtons() {

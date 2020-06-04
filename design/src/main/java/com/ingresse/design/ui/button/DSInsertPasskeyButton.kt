@@ -14,6 +14,9 @@ import kotlinx.android.synthetic.main.btn_insert_passkey.view.*
 class DSInsertPasskeyButton(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
     private val resourcesHelper = ResourcesHelper(context)
 
+    private val tintSelectedColor = ContextCompat.getColor(context, R.color.white)
+    private val tintUnselectedColor = ContextCompat.getColor(context, R.color.mercury_30)
+
     init {
         inflate(context, R.layout.btn_insert_passkey, this)
         updateState()
@@ -37,7 +40,9 @@ class DSInsertPasskeyButton(context: Context, attrs: AttributeSet): LinearLayout
     fun setOnChangePasskeyClick(listener: () -> Unit) = btn_change_passkey.setOnClickListener { listener() }
 
     private fun updateTexts() {
-        lbl_info.text = if (isSelected) "Ver ingressos" else "Adicionar código"
+        val addPasskeyTitle = context.getString(R.string.insert_passkey_dialog_title)
+        val seePasskeyTitle = context.getString(R.string.see_passkey_tickets)
+        lbl_info.text = if (isSelected) seePasskeyTitle else addPasskeyTitle
     }
 
     private fun updateBackgroundColor() {
@@ -52,8 +57,9 @@ class DSInsertPasskeyButton(context: Context, attrs: AttributeSet): LinearLayout
         val ticketRes = if (isSelected) R.drawable.icon_ticket_fill_left else R.drawable.icon_ticket_stroke_left
         lbl_info.animateColor(colorRes, context)
 
+        val tintColor = if (isSelected) tintSelectedColor else tintUnselectedColor
         iv_ticket.setImageDrawable(resourcesHelper.getDrawableHelper(ticketRes))
-        iv_ticket.setColorFilter(ContextCompat.getColor(context, colorRes), android.graphics.PorterDuff.Mode.SRC_IN)
-        iv_arrow.setColorFilter(ContextCompat.getColor(context, colorRes), android.graphics.PorterDuff.Mode.SRC_IN)
+        iv_ticket.setColorFilter(tintColor, android.graphics.PorterDuff.Mode.SRC_IN)
+        iv_arrow.setColorFilter(tintColor, android.graphics.PorterDuff.Mode.SRC_IN)
     }
 }

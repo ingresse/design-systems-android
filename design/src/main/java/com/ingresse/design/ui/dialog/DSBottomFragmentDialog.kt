@@ -24,8 +24,11 @@ open class DSBottomFragmentDialog(@LayoutRes val layout: Int,
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val bottomSheetDialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
-        return bottomSheetDialog.apply { setOnShowListener {
-            if (isFullScreen) setFullScreen(it as BottomSheetDialog) } }
+        return bottomSheetDialog.apply {
+            setOnShowListener { dialog ->
+                if (isFullScreen) setFullScreen(dialog as BottomSheetDialog)
+            }
+        }
     }
 
     private fun setFullScreen(dialog: BottomSheetDialog) {

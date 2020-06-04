@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.ingresse.design.R
 import com.ingresse.design.helper.animateColor
+import com.ingresse.design.helper.toCurrency
 import kotlinx.android.synthetic.main.ds_ticket_price.view.*
 
 class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
@@ -58,8 +59,8 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
         val priceString = if (price != 0.0) price.toCurrency()
         else resources.getString(R.string.free_tickets)
 
-        val taxString = if (tax != 0.0) String.format(resources.getString(R.string.ticket_tax_price),
-            tax.toCurrency()) else ""
+        val taxPriceString = resources.getString(R.string.ticket_tax_price)
+        val taxString = if (tax != 0.0) String.format(taxPriceString, tax.toCurrency()) else ""
 
         val lblText = if (singleLine) "$priceString $taxString" else "$priceString\n$taxString"
 

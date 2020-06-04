@@ -35,19 +35,24 @@ class DSTopSnackbar(context: Context, attrs: AttributeSet): RelativeLayout(conte
     private fun showSnack() {
         setVisible()
 
-        animate()
-            .translationY(context.resources.getDimension(R.dimen.spacing_x4))
-            .alpha(1.0f)
-            .setDuration(300)
-            .setStartDelay(0)
-            .withEndAction {
+        animateSnack(context.resources.getDimension(R.dimen.spacing_x4),
+            1.0f,
+            0,
+            300) {
+            animateSnack(0.0f, 0.0f, VISIBLE_DURATION, 300)
+        }
+    }
 
-            animate()
-                .translationY(0.0f)
-                .alpha(0.0f)
-                .setDuration(300)
-                .setStartDelay(VISIBLE_DURATION)
-                .start()
-        }.start()
+    private fun animateSnack(yPosition: Float,
+                             alpha: Float,
+                             delay: Long,
+                             duration: Long,
+                             onEnd: (() -> Unit) = {}) {
+        animate()
+            .translationY(yPosition)
+            .alpha(alpha)
+            .setDuration(duration)
+            .setStartDelay(delay)
+            .withEndAction { onEnd() }
     }
 }

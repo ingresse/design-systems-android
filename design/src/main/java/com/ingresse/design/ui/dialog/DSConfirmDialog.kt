@@ -8,10 +8,14 @@ import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_confirm_dialog.*
 
 class DSConfirmDialog(context: Context): DSBaseDialog(R.layout.ds_confirm_dialog, context) {
+
+    private var defaultPositiveBtn = context.getString(R.string.confirm_dialog_default_positive_btn)
+    private var defaultNegativeBtn = context.getString(R.string.confirm_dialog_default_negative_btn)
+
     fun setInfos(title: String = "",
                  message: String = "",
-                 positiveTitle: String? = "Sim",
-                 negativeTitle: String? = "Não",
+                 positiveTitle: String = defaultPositiveBtn,
+                 negativeTitle: String = defaultNegativeBtn,
                  onPositiveClick: (() -> Unit),
                  onNegativeClick: (() -> Unit)) {
 
@@ -28,8 +32,9 @@ class DSConfirmDialog(context: Context): DSBaseDialog(R.layout.ds_confirm_dialog
         lbl_event_name.setVisible(true)
         lbl_event_name.text = eventName
 
+        val topMargin = context.resources.getDimensionPixelSize(R.dimen.spacing_x2)
         val params = lbl_dialog_title.layoutParams as ViewGroup.MarginLayoutParams
-        params.setMargins(params.leftMargin, 8, params.rightMargin, params.bottomMargin)
+        params.setMargins(params.leftMargin, topMargin, params.rightMargin, params.bottomMargin)
 
         val poster = dialogPoster ?: return
         iv_dialog_poster.setImageDrawable(poster)
