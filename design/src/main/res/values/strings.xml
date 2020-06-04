@@ -82,4 +82,5 @@
     <string name="count_passkey_tickets">{0,choice,0#Nenhum ingresso liberado pelo código|1#1 ingresso liberado pelo código|1&lt;{0} ingressos liberados pelo código}</string>
     <string name="change_passkey_code">Trocar código</string>
     <string name="add_passkey_code">Adicionar código</string>
+    <string name="title_cart_btn">Continuar</string>
 </resources>

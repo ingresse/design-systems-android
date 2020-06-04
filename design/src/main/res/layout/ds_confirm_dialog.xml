@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="@dimen/radius_normal"
-    android:background="@color/white">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/radius_normal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,9 +16,9 @@
             android:id="@+id/iv_dialog_poster"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            tools:src="@drawable/default_poster_white"
             android:scaleType="centerCrop"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            tools:src="@drawable/default_poster_white" />
 
         <TextView
             android:id="@+id/lbl_event_name"
@@ -26,12 +26,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_x4"
-            android:layout_marginEnd="@dimen/spacing_x4"
             android:layout_marginTop="@dimen/spacing_x2"
+            android:layout_marginEnd="@dimen/spacing_x4"
             android:gravity="center"
+            tools:text="Carnaval Na Cidade - São Paulo 2020"
             android:textColor="@color/ocean"
-            android:visibility="gone"
-            android:text="Carnaval Na Cidade - São Paulo 2020"/>
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/lbl_dialog_title"
@@ -39,10 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_x4"
-            android:layout_marginEnd="@dimen/spacing_x4"
             android:layout_marginTop="@dimen/spacing_x6"
+            android:layout_marginEnd="@dimen/spacing_x4"
             android:gravity="center"
-            android:textColor="@color/mercury_70"/>
+            android:textColor="@color/mercury_70" />
 
         <TextView
             android:id="@+id/lbl_dialog_message"
@@ -50,8 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_x4"
-            android:layout_marginEnd="@dimen/spacing_x4"
             android:layout_marginTop="@dimen/spacing_x1"
+            android:layout_marginEnd="@dimen/spacing_x4"
             android:gravity="center"
             android:textColor="@color/mercury_70" />
 
@@ -88,9 +88,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/btn_cancel"
                 app:layout_constraintTop_toTopOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

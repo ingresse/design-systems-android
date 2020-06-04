@@ -9,16 +9,16 @@
         android:id="@+id/img_event_poster"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/default_poster_white"
         android:scaleType="centerCrop"
-        android:tint="@color/black_overlay"/>
+        android:src="@drawable/default_poster_white"
+        android:tint="@color/black_overlay" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/spacing_x6"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="@dimen/spacing_x2">
 
         <ImageButton
@@ -29,21 +29,21 @@
             android:padding="@dimen/spacing_x1"
             android:scaleType="centerInside"
             android:src="@drawable/ic_back"
-            android:tint="@color/white"/>
+            android:tint="@color/white" />
 
         <TextView
             android:id="@+id/txt_event_title"
             style="@style/DSTextStyle.Bold.T2"
-            android:textColor="@color/white"
+            android:layout_width="0dp"
             android:layout_marginStart="@dimen/spacing_x2"
             android:layout_marginEnd="@dimen/spacing_x2"
             android:layout_weight="1"
-            android:maxLines="1"
-            android:singleLine="true"
             android:ellipsize="end"
             android:gravity="center"
-            tools:text="BIIIIIIIG Screen title de várias linhas giga gigante mesmo"
-            android:layout_width="0dp" />
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            tools:text="BIIIIIIIG Screen title de várias linhas giga gigante mesmo" />
 
         <ImageButton
             android:id="@+id/btn_secundary"
@@ -53,8 +53,6 @@
             android:padding="@dimen/spacing_x1"
             android:scaleType="centerInside"
             android:tint="@color/white"
-            android:visibility="invisible"/>
-
+            android:visibility="invisible" />
     </LinearLayout>
-
 </RelativeLayout>

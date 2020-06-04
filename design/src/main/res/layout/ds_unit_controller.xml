@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/ds_unit_controller_bg"
     android:gravity="center"
     android:orientation="horizontal">
@@ -16,9 +16,9 @@
         android:paddingStart="@dimen/spacing_x3"
         android:paddingEnd="@dimen/spacing_x0"
         android:src="@drawable/ic_minus"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/lbl_count"
@@ -30,22 +30,21 @@
         android:gravity="center"
         android:lines="1"
         android:textColor="@color/mercury_70"
-        tools:text="1"
-        app:layout_constraintStart_toEndOf="@id/btn_minus"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_plus"
+        app:layout_constraintStart_toEndOf="@id/btn_minus"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        tools:text="1" />
 
     <ImageButton
         android:id="@+id/btn_plus"
         android:layout_width="@dimen/width_btn_controller"
         android:layout_height="0dp"
+        android:background="@color/transparent"
         android:paddingStart="@dimen/spacing_x0"
         android:paddingEnd="@dimen/spacing_x3"
-        android:background="@color/transparent"
         android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
