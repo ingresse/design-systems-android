@@ -61,26 +61,26 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
     }
 
     private fun updateBrand(brand: CardBrands?) {
-        val colorOneRes = if (brand == null) R.color.desert_storm else R.color.mint_dark
-        val colorTwoRes = if (brand == null) R.color.desert_storm else R.color.mint_light
+        val gradientBottomColor = if (brand == null) R.color.desert_storm else R.color.mint_dark
+        val gradientTopColor = if (brand == null) R.color.desert_storm else R.color.mint_light
 
-        setBackground(colorOneRes, colorTwoRes)
+        setBackground(gradientBottomColor, gradientTopColor)
         val iconRes = brand?.brandIcon ?: R.drawable.ic_empty_brand
         val brandImage = resHelper.getDrawableHelper(iconRes)
         img_credit_card_brand.setImageDrawable(brandImage)
     }
 
-    private fun setBackground(@ColorRes resOne: Int, @ColorRes resTwo: Int) {
+    private fun setBackground(@ColorRes bottomColor: Int, @ColorRes topColor: Int) {
         (layout_credit_card_front.background as GradientDrawable).apply {
             animateGradient(this,
-                resHelper.getColorHelper(resOne),
-                resHelper.getColorHelper(resTwo))
+                resHelper.getColorHelper(bottomColor),
+                resHelper.getColorHelper(topColor))
         }
 
         (layout_credit_card_back.background as GradientDrawable).apply {
             animateGradient(this,
-                resHelper.getColorHelper(resOne),
-                resHelper.getColorHelper(resTwo))
+                resHelper.getColorHelper(bottomColor),
+                resHelper.getColorHelper(topColor))
         }
     }
 

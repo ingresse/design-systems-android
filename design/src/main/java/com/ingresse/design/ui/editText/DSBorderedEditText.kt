@@ -14,7 +14,7 @@ import com.ingresse.design.helper.ResourcesHelper
 class DSBorderedEditText(context: Context, private val attributes: AttributeSet)
     : AppCompatEditText(ContextThemeWrapper(context, R.style.DSTextStyle_Regular_B1), attributes) {
     private var resHelper: ResourcesHelper = ResourcesHelper(context)
-    private var strokeWidth = context.resources.getDimension(R.dimen.spacing_x0_25).toInt()
+    private var strokeWidth = context.resources.getDimensionPixelSize(R.dimen.spacing_x0_25)
 
     var isWrong = false
     set(value) {
@@ -26,11 +26,12 @@ class DSBorderedEditText(context: Context, private val attributes: AttributeSet)
         setHintTextColor(resHelper.getColorHelper(R.color.mercury_10))
         background = resHelper.getDrawableHelper(R.drawable.ds_bordered_edit_text_bg)
 
-        val spacing2 = context.resources.getDimension(R.dimen.spacing_x2)
-        val spacing3 = context.resources.getDimension(R.dimen.spacing_x3)
-        setPadding(spacing3.toInt(), spacing2.toInt(), spacing3.toInt(), spacing2.toInt())
+        val spacing2 = context.resources.getDimensionPixelSize(R.dimen.spacing_x2)
+        val spacing3 = context.resources.getDimensionPixelSize(R.dimen.spacing_x3)
+        setPadding(spacing3, spacing2, spacing3, spacing2)
 
-        setCompoundDrawablesWithIntrinsicBounds(null, null, resHelper.getDrawableHelper(R.drawable.ic_warning), null)
+        val warningIcon = resHelper.getDrawableHelper(R.drawable.ic_warning)
+        setCompoundDrawablesWithIntrinsicBounds(null, null, warningIcon, null)
         setTextColor(resHelper.getColorHelper(R.color.mercury_70))
 
         val array = context.theme.obtainStyledAttributes(attributes, R.styleable.error, 0, 0)

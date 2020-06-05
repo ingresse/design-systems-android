@@ -6,9 +6,11 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import com.ingresse.design.R
+import com.ingresse.design.helper.ResourcesHelper
 import kotlinx.android.synthetic.main.ds_bottom_step_buttons.view.*
 
 class DSBottomStepButtons(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
+    private val resHelper = ResourcesHelper(context)
 
     init { inflate(context, R.layout.ds_bottom_step_buttons, this) }
 
@@ -32,6 +34,6 @@ class DSBottomStepButtons(context: Context, attrs: AttributeSet) : LinearLayout(
 
     private fun tintColor(enabled: Boolean): Int {
         val colorRes = if (enabled) R.color.ocean else R.color.mercury_30
-        return ContextCompat.getColor(context, colorRes)
+        return resHelper.getColorHelper(colorRes)
     }
 }

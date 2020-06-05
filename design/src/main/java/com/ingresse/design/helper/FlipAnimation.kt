@@ -1,6 +1,5 @@
 package com.ingresse.design.helper
 
-import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.content.Context
 import android.view.View
@@ -23,15 +22,18 @@ class FlipAnimation(private val context: Context, views: List<View>) {
 
     private fun setFlipAnimation(): List<AnimatorSet> {
         val animators = mutableListOf<AnimatorSet>()
-        animators.add(AnimatorInflater.loadAnimator(context, R.animator.flip_regular_out) as AnimatorSet)
-        animators.add(AnimatorInflater.loadAnimator(context, R.animator.flip_regular_in) as AnimatorSet)
-        animators.add(AnimatorInflater.loadAnimator(context, R.animator.flip_reverse_out) as AnimatorSet)
-        animators.add(AnimatorInflater.loadAnimator(context, R.animator.flip_reverse_in) as AnimatorSet)
+        animators.addAllAnimations(context, listOf(
+                R.animator.flip_regular_out,
+                R.animator.flip_regular_in,
+                R.animator.flip_reverse_out,
+                R.animator.flip_reverse_in
+            )
+        )
         return animators
     }
 
     fun animateViews() {
-        if (backVisible) { return showFront() }
+        if (backVisible) return showFront()
         showBack()
     }
 
