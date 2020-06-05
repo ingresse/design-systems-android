@@ -65,7 +65,7 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
         val colorTwoRes = if (brand == null) R.color.desert_storm else R.color.mint_light
 
         setBackground(colorOneRes, colorTwoRes)
-        val iconRes = brand?.brandIcon ?: R.drawable.icon_empty_brand
+        val iconRes = brand?.brandIcon ?: R.drawable.ic_empty_brand
         val brandImage = resHelper.getDrawableHelper(iconRes)
         img_credit_card_brand.setImageDrawable(brandImage)
     }

@@ -2,9 +2,9 @@
     android:id="@+id/layout_fields_btn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:background="@color/mercury_10"
     android:gravity="center"
-    android:background="@color/mercury_10">
+    android:orientation="horizontal">
 
     <RelativeLayout
         android:id="@+id/btn_left"
@@ -16,24 +16,23 @@
             android:id="@+id/img_left_button"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/icon_arrow_left"
-            android:tint="@color/ocean"
             android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/spacing_x4"
-            android:layout_centerVertical="true"/>
+            android:src="@drawable/ic_arrow_left"
+            android:tint="@color/ocean" />
 
         <TextView
-            style="@style/DSTextStyle.Bold.B1"
             android:id="@+id/lbl_left_button"
+            style="@style/DSTextStyle.Bold.B1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/img_left_button"
-            android:layout_marginStart="@dimen/spacing_x1"
             android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/spacing_x1"
+            android:layout_toEndOf="@id/img_left_button"
             android:gravity="center_vertical"
-            android:textColor="@color/enabled_disabled_label"
-            android:text="Anterior"/>
-
+            android:text="@string/bottom_step_buttons_previous_title"
+            android:textColor="@color/enabled_disabled_label" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -46,24 +45,22 @@
             android:id="@+id/img_right_button"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/icon_arrow_right"
-            android:tint="@color/enabled_disabled_label"
-            android:layout_marginEnd="@dimen/spacing_x4"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:src="@drawable/ic_arrow_right"
+            android:tint="@color/enabled_disabled_label" />
 
         <TextView
             android:id="@+id/lbl_right_button"
             style="@style/DSTextStyle.Bold.B1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@id/img_right_button"
-            android:layout_marginEnd="@dimen/spacing_x1"
-            android:gravity="center_vertical|end"
             android:layout_centerVertical="true"
-            android:textColor="@color/enabled_disabled_label"
-            android:text="Próximo"/>
-
+            android:layout_marginEnd="@dimen/spacing_x1"
+            android:layout_toStartOf="@id/img_right_button"
+            android:gravity="center_vertical|end"
+            android:text="@string/bottom_step_buttons_next_title"
+            android:textColor="@color/enabled_disabled_label" />
     </RelativeLayout>
-
 </LinearLayout>

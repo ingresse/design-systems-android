@@ -89,5 +89,11 @@
     <!-- DS_CONFIRM_DIALOG -->
     <string name="confirm_dialog_default_positive_btn">Sim</string>
     <string name="confirm_dialog_default_negative_btn">Não</string>
+    <string name="credit_card_number_hint"><![CDATA[•••• •••• •••• ••••]]></string>
+    <string name="credit_card_holder_name_hint">Nome</string>
+    <string name="credit_card_expiration_date_hint">MM/YY</string>
+    <string name="credit_card_cvv_hint">•••</string>
+    <string name="bottom_step_buttons_next_title">Próximo</string>
+    <string name="bottom_step_buttons_previous_title">Anterior</string>
 
 </resources>

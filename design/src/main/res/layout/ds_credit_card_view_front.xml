@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/spacing_x3"
-        android:layout_marginEnd="@dimen/spacing_x3"
         android:layout_marginTop="@dimen/spacing_x2"
+        android:layout_marginEnd="@dimen/spacing_x3"
         android:layout_marginBottom="@dimen/spacing_x2"
         app:cardBackgroundColor="@color/desert_storm"
         app:cardCornerRadius="@dimen/radius_large"
-        app:cardElevation="4dp">
+        app:cardElevation="@dimen/elevation_normal">
 
         <RelativeLayout
             android:id="@+id/layout_credit_card_front"
@@ -23,71 +23,68 @@
             android:background="@drawable/ds_credit_card_view_bg">
 
             <TextView
-                style="@style/DSTextStyle.Medium.B1"
                 android:id="@+id/lbl_credit_card_number"
+                style="@style/DSTextStyle.Medium.B1"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginStart="@dimen/spacing_x5"
-                android:layout_marginEnd="@dimen/spacing_x5"
                 android:layout_marginTop="@dimen/spacing_x6"
-                android:singleLine="true"
-                android:maxLines="1"
+                android:layout_marginEnd="@dimen/spacing_x5"
                 android:ellipsize="end"
                 android:gravity="center"
+                android:hint="@string/credit_card_number_hint"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:textColor="@color/white"
-                android:hint="•••• •••• •••• ••••"
                 android:textColorHint="@color/mercury_10" />
 
             <TextView
-                style="@style/DSTextStyle.Medium.B2"
                 android:id="@+id/lbl_credit_card_name"
+                style="@style/DSTextStyle.Medium.B2"
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/spacing_x3"
                 android:layout_marginEnd="@dimen/spacing_x2"
                 android:layout_marginBottom="@dimen/spacing_x4"
                 android:layout_toStartOf="@id/img_credit_card_brand"
-                android:singleLine="true"
-                android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="@color/white"
                 android:gravity="center_vertical"
-                android:hint="Nome"
+                android:hint="@string/credit_card_holder_name_hint"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
                 android:textColorHint="@color/mercury_10" />
 
             <TextView
-                style="@style/DSTextStyle.Medium.B2"
                 android:id="@+id/lbl_credit_card_expiration_date"
+                style="@style/DSTextStyle.Medium.B2"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
+                android:layout_above="@id/img_credit_card_brand"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/spacing_x3"
                 android:layout_marginBottom="@dimen/spacing_x1"
-                android:layout_above="@id/img_credit_card_brand"
-                android:singleLine="true"
-                android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="@color/white"
                 android:gravity="center_vertical|end"
-                android:hint="MM/YY"
+                android:hint="@string/credit_card_expiration_date_hint"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
                 android:textColorHint="@color/mercury_10" />
 
             <ImageView
-                style="@style/DSTextStyle.Medium.T2"
                 android:id="@+id/img_credit_card_brand"
+                style="@style/DSTextStyle.Medium.T2"
                 android:layout_width="40dp"
                 android:layout_height="30dp"
-                android:src="@drawable/icon_empty_brand"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
                 android:layout_marginEnd="@dimen/spacing_x3"
                 android:layout_marginBottom="@dimen/spacing_x3"
+                android:src="@drawable/ic_empty_brand"
                 android:textColor="@color/mercury_10" />
-
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>
