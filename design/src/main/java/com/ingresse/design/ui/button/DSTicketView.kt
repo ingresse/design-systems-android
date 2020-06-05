@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ingresse.design.R
 import com.ingresse.design.helper.animateBackground
 import com.ingresse.design.helper.animateColor
+import com.ingresse.design.ui.adapters.BaseAdapter
 import kotlinx.android.synthetic.main.ds_ticket_view.view.*
 
 class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
@@ -64,7 +65,7 @@ class DSTicketView(context: Context, attrs: AttributeSet): LinearLayout(context,
         updateState()
     }
 
-    fun setDatesAdapter(adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>) {
+    fun <T>setDatesAdapter(adapter: BaseAdapter<T>) {
         recycler_dates.adapter = adapter
     }
 
