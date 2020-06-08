@@ -8,9 +8,10 @@ import com.ingresse.design.R
 const val CAMERA_DISTANCE = 20000
 
 class FlipAnimation(private val context: Context, views: List<View>) {
-    private var backVisible = false
     private var views = setCameraDistance(views)
     private var animations = setFlipAnimation()
+    var frontIsVisible = true
+        private set
 
     private fun setCameraDistance(views: List<View>): List<View> {
         val scale = context.resources.displayMetrics.density * CAMERA_DISTANCE
@@ -33,8 +34,8 @@ class FlipAnimation(private val context: Context, views: List<View>) {
     }
 
     fun animateViews() {
-        if (backVisible) return showFront()
-        showBack()
+        if (frontIsVisible) return showBack()
+        showFront()
     }
 
     fun showFront() {
@@ -43,7 +44,7 @@ class FlipAnimation(private val context: Context, views: List<View>) {
         animations[2].start()
         animations[3].start()
 
-        backVisible = false
+        frontIsVisible = true
     }
 
     fun showBack() {
@@ -52,6 +53,6 @@ class FlipAnimation(private val context: Context, views: List<View>) {
         animations[0].start()
         animations[1].start()
 
-        backVisible = true
+        frontIsVisible = false
     }
 }

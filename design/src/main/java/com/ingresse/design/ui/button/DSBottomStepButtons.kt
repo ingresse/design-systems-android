@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import androidx.core.content.ContextCompat
 import com.ingresse.design.R
 import com.ingresse.design.helper.ResourcesHelper
 import kotlinx.android.synthetic.main.ds_bottom_step_buttons.view.*
@@ -14,9 +13,9 @@ class DSBottomStepButtons(context: Context, attrs: AttributeSet) : LinearLayout(
 
     init { inflate(context, R.layout.ds_bottom_step_buttons, this) }
 
-    fun setOnLeftClick(onClick: ((View) -> Unit)) { btn_left.setOnClickListener(onClick) }
+    fun setOnLeftClick(onClick: (View) -> Unit) { btn_left.setOnClickListener(onClick) }
 
-    fun setOnRightClick(onClick: ((View) -> Unit)) { btn_right.setOnClickListener(onClick) }
+    fun setOnRightClick(onClick: (View) -> Unit) { btn_right.setOnClickListener(onClick) }
 
     fun setLeftButtonEnabled(enabled: Boolean) {
         val tintColor = tintColor(enabled)

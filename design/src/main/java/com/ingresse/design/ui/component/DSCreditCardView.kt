@@ -12,6 +12,7 @@ import com.ingresse.design.helper.FlipAnimation
 import com.ingresse.design.helper.ResourcesHelper
 import com.ingresse.design.helper.animateGradient
 import com.ingresse.design.helper.unmask
+import com.ingresse.design.ui.editText.TextFormatType
 import kotlinx.android.synthetic.main.ds_credit_card_view.view.*
 import kotlinx.android.synthetic.main.ds_credit_card_view_back.view.*
 import kotlinx.android.synthetic.main.ds_credit_card_view_front.view.*
@@ -23,14 +24,18 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
     private var views: List<View>
     private var flipAnimation: FlipAnimation
 
+    private val minCreditCardNumber = TextFormatType.CREDIT_CARD.minChar ?: 0
+
     var frontVisible = true
+        get() = flipAnimation.frontIsVisible
+        private set
 
     var cardNumber = ""
     set(value) {
         field = value
         lbl_credit_card_number.text = value.replace(".", " ")
         val unmaskedNumber = value.unmask()
-        if (unmaskedNumber.length < 10) return updateBrand(null)
+        if (unmaskedNumber.length < minCreditCardNumber) return updateBrand(null)
         val brand = CardBrands.findByRegex(unmaskedNumber)
         updateBrand(brand)
     }
@@ -84,18 +89,9 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
         }
     }
 
-    fun flipCard() {
-        flipAnimation.animateViews()
-        frontVisible = !frontVisible
-    }
+    fun flipCard() = flipAnimation.animateViews()
 
-    fun showFrontCard() {
-        flipAnimation.showFront()
-        frontVisible = true
-    }
+    fun showFrontCard() = flipAnimation.showFront()
 
-    fun showBackCard() {
-        flipAnimation.showBack()
-        frontVisible = false
-    }
+    fun showBackCard() = flipAnimation.showBack()
 }

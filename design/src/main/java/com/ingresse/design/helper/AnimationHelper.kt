@@ -71,7 +71,10 @@ fun TextView.animateValue(from: Double,
     }, onEnd = onEnd)
 }
 
-fun animateGradient(gradientBackground: GradientDrawable, start: Int, end: Int, duration: Long = 500) {
+fun animateGradient(gradientBackground: GradientDrawable,
+                    start: Int,
+                    end: Int,
+                    duration: Long = 500) {
     val evaluator = ArgbEvaluator()
     val animator = TimeAnimator.ofFloat(0.0f, 1.0f)
     animator.duration = duration
