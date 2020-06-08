@@ -110,7 +110,7 @@
         <attr name="ds_type" />
         <attr name="buttonTheme" />
         <attr name="isThemed" />
-        <attr name="isBordered" format="boolean"/>
+        <attr name="isBordered" format="boolean" />
         <attr name="isLink" />
         <attr name="isTextAllCaps" />
         <attr name="alignment" />
@@ -129,7 +129,7 @@
     </declare-styleable>
 
     <declare-styleable name="DSEventSessionButton">
-        <attr name="isPassport" format="boolean"/>
+        <attr name="isPassport" format="boolean" />
     </declare-styleable>
 
     <!-- IMAGE -->
@@ -187,4 +187,15 @@
     <declare-styleable name="DSLocaleHeader">
         <attr name="returnButtonEnabled" format="boolean" />
     </declare-styleable>
+
+    <!-- USER INFO CARD -->
+    <declare-styleable name="DSUserInfosCard">
+        <attr name="userCardType" format="enum">
+            <enum name="EDIT" value="0" />
+            <enum name="SEND" value="1" />
+            <enum name="CANCEL" value="2" />
+            <enum name="UNDEFINED" value="3" />
+        </attr>
+    </declare-styleable>
+
 </resources>
