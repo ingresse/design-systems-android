@@ -198,4 +198,12 @@
         </attr>
     </declare-styleable>
 
+    <!-- INFO BUTTON -->
+    <declare-styleable name="DSInfoButton">
+        <attr name="buttonTitle" format="string" />
+        <attr name="buttonInfo" format="string" />
+        <attr name="buttonImage" format="reference" />
+        <attr name="showArrow" format="boolean" />
+    </declare-styleable>
+
 </resources>
