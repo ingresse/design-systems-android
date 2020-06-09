@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <TextView
+        android:id="@+id/lbl_ticket_quantity"
+        style="@style/DSTextStyle.Medium.B1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/ds_payment_ticket_view_units_bg"
+        android:gravity="center"
+        android:paddingStart="@dimen/spacing_x2"
+        android:paddingEnd="@dimen/spacing_x2"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_ticket_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ds_payment_ticket_view_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lbl_ticket_quantity"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lbl_ticket_name"
+            style="@style/DSTextStyle.Medium.T2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:layout_marginTop="@dimen/spacing_x2"
+            android:layout_marginEnd="@dimen/spacing_x2"
+            android:textColor="@color/mercury_70"
+            app:layout_constraintEnd_toStartOf="@id/lbl_ticket_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_ticket_price"
+            style="@style/DSTextStyle.Medium.T2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_x2"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:textColor="@color/mercury_70"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_ticket_price_info"
+            style="@style/DSTextStyle.Regular.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:layout_marginBottom="@dimen/spacing_x2_5"
+            android:gravity="center_vertical"
+            android:minHeight="32dp"
+            android:textColor="@color/mercury_70"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/lbl_ticket_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_ticket_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

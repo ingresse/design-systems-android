@@ -99,4 +99,8 @@
     <!-- DS_BOTTOM_STEP_BUTTONS -->
     <string name="bottom_step_buttons_next_title">Próximo</string>
     <string name="bottom_step_buttons_previous_title">Anterior</string>
+
+    <!-- DS_PAYMENT_TICKET_VIEW -->
+    <string name="payment_ticket_quantity">%dx</string>
+    <string name="payment_ticket_price_tax">Ingresso %s + Taxa %s</string>
 </resources>
