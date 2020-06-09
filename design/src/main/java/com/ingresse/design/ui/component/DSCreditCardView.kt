@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.ColorRes
-import androidx.lifecycle.MutableLiveData
 import com.ingresse.design.R
 import com.ingresse.design.helper.FlipAnimation
 import com.ingresse.design.helper.ResourcesHelper
@@ -19,8 +18,6 @@ import kotlinx.android.synthetic.main.ds_credit_card_view_front.view.*
 
 class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private var resHelper = ResourcesHelper(context)
-    private var brand = MutableLiveData<CardBrands>()
-
     private var views: List<View>
     private var flipAnimation: FlipAnimation
 
@@ -33,7 +30,7 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
     var cardNumber = ""
     set(value) {
         field = value
-        lbl_credit_card_number.text = value.replace(".", " ")
+        lbl_credit_card_number.text = value
         val unmaskedNumber = value.unmask()
         if (unmaskedNumber.length < minCreditCardNumber) return updateBrand(null)
         val brand = CardBrands.findByRegex(unmaskedNumber)
@@ -66,10 +63,13 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
     }
 
     private fun updateBrand(brand: CardBrands?) {
-        val gradientBottomColor = if (brand == null) R.color.desert_storm else R.color.mint_dark
-        val gradientTopColor = if (brand == null) R.color.desert_storm else R.color.mint_light
+        val hasBrand = brand != null
+        val gradientBottomColor = if (hasBrand) R.color.mint_dark else R.color.desert_storm
+        val gradientTopColor = if (hasBrand) R.color.mint_light else R.color.desert_storm
 
         setBackground(gradientBottomColor, gradientTopColor)
+        setTextColor(hasBrand)
+
         val iconRes = brand?.brandIcon ?: R.drawable.ic_empty_brand
         val brandImage = resHelper.getDrawableHelper(iconRes)
         img_credit_card_brand.setImageDrawable(brandImage)
@@ -87,6 +87,15 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
                 resHelper.getColorHelper(bottomColor),
                 resHelper.getColorHelper(topColor))
         }
+    }
+
+    private fun setTextColor(withBrand: Boolean) {
+        val textColor = if (withBrand) R.color.white else R.color.mercury_70
+        val color = resHelper.getColorHelper(textColor)
+
+        lbl_credit_card_number.setTextColor(color)
+        lbl_credit_card_name.setTextColor(color)
+        lbl_credit_card_expiration_date.setTextColor(color)
     }
 
     fun flipCard() = flipAnimation.animateViews()
