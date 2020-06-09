@@ -2,6 +2,7 @@ package com.ingresse.design.helper
 
 import android.content.Context
 import android.text.Editable
+import android.text.InputFilter.LengthFilter
 import android.text.TextWatcher
 import android.widget.EditText
 import com.ingresse.design.R
@@ -55,6 +56,8 @@ class FormatText(val context: Context) {
             }
         }
 
+        val maxChars = format.maxCharFormatted ?: format.maxChar
+        maxChars?.let { editText.filters = arrayOf(LengthFilter(it)) }
         editText.addTextChangedListener(textWatcher)
     }
 
