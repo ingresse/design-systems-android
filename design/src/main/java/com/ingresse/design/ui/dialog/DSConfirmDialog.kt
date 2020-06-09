@@ -2,8 +2,8 @@ package com.ingresse.design.ui.dialog
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.view.ViewGroup
 import com.ingresse.design.R
+import com.ingresse.design.helper.setMarginByResources
 import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_confirm_dialog.*
 
@@ -32,9 +32,7 @@ class DSConfirmDialog(context: Context): DSBaseDialog(R.layout.ds_confirm_dialog
         lbl_event_name.setVisible(true)
         lbl_event_name.text = eventName
 
-        val topMargin = context.resources.getDimensionPixelSize(R.dimen.spacing_x2)
-        val params = lbl_dialog_title.layoutParams as ViewGroup.MarginLayoutParams
-        params.setMargins(params.leftMargin, topMargin, params.rightMargin, params.bottomMargin)
+        lbl_dialog_title.setMarginByResources(context, null, R.dimen.spacing_x2, null, null)
 
         val poster = dialogPoster ?: return
         iv_dialog_poster.setImageDrawable(poster)

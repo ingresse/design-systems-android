@@ -8,6 +8,7 @@ import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ingresse.design.R
 import com.ingresse.design.helper.ResourcesHelper
+import com.ingresse.design.helper.setMarginByResources
 import com.ingresse.design.helper.setVisible
 import kotlinx.android.synthetic.main.ds_info_button.view.*
 
@@ -79,9 +80,6 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
 
         ic_arrow.setVisible(showArrow)
         if (showArrow) return
-        val infoEndMargin = context.resources.getDimensionPixelSize(R.dimen.spacing_x4)
-        val params = lbl_btn_info.layoutParams as MarginLayoutParams
-        params.setMargins(params.leftMargin, params.topMargin, infoEndMargin, params.bottomMargin)
-        lbl_btn_info.layoutParams = params
+        lbl_btn_info.setMarginByResources(context, null, null, R.dimen.spacing_x4, null)
     }
 }

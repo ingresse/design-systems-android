@@ -1,5 +1,6 @@
 package com.ingresse.design.helper
 
+import android.content.Context
 import android.content.res.Resources
 import android.graphics.Rect
 import android.util.TypedValue
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DimenRes
 import androidx.annotation.LayoutRes
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
@@ -69,4 +71,39 @@ fun View.increaseHitArea(top: Float, bottom: Float, left: Float, right: Float) {
         rect.right += rightIncrease
         parent.touchDelegate = TouchDelegate(rect, this)
     }
+}
+
+fun View.setMargin(left: Int?, top: Int?, right: Int?, bottom: Int?) {
+    val params = layoutParams as ViewGroup.MarginLayoutParams
+
+    val leftDimen = left ?: params.leftMargin
+    val rightDimen = right ?: params.rightMargin
+    val topDimen = top ?: params.topMargin
+    val bottomDimen = bottom ?: params.bottomMargin
+
+    params.setMargins(leftDimen, topDimen, rightDimen, bottomDimen)
+    layoutParams = params
+}
+
+fun View.setMarginByResources(context: Context,
+                              @DimenRes left: Int?,
+                              @DimenRes top: Int?,
+                              @DimenRes right: Int?,
+                              @DimenRes bottom: Int?) {
+    val params = layoutParams as ViewGroup.MarginLayoutParams
+
+    val leftDimen = if (left == null) params.leftMargin else
+        context.resources.getDimensionPixelSize(left)
+
+    val rightDimen = if (right == null) params.leftMargin else
+        context.resources.getDimensionPixelSize(right)
+
+    val topDimen = if (top == null) params.leftMargin else
+        context.resources.getDimensionPixelSize(top)
+
+    val bottomDimen = if (bottom == null) params.leftMargin else
+        context.resources.getDimensionPixelSize(bottom)
+
+    params.setMargins(leftDimen, topDimen, rightDimen, bottomDimen)
+    layoutParams = params
 }
