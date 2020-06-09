@@ -20,8 +20,7 @@ class DSUserInfoCard(context: Context, attrs: AttributeSet): ConstraintLayout(co
 
     init {
         inflate(context, R.layout.ds_user_info_card, this)
-        val array = context.theme.obtainStyledAttributes(attrs,
-            R.styleable.DSUserInfosCard, 0, 0)
+        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.DSUserInfosCard, 0, 0)
 
         val typeId = array.getInt(R.styleable.DSUserInfosCard_userCardType,
             DSUserInfoCardType.UNDEFINED.id)
@@ -35,16 +34,16 @@ class DSUserInfoCard(context: Context, attrs: AttributeSet): ConstraintLayout(co
     /**
      * Function to set the button action
      *
-     * @param onClick - Action who will called when click on button
+     * @param onClick - Callback for button click action
      */
     fun onButtonClick(onClick: (View) -> Unit) { btn_action.setOnClickListener(onClick) }
 
     /**
      * Function to set the user information
      *
-     * @param name - User's name. If is empty label not will show.
-     * @param email - User's email. If is empty label not will show.
-     * @param address - User's address. If is empty label not will show.
+     * @param name - User's name. If is empty, the label will be hidden.
+     * @param email - User's email. If is empty, the label will be hidden.
+     * @param address - User's address. If is empty, the label will be hidden.
      * @param picture - User's picture.
      */
     fun setUserData(name: String = "",
