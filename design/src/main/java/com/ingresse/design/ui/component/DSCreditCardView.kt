@@ -5,11 +5,10 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import androidx.annotation.ColorRes
 import com.ingresse.design.R
 import com.ingresse.design.helper.FlipAnimation
 import com.ingresse.design.helper.ResourcesHelper
-import com.ingresse.design.helper.animateGradient
+import com.ingresse.design.helper.setColors
 import com.ingresse.design.helper.unmask
 import com.ingresse.design.ui.editText.TextFormatType
 import kotlinx.android.synthetic.main.ds_credit_card_view.view.*
@@ -64,10 +63,7 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
 
     private fun updateBrand(brand: CardBrands?) {
         val hasBrand = brand != null
-        val gradientBottomColor = if (hasBrand) R.color.mint_dark else R.color.desert_storm
-        val gradientTopColor = if (hasBrand) R.color.mint_light else R.color.desert_storm
-
-        setBackground(gradientBottomColor, gradientTopColor)
+        setBackground(hasBrand)
         setTextColor(hasBrand)
 
         val iconRes = brand?.brandIcon ?: R.drawable.ic_empty_brand
@@ -75,18 +71,14 @@ class DSCreditCardView(context: Context, attrs: AttributeSet) : LinearLayout(con
         img_credit_card_brand.setImageDrawable(brandImage)
     }
 
-    private fun setBackground(@ColorRes bottomColor: Int, @ColorRes topColor: Int) {
-        (layout_credit_card_front.background as GradientDrawable).apply {
-            animateGradient(this,
-                resHelper.getColorHelper(bottomColor),
-                resHelper.getColorHelper(topColor))
-        }
+    private fun setBackground(withBrand: Boolean) {
+        val gradientBottomColor = if (withBrand) R.color.mint_dark else R.color.desert_storm
+        val gradientTopColor = if (withBrand) R.color.mint_light else R.color.desert_storm
 
-        (layout_credit_card_back.background as GradientDrawable).apply {
-            animateGradient(this,
-                resHelper.getColorHelper(bottomColor),
-                resHelper.getColorHelper(topColor))
-        }
+        (layout_credit_card_front.background as GradientDrawable)
+            .setColors(context, gradientTopColor, gradientBottomColor)
+        (layout_credit_card_back.background as GradientDrawable)
+            .setColors(context, gradientTopColor, gradientBottomColor)
     }
 
     private fun setTextColor(withBrand: Boolean) {
