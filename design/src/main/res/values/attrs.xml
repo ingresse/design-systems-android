@@ -111,6 +111,7 @@
         <attr name="buttonTheme" />
         <attr name="isThemed" />
         <attr name="isBordered" format="boolean" />
+        <attr name="isEnabled" format="boolean" />
         <attr name="isLink" />
         <attr name="isTextAllCaps" />
         <attr name="alignment" />
@@ -206,4 +207,11 @@
         <attr name="showArrow" format="boolean" />
     </declare-styleable>
 
+    <!-- TWO LABEL BUTTON -->
+    <declare-styleable name="DSTwoLabelButton">
+        <attr name="isEnabled" />
+        <attr name="ds_type" />
+        <attr name="leftTitle" format="string" />
+        <attr name="rightTitle" format="string" />
+    </declare-styleable>
 </resources>
