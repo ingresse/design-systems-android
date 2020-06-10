@@ -16,8 +16,10 @@
     <color name="mercury">#7A8085</color>
     <color name="mercury_light">#989FA3</color>
     <color name="mercury_crystal">#DDDFE0</color>
+    <color name="mercury_80">#2d3033</color>
     <color name="mercury_70">#44494D</color>
     <color name="mercury_50">#757B80</color>
+    <color name="mercury_30">#A6AEB3</color>
     <color name="mercury_10">#E2E4E6</color>
 
     <color name="bamboo_dark">#42AD3C</color>
@@ -66,6 +68,7 @@
     <color name="white_73">#BBFFFFFF</color>
 
     <color name="black">#000</color>
+    <color name="black_overlay">#80000000</color>
     <color name="black_20">#33000000</color>
     <color name="black_27">#44000000</color>
     <color name="black_40">#66000000</color>

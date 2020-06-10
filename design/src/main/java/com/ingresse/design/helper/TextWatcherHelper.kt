@@ -39,6 +39,14 @@ fun singleListener(action: (String) -> Unit): Watcher {
     return Watcher(callback)
 }
 
+fun EditText.listen(action: (String) -> Unit) {
+    val callback = object : WatcherCallback {
+        override fun listen(string: String) { action(string) }
+    }
+
+    addTextChangedListener(Watcher(callback))
+}
+
 abstract class TextWatcherMin: TextWatcher {
     override fun afterTextChanged(s: Editable?) {}
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

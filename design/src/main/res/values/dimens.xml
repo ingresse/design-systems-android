@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- RADIUS -->
-    <dimen name="radius_normal">2dp</dimen>
     <dimen name="radius_small">2dp</dimen>
+    <dimen name="radius_normal">4dp</dimen>
     <dimen name="radius_card">5dp</dimen>
     <dimen name="radius_large">8dp</dimen>
     <dimen name="radius_big">10dp</dimen>
@@ -57,15 +57,20 @@
     <dimen name="spacing_x4_5">18dp</dimen>
     <dimen name="spacing_x5">20dp</dimen>
     <dimen name="spacing_x6">24dp</dimen>
+    <dimen name="spacing_x6_5">26dp</dimen>
     <dimen name="spacing_x7">28dp</dimen>
+    <dimen name="spacing_x7_5">30dp</dimen>
     <dimen name="spacing_x8">32dp</dimen>
+    <dimen name="spacing_x8_5">34dp</dimen>
     <dimen name="spacing_x9">36dp</dimen>
     <dimen name="spacing_x10">40dp</dimen>
     <dimen name="spacing_x11">44dp</dimen>
     <dimen name="spacing_x12">48dp</dimen>
     <dimen name="spacing_x13">52dp</dimen>
     <dimen name="spacing_x14">56dp</dimen>
+    <dimen name="spacing_x15">60dp</dimen>
     <dimen name="spacing_x22">88dp</dimen>
+    <dimen name="spacing_x23">92dp</dimen>
     <dimen name="spacing_x26">104dp</dimen>
     <dimen name="spacing_x27">108dp</dimen>
     <dimen name="spacing_x42">168dp</dimen>
@@ -98,8 +103,8 @@
     <dimen name="width_text_datetime">104dp</dimen>
 
     <!-- UNIT CONTROLLER -->
-    <dimen name="height_btn_controler">24dp</dimen>
-    <dimen name="width_btn_controler">24dp</dimen>
+    <dimen name="height_btn_controller">24dp</dimen>
+    <dimen name="width_btn_controller">36dp</dimen>
 
     <!-- TICKET INFO -->
     <dimen name="height_ticket_info_icon">24dp</dimen>

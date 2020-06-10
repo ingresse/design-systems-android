@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/img_event_poster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_poster_white"
+        android:tint="@color/black_overlay" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/spacing_x6"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_x2">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:padding="@dimen/spacing_x1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_back"
+            android:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/txt_event_title"
+            style="@style/DSTextStyle.Bold.T2"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/spacing_x2"
+            android:layout_marginEnd="@dimen/spacing_x2"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            tools:text="BIIIIIIIG Screen title de várias linhas giga gigante mesmo" />
+
+        <ImageButton
+            android:id="@+id/btn_secundary"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:padding="@dimen/spacing_x1"
+            android:scaleType="centerInside"
+            android:tint="@color/white"
+            android:visibility="invisible" />
+    </LinearLayout>
+</RelativeLayout>

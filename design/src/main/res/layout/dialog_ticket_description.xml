@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:elevation="@dimen/elevation_normal"
+        app:cardCornerRadius="@dimen/radius_large">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:layout_marginTop="@dimen/spacing_x4"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:layout_marginBottom="@dimen/spacing_x6"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lbl_event_name"
+                style="@style/DSTextStyle.Medium.B1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/mercury_70"
+                tools:text="Event Name" />
+
+            <TextView
+                android:id="@+id/lbl_group_name"
+                style="@style/DSTextStyle.Bold.B2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_x2"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/mercury_80"
+                tools:text="Group" />
+
+            <TextView
+                android:id="@+id/lbl_ticket_name"
+                style="@style/DSTextStyle.Regular.B2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_x0_5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/mercury_80"
+                tools:text="Tickt Name" />
+
+            <TextView
+                android:id="@+id/lbl_description"
+                style="@style/DSTextStyle.Regular.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_x3"
+                android:maxLines="30"
+                android:scrollbars="vertical"
+                android:textColor="@color/mercury_80"
+                tools:text="Sed nec leo ." />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
