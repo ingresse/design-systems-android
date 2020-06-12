@@ -36,7 +36,7 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
     fun onButtonClick(onClick: (View) -> Unit) { layout_btn.setOnClickListener(onClick) }
 
     /**
-     * Function to set the user information
+     * Function to set button properties
      *
      * @param title - Button's title
      * @param info - Button's info. The label in left of arrow icon
@@ -53,7 +53,7 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
     }
 
     /**
-     * Function to set the user information
+     * Function to set button properties
      *
      * @param title - Button's title
      * @param info - Button's info. The label in left of arrow icon
@@ -80,6 +80,6 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
 
         ic_arrow.setVisible(showArrow)
         if (showArrow) return
-        lbl_btn_info.setMarginByResources(context, null, null, R.dimen.spacing_x4, null)
+        lbl_btn_info.setMarginByResources(context, right = R.dimen.spacing_x4)
     }
 }

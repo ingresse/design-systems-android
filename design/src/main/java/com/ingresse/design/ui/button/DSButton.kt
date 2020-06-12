@@ -14,6 +14,8 @@ import androidx.core.view.ViewCompat
 import com.ingresse.design.R
 import com.ingresse.design.helper.ColorHelper
 import com.ingresse.design.helper.ResourcesHelper
+import com.ingresse.design.helper.setTintList
+import com.ingresse.design.helper.setTintMode
 
 class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, attrs, R.style.Button) {
     private val type: ButtonTheme
@@ -121,10 +123,10 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
             intArrayOf(- android.R.attr.state_enabled),
             intArrayOf(android.R.attr.state_pressed),
             intArrayOf())
-        val bgColors = ColorStateList(states, colors)
 
-        ViewCompat.setBackgroundTintList(this, bgColors)
-        ViewCompat.setBackgroundTintMode(this, PorterDuff.Mode.MULTIPLY)
+        val bgColors = ColorStateList(states, colors)
+        setTintList(bgColors)
+        setTintMode(PorterDuff.Mode.MULTIPLY)
         ViewCompat.setBackground(this, resHelper.getDrawableHelper(R.drawable.btn_solid_bg))
     }
 

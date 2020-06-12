@@ -32,7 +32,7 @@ class DSConfirmDialog(context: Context): DSBaseDialog(R.layout.ds_confirm_dialog
         lbl_event_name.setVisible(true)
         lbl_event_name.text = eventName
 
-        lbl_dialog_title.setMarginByResources(context, null, R.dimen.spacing_x2, null, null)
+        lbl_dialog_title.setMarginByResources(context, top = R.dimen.spacing_x2)
 
         val poster = dialogPoster ?: return
         iv_dialog_poster.setImageDrawable(poster)

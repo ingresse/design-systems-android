@@ -1,7 +1,6 @@
 package com.ingresse.design.ui.dialog
 
 import android.content.Context
-import android.util.AttributeSet
 import com.ingresse.design.R
 import com.ingresse.design.ui.adapters.BaseAdapter
 import kotlinx.android.synthetic.main.ds_list_dialog.*
@@ -21,7 +20,7 @@ class DSListDialog(context: Context): DSBaseDialog(R.layout.ds_list_dialog, cont
     /**
      * Function to set dialog recycler minimum height
      *
-     * @param height - Height to set to minimum.
+     * @param height - Height to set as minimum.
      */
     fun setRecyclerMinHeight(height: Int) { recycler.minimumHeight = height }
 }

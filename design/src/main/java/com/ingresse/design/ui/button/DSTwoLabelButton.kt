@@ -5,9 +5,10 @@ import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
 import com.ingresse.design.R
 import com.ingresse.design.helper.ResourcesHelper
+import com.ingresse.design.helper.setTintList
+import com.ingresse.design.helper.setTintMode
 import kotlinx.android.synthetic.main.ds_two_label_button.view.*
 
 class DSTwoLabelButton(context: Context, attrs: AttributeSet): ConstraintLayout(context, attrs) {
@@ -86,9 +87,9 @@ class DSTwoLabelButton(context: Context, attrs: AttributeSet): ConstraintLayout(
             intArrayOf(android.R.attr.state_pressed),
             intArrayOf()
         )
-        val bgColors = ColorStateList(states, colors)
 
-        ViewCompat.setBackgroundTintList(layout_btn, bgColors)
-        ViewCompat.setBackgroundTintMode(layout_btn, PorterDuff.Mode.SRC_IN)
+        val bgColors = ColorStateList(states, colors)
+        layout_btn.setTintList(bgColors)
+        layout_btn.setTintMode(PorterDuff.Mode.SRC_IN)
     }
 }

@@ -1,8 +1,11 @@
 package com.ingresse.design.helper
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.Resources
+import android.graphics.PorterDuff
 import android.graphics.Rect
+import android.os.Build
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.TouchDelegate
@@ -10,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.DimenRes
 import androidx.annotation.LayoutRes
+import androidx.core.view.ViewCompat
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
     return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
@@ -86,24 +90,29 @@ fun View.setMargin(left: Int?, top: Int?, right: Int?, bottom: Int?) {
 }
 
 fun View.setMarginByResources(context: Context,
-                              @DimenRes left: Int?,
-                              @DimenRes top: Int?,
-                              @DimenRes right: Int?,
-                              @DimenRes bottom: Int?) {
+                              @DimenRes left: Int? = null,
+                              @DimenRes top: Int? = null,
+                              @DimenRes right: Int? = null,
+                              @DimenRes bottom: Int? = null) {
+
+    val resHelper = ResourcesHelper(context)
     val params = layoutParams as ViewGroup.MarginLayoutParams
 
-    val leftDimen = if (left == null) params.leftMargin else
-        context.resources.getDimensionPixelSize(left)
-
-    val rightDimen = if (right == null) params.leftMargin else
-        context.resources.getDimensionPixelSize(right)
-
-    val topDimen = if (top == null) params.leftMargin else
-        context.resources.getDimensionPixelSize(top)
-
-    val bottomDimen = if (bottom == null) params.leftMargin else
-        context.resources.getDimensionPixelSize(bottom)
+    val leftDimen = resHelper.getNullableDimen(left) ?: params.leftMargin
+    val rightDimen = resHelper.getNullableDimen(right) ?: params.rightMargin
+    val topDimen = resHelper.getNullableDimen(top) ?: params.topMargin
+    val bottomDimen = resHelper.getNullableDimen(bottom) ?: params.bottomMargin
 
     params.setMargins(leftDimen, topDimen, rightDimen, bottomDimen)
     layoutParams = params
+}
+
+fun View.setTintList(colorsList: ColorStateList) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) backgroundTintList = colorsList
+    else ViewCompat.setBackgroundTintList(this, colorsList)
+}
+
+fun View.setTintMode(mode: PorterDuff.Mode) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) backgroundTintMode = mode
+    else ViewCompat.setBackgroundTintMode(this, mode)
 }
