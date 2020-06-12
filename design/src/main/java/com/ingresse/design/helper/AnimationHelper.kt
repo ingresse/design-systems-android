@@ -1,13 +1,14 @@
 package com.ingresse.design.helper
 
-import android.animation.ArgbEvaluator
-import android.animation.ValueAnimator
+import android.animation.*
 import android.content.Context
+import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.TransitionDrawable
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.TextView
+import androidx.annotation.AnimatorRes
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.animation.doOnEnd
@@ -70,6 +71,23 @@ fun TextView.animateValue(from: Double,
     }, onEnd = onEnd)
 }
 
+fun animateGradient(gradientBackground: GradientDrawable,
+                    start: Int,
+                    end: Int,
+                    duration: Long = 500) {
+    val evaluator = ArgbEvaluator()
+    val animator = TimeAnimator.ofFloat(0.0f, 1.0f)
+    animator.duration = duration
+    animator.addUpdateListener {
+        val fraction = it.animatedFraction
+        val newStart = evaluator.evaluate(fraction, end, start) as Int
+        val newEnd = evaluator.evaluate(fraction, start, end) as Int
+
+        gradientBackground.colors = intArrayOf(newStart, newEnd)
+    }
+    animator.start()
+}
+
 fun View.hide(duration: Long = 300) {
     if (!isVisible) return
     val animation = AlphaAnimation(alpha, 0.0f)
@@ -95,3 +113,10 @@ fun Animation.setListeners(doOnStart: (() -> Unit)? = null,
         override fun onAnimationRepeat(animation: Animation?) { doOnRepeat?.invoke() }
     })
 }
+
+fun MutableList<AnimatorSet>.addAnimation(context: Context, @AnimatorRes animator: Int) =
+    add(AnimatorInflater.loadAnimator(context, animator) as AnimatorSet)
+
+fun MutableList<AnimatorSet>.addAllAnimations(context: Context,
+                                              @AnimatorRes animators: List<Int>) =
+    animators.forEach { addAnimation (context, it) }

@@ -54,7 +54,8 @@
     <string name="format_zipcode">#####-###</string>
     <string name="format_cpf">###.###.###-##</string>
     <string name="format_cnpj">##.###.###/####-##</string>
-    <string name="format_credit_card">####.####.####.####.####</string>
+    <string name="format_credit_card">#### #### #### #### ####</string>
+    <string name="format_credit_card_cvv">####</string>
     <string name="format_simple_date">##/##</string>
 
     <!-- FACEBOOK -->
@@ -89,4 +90,13 @@
     <string name="confirm_dialog_default_positive_btn">Sim</string>
     <string name="confirm_dialog_default_negative_btn">Não</string>
 
+    <!-- DS_CREDIT_CARD_VIEW -->
+    <string name="credit_card_number_hint">•••• •••• •••• ••••</string>
+    <string name="credit_card_holder_name_hint">Nome</string>
+    <string name="credit_card_expiration_date_hint">MM/YY</string>
+    <string name="credit_card_cvv_hint">•••</string>
+
+    <!-- DS_BOTTOM_STEP_BUTTONS -->
+    <string name="bottom_step_buttons_next_title">Próximo</string>
+    <string name="bottom_step_buttons_previous_title">Anterior</string>
 </resources>

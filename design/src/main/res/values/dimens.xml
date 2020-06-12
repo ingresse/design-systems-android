@@ -44,6 +44,7 @@
 
     <!-- SPACING -->
     <dimen name="spacing_x0">0dp</dimen>
+    <dimen name="spacing_x0_25">1dp</dimen>
     <dimen name="spacing_x0_5">2dp</dimen>
     <dimen name="spacing_x1">4dp</dimen>
     <dimen name="spacing_x1_3">5dp</dimen>
@@ -52,6 +53,7 @@
     <dimen name="spacing_x2_3">9dp</dimen>
     <dimen name="spacing_x2_5">10dp</dimen>
     <dimen name="spacing_x3">12dp</dimen>
+    <dimen name="spacing_x3_5">14dp</dimen>
     <dimen name="spacing_x3_8">15dp</dimen>
     <dimen name="spacing_x4">16dp</dimen>
     <dimen name="spacing_x4_5">18dp</dimen>
@@ -69,6 +71,8 @@
     <dimen name="spacing_x13">52dp</dimen>
     <dimen name="spacing_x14">56dp</dimen>
     <dimen name="spacing_x15">60dp</dimen>
+    <dimen name="spacing_x16">64dp</dimen>
+    <dimen name="spacing_x17">68dp</dimen>
     <dimen name="spacing_x22">88dp</dimen>
     <dimen name="spacing_x23">92dp</dimen>
     <dimen name="spacing_x26">104dp</dimen>
