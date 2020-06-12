@@ -3,7 +3,6 @@ package com.ingresse.design.ui.editText
 import android.content.Context
 import android.graphics.drawable.DrawableContainer.DrawableContainerState
 import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.StateListDrawable
 import android.util.AttributeSet
 import androidx.appcompat.view.ContextThemeWrapper
@@ -26,9 +25,9 @@ class DSBorderedEditText(context: Context, private val attributes: AttributeSet)
         setHintTextColor(resHelper.getColorHelper(R.color.mercury_10))
         background = resHelper.getDrawableHelper(R.drawable.ds_bordered_edit_text_bg)
 
-        val spacing2 = context.resources.getDimensionPixelSize(R.dimen.spacing_x2)
-        val spacing3 = context.resources.getDimensionPixelSize(R.dimen.spacing_x3)
-        setPadding(spacing3, spacing2, spacing3, spacing2)
+        val topBottomPadding = context.resources.getDimensionPixelSize(R.dimen.spacing_x2)
+        val endStartPadding = context.resources.getDimensionPixelSize(R.dimen.spacing_x3)
+        setPadding(endStartPadding, topBottomPadding, endStartPadding, topBottomPadding)
 
         val warningIcon = resHelper.getDrawableHelper(R.drawable.ic_warning)
         setCompoundDrawablesWithIntrinsicBounds(null, null, warningIcon, null)

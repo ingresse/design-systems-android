@@ -117,7 +117,6 @@ fun Animation.setListeners(doOnStart: (() -> Unit)? = null,
 fun MutableList<AnimatorSet>.addAnimation(context: Context, @AnimatorRes animator: Int) =
     add(AnimatorInflater.loadAnimator(context, animator) as AnimatorSet)
 
-fun MutableList<AnimatorSet>.addAllAnimations(
-    context: Context,
-    @AnimatorRes animators: List<Int>) =
+fun MutableList<AnimatorSet>.addAllAnimations(context: Context,
+                                              @AnimatorRes animators: List<Int>) =
     animators.forEach { addAnimation (context, it) }
