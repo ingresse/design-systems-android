@@ -7,9 +7,9 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ingresse.design.R
-import com.ingresse.design.helper.ResourcesHelper
-import com.ingresse.design.helper.setMarginByResources
-import com.ingresse.design.helper.setVisible
+import com.ingresse.design.helper.*
+import com.ingresse.design.ui.component.CardBrands
+import com.ingresse.design.ui.editText.TextFormatType
 import kotlinx.android.synthetic.main.ds_info_button.view.*
 
 class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
@@ -70,7 +70,13 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
         val imageRes = infoImage ?: return
         val image = resHelper.getDrawableHelper(imageRes)
         img_btn_info.setImageDrawable(image)
+
+        if(isCreditCardInfo) { setCreditCardInfo(info) }
     }
+
+    fun setButtonInfo(info: String) { lbl_btn_info.text = info }
+
+    fun setCreditCardButton(number: String) { setCreditCardInfo(number) }
 
     private fun setMainProperties(title: String,
                                   info: String,
@@ -81,5 +87,25 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
         ic_arrow.setVisible(showArrow)
         if (showArrow) return
         lbl_btn_info.setMarginByResources(context, right = R.dimen.spacing_x4)
+    }
+
+    private fun setCreditCardInfo(creditCardNumber: String?) {
+        val minCreditCardNumber = TextFormatType.CREDIT_CARD.minChar ?: 0
+
+        val unmaskedNumber = creditCardNumber.unmask()
+        if (unmaskedNumber.length < minCreditCardNumber) return updateBrand(null)
+        val brand = CardBrands.findByRegex(unmaskedNumber)
+
+        lbl_btn_info.text = creditCardNumber?.takeLast(4)
+        updateBrand(brand)
+    }
+
+    private fun updateBrand(brand: CardBrands?) {
+        val hasBrand = brand != null
+        img_btn_info.setVisible(hasBrand)
+
+        val iconRes = brand?.brandIcon ?: R.drawable.ic_empty_brand
+        val brandImage = resHelper.getDrawableHelper(iconRes)
+        img_btn_info.setImageDrawable(brandImage)
     }
 }
