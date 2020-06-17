@@ -24,7 +24,7 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
         val infoImage = array.getDrawable(R.styleable.DSInfoButton_buttonImage)
         val showArrow = array.getBoolean(R.styleable.DSInfoButton_showArrow, true)
 
-        setButton(title, info, infoImage, showArrow)
+        setProperties(title, info, infoImage, showArrow)
         array.recycle()
     }
 
@@ -43,10 +43,10 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
      * @param infoImage - Button's image drawable. If null, the view will be hidden
      * @param showArrow - Variable to set if arrow icon is visible
      */
-    fun setButton(title: String,
-                  info: String,
-                  infoImage: Drawable? = null,
-                  showArrow: Boolean = true) {
+    fun setProperties(title: String,
+                      info: String,
+                      infoImage: Drawable? = null,
+                      showArrow: Boolean = true) {
         setMainProperties(title, info, showArrow)
         img_btn_info.setVisible(infoImage != null)
         img_btn_info.setImageDrawable(infoImage)
@@ -60,10 +60,10 @@ class DSInfoButton(context: Context, attrs: AttributeSet) : ConstraintLayout(con
      * @param infoImage - Button's image resource. If null, the view will be hidden
      * @param showArrow - Variable to set if arrow icon is visible
      */
-    fun setButton(title: String,
-                  info: String,
-                  @DrawableRes infoImage: Int? = null,
-                  showArrow: Boolean = true) {
+    fun setProperties(title: String,
+                      info: String,
+                      @DrawableRes infoImage: Int? = null,
+                      showArrow: Boolean = true) {
         setMainProperties(title, info, showArrow)
         img_btn_info.setVisible(infoImage != null)
 

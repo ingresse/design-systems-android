@@ -77,7 +77,10 @@ fun View.increaseHitArea(top: Float, bottom: Float, left: Float, right: Float) {
     }
 }
 
-fun View.setMargin(left: Int?, top: Int?, right: Int?, bottom: Int?) {
+fun View.setMargin(left: Int? = null,
+                   top: Int? = null,
+                   right: Int? = null,
+                   bottom: Int? = null) {
     val params = layoutParams as ViewGroup.MarginLayoutParams
 
     val leftDimen = left ?: params.leftMargin
