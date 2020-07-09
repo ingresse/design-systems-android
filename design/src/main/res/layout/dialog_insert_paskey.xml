@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+        android:id="@+id/overlay_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@color/transparent">
+
+        <com.ingresse.design.ui.dialog.DSTopSnackbar
+            android:id="@+id/top_snackbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/spacing_x2"
+            android:visibility="gone" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="179dp"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="@dimen/radius_enormous">
+
+            <RelativeLayout
+                android:id="@+id/layout_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_x4"
+                    android:layout_marginTop="@dimen/spacing_x4"
+                    android:layout_marginEnd="@dimen/spacing_x4"
+                    android:layout_marginBottom="@dimen/spacing_x4">
+
+                    <TextView
+                        android:id="@+id/lbl_title"
+                        style="@style/DSTextStyle.Bold.T1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/insert_passkey_dialog_title"
+                        android:textColor="@color/mercury_70"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_paskey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:indeterminate="true"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/edt_passkey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/edt_passkey" />
+
+                    <EditText
+                        android:id="@+id/edt_passkey"
+                        style="@style/DSTextStyle.Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:hint="@string/insert_passkey_dialog_hint"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/mercury_70"
+                        android:textColorHint="@color/mercury_crystal"
+                        app:layout_constraintBottom_toTopOf="@id/layout_buttons"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lbl_title" />
+
+                    <RelativeLayout
+                        android:id="@+id/layout_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="@dimen/spacing_x1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/edt_passkey">
+
+                        <com.ingresse.design.ui.button.DSButton
+                            android:id="@+id/btn_confirm"
+                            style="@style/Button.NoCaps.Bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_alignParentBottom="true"
+                            android:enabled="false"
+                            android:text="@string/insert_passkey_dialog_confirm_btn"
+                            app:ds_type="confirm"
+                            app:isThemed="false" />
+
+                        <com.ingresse.design.ui.button.DSImageButton
+                            android:id="@+id/btn_valid_passkey"
+                            style="@style/Button.NoCaps.Bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_alignParentBottom="true"
+                            android:src="@drawable/ic_check"
+                            android:visibility="invisible"
+                            app:ds_type="crystal" />
+                    </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</RelativeLayout>

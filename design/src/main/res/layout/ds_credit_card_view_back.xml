@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/spacing_x3"
+        android:layout_marginTop="@dimen/spacing_x2"
+        android:layout_marginEnd="@dimen/spacing_x3"
+        android:layout_marginBottom="@dimen/spacing_x2"
+        app:cardBackgroundColor="@color/desert_storm"
+        app:cardCornerRadius="@dimen/radius_large"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:id="@+id/layout_credit_card_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ds_credit_card_view_bg">
+
+            <View
+                android:id="@+id/view_black_bar"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginTop="@dimen/spacing_x4"
+                android:background="@drawable/black_gradient_bg" />
+
+            <TextView
+                android:id="@+id/lbl_credit_card_cvv"
+                style="@style/DSTextStyle.Medium.B1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/view_black_bar"
+                android:layout_marginStart="@dimen/spacing_x2"
+                android:layout_marginTop="@dimen/spacing_x1_5"
+                android:layout_marginEnd="@dimen/spacing_x2"
+                android:background="@color/white_overlay"
+                android:gravity="center_vertical|end"
+                android:hint="@string/credit_card_cvv_hint"
+                android:maxLines="1"
+                android:paddingStart="@dimen/spacing_x4"
+                android:paddingEnd="@dimen/spacing_x4"
+                android:singleLine="true"
+                android:textColor="@color/mercury_70"
+                android:textColorHint="@color/mercury_10" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -66,6 +66,10 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="error">
+        <attr name="isWrong" format="boolean" />
+    </declare-styleable>
+
     <declare-styleable name="DSSpinner">
         <attr name="customHint" format="string" />
         <attr name="customHintColor" format="color" />
@@ -106,6 +110,7 @@
         <attr name="ds_type" />
         <attr name="buttonTheme" />
         <attr name="isThemed" />
+        <attr name="isBordered" format="boolean"/>
         <attr name="isLink" format="boolean" />
         <attr name="isTextAllCaps" format="boolean" />
         <attr name="alignment" />
@@ -121,6 +126,10 @@
         <attr name="text" />
         <attr name="textColor" />
         <attr name="withEndIcon" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DSEventSessionButton">
+        <attr name="isPassport" format="boolean"/>
     </declare-styleable>
 
     <!-- IMAGE -->
@@ -171,5 +180,11 @@
         <attr name="headerType" />
         <attr name="title" format="string" />
         <attr name="description" format="string" />
+    </declare-styleable>
+
+    <!-- LOCALE HEADER -->
+
+    <declare-styleable name="DSLocaleHeader">
+        <attr name="returnButtonEnabled" format="boolean" />
     </declare-styleable>
 </resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/radius_normal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_dialog_poster"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            tools:src="@drawable/default_poster_white" />
+
+        <TextView
+            android:id="@+id/lbl_event_name"
+            style="@style/DSTextStyle.Bold.T2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:layout_marginTop="@dimen/spacing_x2"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:gravity="center"
+            tools:text="Carnaval Na Cidade - São Paulo 2020"
+            android:textColor="@color/ocean"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/lbl_dialog_title"
+            style="@style/DSTextStyle.Medium.B2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:layout_marginTop="@dimen/spacing_x6"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:gravity="center"
+            android:textColor="@color/mercury_70" />
+
+        <TextView
+            android:id="@+id/lbl_dialog_message"
+            style="@style/DSTextStyle.Regular.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:layout_marginTop="@dimen/spacing_x1"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:gravity="center"
+            android:textColor="@color/mercury_70" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_x6"
+            android:layout_marginBottom="@dimen/spacing_x6">
+
+            <com.ingresse.design.ui.button.DSButton
+                android:id="@+id/btn_cancel"
+                style="@style/Button.NoCaps.Bold"
+                android:layout_width="112dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/spacing_x4"
+                android:layout_marginEnd="@dimen/spacing_x4"
+                app:ds_type="secondary"
+                app:isBordered="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_confirm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.ingresse.design.ui.button.DSButton
+                android:id="@+id/btn_confirm"
+                style="@style/Button.NoCaps.Bold"
+                android:layout_width="112dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/spacing_x4"
+                android:layout_marginEnd="@dimen/spacing_x4"
+                app:ds_type="secondary"
+                app:isBordered="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_cancel"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

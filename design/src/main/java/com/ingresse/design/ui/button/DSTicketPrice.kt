@@ -9,12 +9,12 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.ingresse.design.R
 import com.ingresse.design.helper.animateColor
+import com.ingresse.design.helper.toCurrency
 import kotlinx.android.synthetic.main.ds_ticket_price.view.*
 
 class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
     private var price: Double = 0.0
     private var tax: Double = 0.0
-    private var selected: Boolean = false
     private var singleLine: Boolean = true
 
     init {
@@ -45,7 +45,7 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     override fun setSelected(isSelected: Boolean) {
-        selected = isSelected
+        super.setSelected(isSelected)
         updateText()
     }
 
@@ -55,11 +55,15 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     private fun updateText() {
-        val priceString = String.format(resources.getString(R.string.ticket_price), price)
-        val taxString = String.format(resources.getString(R.string.ticket_tax_price), tax)
+        val priceString = if (price != 0.0) price.toCurrency()
+        else resources.getString(R.string.free_tickets)
+
+        val taxPriceString = resources.getString(R.string.ticket_tax_price)
+        val taxString = if (tax != 0.0) String.format(taxPriceString, tax.toCurrency()) else ""
+
         val lblText = if (singleLine) "$priceString $taxString" else "$priceString\n$taxString"
 
-        val textStyle = if (selected) R.style.DSTextStyle_TicketPrice_Tax_Selected
+        val textStyle = if (isSelected) R.style.DSTextStyle_TicketPrice_Tax_Selected
         else R.style.DSTextStyle_TicketPrice_Tax
 
         val taxAppearance = TextAppearanceSpan(context, textStyle)
@@ -71,7 +75,7 @@ class DSTicketPrice(context: Context, attrs: AttributeSet): LinearLayout(context
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
 
-        val textColorRes = if (selected) R.color.white else R.color.mercury_70
+        val textColorRes = if (isSelected) R.color.white else R.color.mercury_70
         lbl_ticket_price.animateColor(textColorRes, context)
         lbl_ticket_price.text = SpannableStringBuilder().append(info)
     }

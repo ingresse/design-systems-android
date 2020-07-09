@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.ds_session_date.view.*
 class DSSessionDate(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
     private var weekDay: String = ""
     private var datetime: String = ""
-    private var selected: Boolean = false
 
     init {
         inflate(context, R.layout.ds_session_date, this)
@@ -42,7 +41,7 @@ class DSSessionDate(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     override fun setSelected(isSelected: Boolean) {
-        selected = isSelected
+        super.setSelected(isSelected)
         updateState()
     }
 
@@ -57,10 +56,10 @@ class DSSessionDate(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     private fun updateBackgroundColor() {
-        val weekDayBGRes = if (selected) R.drawable.ds_session_date_weekday_selected_bg
+        val weekDayBGRes = if (isSelected) R.drawable.ds_session_date_weekday_selected_bg
         else R.drawable.ds_session_date_weekday_bg
 
-        val dateTimeBGRes = if (selected) R.drawable.ds_session_date_selected_bg
+        val dateTimeBGRes = if (isSelected) R.drawable.ds_session_date_selected_bg
         else R.drawable.ds_session_date_bg
 
         layout_ds_session_date.animateBackground(dateTimeBGRes, context)
@@ -68,8 +67,8 @@ class DSSessionDate(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     private fun updateTextColor() {
-        val weekDayColorRes = if (selected) R.color.ocean else R.color.white
-        val dateTimeColorRes = if (selected) R.color.ocean else R.color.mercury_50
+        val weekDayColorRes = if (isSelected) R.color.ocean else R.color.white
+        val dateTimeColorRes = if (isSelected) R.color.ocean else R.color.mercury_50
         lbl_week_day.animateColor(weekDayColorRes, context)
         lbl_datetime.animateColor(dateTimeColorRes, context)
     }
