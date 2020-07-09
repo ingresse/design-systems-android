@@ -41,7 +41,7 @@
 
         <com.ingresse.design.ui.button.DSUnitController
             android:id="@+id/ticket_unit_controller"
-            android:layout_width="wrap_content"
+            android:layout_width="112dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"

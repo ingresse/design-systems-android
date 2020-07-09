@@ -18,8 +18,9 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
     private val halfLevel: Drawable
     private val fullLevel: Drawable
 
+    var hasFocus = false
     var strength = Strength.NONE
-    fun isWrong() = strength == Strength.NONE || strength == Strength.WEAK || getTextCount() < 7
+    fun isWrong() = (strength == Strength.NONE || strength == Strength.WEAK) || getTextCount() < 7
 
     val editText: DSEditText get() = edt_password
 
@@ -79,6 +80,8 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
             3 -> setProgressValues(fullLevel, Strength.STRONG, 3)
             else -> setEmptyValidation()
         }
+
+        customValidation()
     }
 
     /**
@@ -86,16 +89,20 @@ class DSPasswordEditText(context: Context, attrs: AttributeSet) : FrameLayout(co
      * Need to use attr customValidation = "true"
      */
     private fun setFocusListener() {
-        editText.setFocusChangeListener focus@{ hasFocus ->
-            if (hasFocus) return@focus editText.setEditTextDefault(hasFocus)
-            if (isWrong()) return@focus editText.setEditTextError()
-            editText.setEditTextDefault()
-        }
+        editText.setFocusChangeListener { hasFocus ->
+            this.hasFocus = hasFocus
+            customValidation() }
+    }
+
+    private fun customValidation() {
+        if (hasFocus) return editText.setEditTextDefault(hasFocus)
+        if (isWrong()) return editText.setEditTextError()
+        editText.setEditTextDefault()
     }
 
     // OVERRIDE METHODS TO EASY ACCESS
     fun getTextDS() = editText.getTextDS()
-    fun getTextCount() = editText.text.count()
+    fun getTextCount() = editText.getTextCount()
     fun setWatcher(onTextChange: (text: String) -> Unit) = editText.setWatcher(onTextChange)
     fun setActionListener(listener: () -> Unit) = editText.setActionListener(listener)
 }

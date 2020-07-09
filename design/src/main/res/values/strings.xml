@@ -54,7 +54,8 @@
     <string name="format_zipcode">#####-###</string>
     <string name="format_cpf">###.###.###-##</string>
     <string name="format_cnpj">##.###.###/####-##</string>
-    <string name="format_credit_card">####.####.####.####.####</string>
+    <string name="format_credit_card">#### #### #### #### ####</string>
+    <string name="format_credit_card_cvv">####</string>
     <string name="format_simple_date">##/##</string>
 
     <!-- FACEBOOK -->
@@ -67,7 +68,35 @@
     <string name="ticket_info_description">Leia a descrição do ingresso</string>
     <string name="ticket_info_passkey">Ingresso liberado pelo código: %1$s</string>
 
-    <string name="ticket_tax_price">+ R$ %1$.2f de taxa</string>
-    <string name="ticket_price">R$ %1$.2f</string>
+    <string name="ticket_tax_price">+ %1$s de taxa</string>
     <string name="passport_description">Ingressos para mais de uma data</string>
+    <string name="free_tickets">Grátis</string>
+
+    <!-- DS_CART_View -->
+    <string name="cart_info">{0,choice,0#0 itens - R$ 0,00|1#1 item - {1}|1&lt;{0} itens - {1}}</string>
+    <string name="insert_passkey_dialog_title">Adicionar código</string>
+    <string name="insert_passkey_dialog_hint">Digite seu código aqui</string>
+    <string name="insert_passkey_dialog_confirm_btn">Avançar</string>
+    <string name="invalid_passkey">Código inválido</string>
+
+    <!-- PASSKEY_TICKETS_BF_DIALOG -->
+    <string name="count_passkey_tickets">{0,choice,0#Nenhum ingresso liberado pelo código|1#1 ingresso liberado pelo código|1&lt;{0} ingressos liberados pelo código}</string>
+    <string name="change_passkey_code">Trocar código</string>
+    <string name="add_passkey_code">Adicionar código</string>
+    <string name="see_passkey_tickets">Ver ingressos</string>
+    <string name="title_cart_btn">Continuar</string>
+
+    <!-- DS_CONFIRM_DIALOG -->
+    <string name="confirm_dialog_default_positive_btn">Sim</string>
+    <string name="confirm_dialog_default_negative_btn">Não</string>
+
+    <!-- DS_CREDIT_CARD_VIEW -->
+    <string name="credit_card_number_hint">•••• •••• •••• ••••</string>
+    <string name="credit_card_holder_name_hint">Nome</string>
+    <string name="credit_card_expiration_date_hint">MM/YY</string>
+    <string name="credit_card_cvv_hint">•••</string>
+
+    <!-- DS_BOTTOM_STEP_BUTTONS -->
+    <string name="bottom_step_buttons_next_title">Próximo</string>
+    <string name="bottom_step_buttons_previous_title">Anterior</string>
 </resources>

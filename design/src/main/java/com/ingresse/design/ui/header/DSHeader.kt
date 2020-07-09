@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.FrameLayout
-import androidx.core.view.isVisible
 import com.ingresse.design.R
 import com.ingresse.design.helper.ColorHelper
 import kotlinx.android.synthetic.main.custom_header.view.*
