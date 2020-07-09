@@ -111,8 +111,8 @@
         <attr name="buttonTheme" />
         <attr name="isThemed" />
         <attr name="isBordered" format="boolean"/>
-        <attr name="isLink" />
-        <attr name="isTextAllCaps" />
+        <attr name="isLink" format="boolean" />
+        <attr name="isTextAllCaps" format="boolean" />
         <attr name="alignment" />
     </declare-styleable>
 
