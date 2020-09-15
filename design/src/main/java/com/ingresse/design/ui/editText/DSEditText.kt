@@ -122,13 +122,15 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
             if (!editText.hasFocus()) animateHintToCenter()
         }
 
-        if (wrongWhenEmpty && txt.isNullOrEmpty()) setEditTextError()
+        if (wrongWhenEmpty && txt.isNullOrEmpty()) return setEditTextError()
 
-        if (txt.isNullOrEmpty()) return
         animateHintToTop(animated)
         editText.setText(txt)
-        editText.setSelection(txt.length - 1)
         setEditTextDefault()
+
+        val currentText = editText.text
+        if (currentText.isNullOrEmpty()) return
+        editText.setSelection(currentText.length - 1)
     }
 
     fun getTextDS(): String = editText.text.toString()
