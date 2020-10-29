@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/lbl_date"
-        style="@style/DSTextStyle.Bold.T2"
+        style="@style/DSTextStyle.Bold.T1"
         android:layout_width="@dimen/width_text_event_session"
         android:layout_height="@dimen/height_text_event_session"
         android:layout_marginStart="@dimen/spacing_x1_3"
