@@ -33,7 +33,7 @@ open class DSBottomFragmentDialog(@LayoutRes val layout: Int,
     }
 
     private fun setFullScreen(dialog: BottomSheetDialog) {
-        val bottomSheet = dialog.findViewById<View>(GMaterialRes.id.design_bottom_sheet)
-        BottomSheetBehavior.from(bottomSheet).state = BottomSheetBehavior.STATE_EXPANDED
+        val bottomSheet: View? = dialog.findViewById(GMaterialRes.id.design_bottom_sheet)
+        BottomSheetBehavior.from(bottomSheet ?: return).state = BottomSheetBehavior.STATE_EXPANDED
     }
 }
