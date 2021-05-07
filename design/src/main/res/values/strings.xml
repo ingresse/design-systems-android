@@ -59,7 +59,7 @@
     <string name="format_simple_date">##/##</string>
 
     <!-- FACEBOOK -->
-    <string name="login_with_facebook">Entrar com o facebook</string>
+    <string name="login_with_facebook">Entrar com o Facebook</string>
 
     <!-- DS_TICKET_INFO -->
     <string name="ticket_info_max">{0,choice,0#O pedido máximo é de 0 ingressos|1#O pedido máximo é de 1 ingresso|1&lt;O pedido máximo é de {0} ingressos}</string>
