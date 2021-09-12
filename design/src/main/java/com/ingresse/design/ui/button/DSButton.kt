@@ -22,7 +22,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
     private val isThemed: Boolean
     private val isLink: Boolean
     private val isTextAllCaps: Boolean
-    private val isBordered: Boolean
+    private var isBordered: Boolean
 
     private val resHelper = ResourcesHelper(context)
     private val colorHelper = ColorHelper(context)
@@ -90,7 +90,7 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
         setBackgroundResource(R.drawable.ds_stroked_button_bg)
         setTextColor(color)
         (background as LayerDrawable).apply {
-            getDrawable(0).setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
+            getDrawable(0).setColorFilter(Color.TRANSPARENT, PorterDuff.Mode.SRC_IN)
             getDrawable(1).setColorFilter(color, PorterDuff.Mode.SRC_IN)
         }
     }
@@ -131,5 +131,10 @@ class DSButton(context: Context, attrs: AttributeSet): AppCompatButton(context, 
     fun setStyle(buttonType: ButtonType) {
         style = buttonType
         setupStyle()
+    }
+
+    fun setBordered() {
+        isBordered = true
+        setBorderedButton()
     }
 }
