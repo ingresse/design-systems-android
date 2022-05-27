@@ -299,6 +299,11 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
                 return@listener
             }
 
+            if (textFormatType == TextFormatType.DATE && textCount in 1..9) {
+                setEditTextError()
+                return@listener
+            }
+
             if ((textCount < textFormatType.minCharFormatted ?: 0
                     || textCount == 0) && !isOptional) {
                 setEditTextError()
