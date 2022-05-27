@@ -25,6 +25,7 @@
         <enum name="mixedCpfCnpj" value="5" />
         <enum name="creditCard" value="6" />
         <enum name="phone9Digits" value="8" />
+        <enum name="date" value="11" />
     </attr>
 
     <attr name="alignment">

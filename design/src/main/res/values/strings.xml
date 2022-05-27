@@ -57,6 +57,7 @@
     <string name="format_credit_card">#### #### #### #### ####</string>
     <string name="format_credit_card_cvv">####</string>
     <string name="format_simple_date">##/##</string>
+    <string name="format_date">##/##/####</string>
 
     <!-- FACEBOOK -->
     <string name="login_with_facebook">Entrar com o Facebook</string>

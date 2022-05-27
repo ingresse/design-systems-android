@@ -28,6 +28,7 @@ class FormatText(val context: Context) {
             TextFormatType.CREDIT_CARD -> context.getString(R.string.format_credit_card)
             TextFormatType.CREDIT_CARD_CVV -> context.getString(R.string.format_credit_card_cvv)
             TextFormatType.SIMPLE_DATE -> context.getString(R.string.format_simple_date)
+            TextFormatType.DATE -> context.getString(R.string.format_date)
         }
 
         textWatcher = object : TextWatcherMin() {
