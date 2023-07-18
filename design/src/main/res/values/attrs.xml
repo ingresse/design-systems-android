@@ -60,6 +60,7 @@
         <attr name="customValidation" format="boolean" />
         <attr name="textInputType" />
         <attr name="formatType" />
+        <attr name="maxCharacterLimit" format="integer"/>
         <attr name="capitalization" format="enum">
             <enum name="uppercase" value="0" />
             <enum name="capitalize" value="1" />

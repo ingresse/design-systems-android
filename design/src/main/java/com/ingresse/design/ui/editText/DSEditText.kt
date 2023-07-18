@@ -41,6 +41,7 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
     private var formatter = FormatText(context)
     private var customValidation: Boolean = false
     private var isHintOnTop = false
+    private var maxCharacterLimit: Int = 0
 
     var originalTranslationY = 0F
     var isWrong = false
@@ -83,6 +84,10 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
         customValidation = array.getBoolean(R.styleable.DSEditText_customValidation, false)
         val nextFocus = attrs.getAttributeResourceValue("http://schemas.android.com/apk/res/android", "nextFocusDown", -1)
         hasNext = nextFocus != -1
+        val maxCharLimit = array.getInt(R.styleable.DSEditText_maxCharacterLimit, 0)
+        if (maxCharLimit > 0) {
+            setMaxCharacterLimit(maxCharLimit)
+        }
 
         if (isPassword) setPassword()
         if (isLastField) setLastField(action)
@@ -142,6 +147,11 @@ class DSEditText(context: Context, private val attributes: AttributeSet): FrameL
     fun setInternationalPhoneTextFormat() = setFormatType(TextFormatType.INTERNATIONAL_PHONE)
 
     fun resetFormatType() = setFormatType(TextFormatType.NONE)
+
+    fun setMaxCharacterLimit(limit: Int) {
+        maxCharacterLimit = limit
+        editText.filters = arrayOf(InputFilter.LengthFilter(limit))
+    }
 
     private fun setFormatType(formatType: TextFormatType = TextFormatType.NONE) {
         clearText()
